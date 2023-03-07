@@ -368,12 +368,11 @@ body {
 .home__img{
   border-radius: 50px;
 }
-.home__img-overlay{
-  overflow: hidden;
-}
 .home__img:hover{
-  transform: scale(1.1);
+  position: relative;
   cursor: pointer;
+  box-shadow: 4px 6px 15px #7c7c7c;
+
 }
 
 .home__description {

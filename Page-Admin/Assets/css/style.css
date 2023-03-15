@@ -181,10 +181,10 @@
   /* Mobile menu */
   @media screen and (max-width: 968px) {
     .nav__brand{
-      margin-left: 148px;
+      margin-left: 118px;
     }
     .nav__menu {
-      background-color: #f5f5f5;
+      background-color: #dfdfdf;
       border-radius: 20px 20px 0 0;
       position: fixed;
       right: -100%;
@@ -209,21 +209,26 @@
   
     .nav__link {
       display: flex;
+      font-size: 15px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
       row-gap: 1.5rem;
       padding: 2rem;
       border-radius: var(--b-radius);
     }
    
     .nav__icon {
-      font-size: 2.4rem;
+      font-size: 2.1rem;
     }
   
     .nav__link--active {
       background: var(--color-gradient);
       color: var(--color-white);
+    }
+    .nav__toggle{
+      margin-right: 5px;
     }
   }
  
@@ -269,7 +274,7 @@
       display: none;
     }
     .nav__toggle{
-      margin-right: 1zz0px;
+      margin-right: 10px;
     }
     .nav__link {
       position: relative;

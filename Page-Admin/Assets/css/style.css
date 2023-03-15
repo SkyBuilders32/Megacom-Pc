@@ -181,7 +181,7 @@
   /* Mobile menu */
   @media screen and (max-width: 968px) {
     .nav__brand{
-      margin-left: 118px;
+      margin: auto;
     }
     .nav__menu {
       background-color: #dfdfdf;

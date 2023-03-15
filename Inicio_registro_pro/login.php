@@ -12,7 +12,7 @@ $validar_login = mysqli_query($con, "SELECT * FROM usuarios WHERE correo='$corre
 
 if(mysqli_num_rows($validar_login) > 0) {
     $_SESSION['correo'] = $correo;
-    header("location:Sidebar/index.php");
+    header("location:../Page-Admin/index.html");
     exit;
 }else{
     echo'<script>
@@ -21,4 +21,5 @@ if(mysqli_num_rows($validar_login) > 0) {
     </script>';
     exit;
 }
+
 ?>                                                                                                                                                                                   

@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['correo'])){
+    echo '
+    <script>
+        alert("Por favor debes iniciar sesion");
+        window.location = "../Inicio_registro_pro/index.php";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -35,9 +50,9 @@
                             Servicios</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
+                        <a href="../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
                             <i class="ri-folders-line nav__icon"></i>
-                            Portafolio</a>
+                            Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>

@@ -14,8 +14,8 @@ if (isset($_POST['registrarse'])){
         echo '
             <script>
                 alert("Este correo ya esta registrado, porfavor Inicie Sesion");
-                window.location = "index.php";
             </script>
+            window.location = "index.php";
         ';
     }
 

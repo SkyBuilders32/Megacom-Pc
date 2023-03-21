@@ -20,7 +20,7 @@ if(!isset($_SESSION['correo'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="Assets/css/style.css">
@@ -29,7 +29,7 @@ if(!isset($_SESSION['correo'])){
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Admin</a>
+            <a href="index.html" class="nav__brand">Megacom-Pc</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -41,7 +41,7 @@ if(!isset($_SESSION['correo'])){
                     <li class="nav__item">
                         <a href="#about" class="nav__link">
                             <i class="ri-user-line nav__icon"></i>
-                            Segundo Factor
+                            Admin
                         </a>
                     </li>
                     <li class="nav__item">
@@ -64,7 +64,7 @@ if(!isset($_SESSION['correo'])){
         </nav>
     </header>
     <section>
-        <h1>Administrador</h1>
+        
 
     </section>
     <!--=================== SwiperJS  ====================-->

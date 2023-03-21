@@ -45,7 +45,7 @@
     --transition: 0.4s ease-in-out;
     --shadow-primary: 0 0 85px 0 #e9eefc;
     --shadow-secondary: 0px 30px 60px 2px rgba(0, 0, 0, 0.1);
-    --shadow-header: 0px 3px 10px rgba(0, 0, 0, 0.13);
+    --shadow-header: 0px 3px 8px rgba(0, 0, 0, 0.2);
   
     /* border-radius */
     --b-radius: 1.5rem;
@@ -149,16 +149,6 @@
     font-size: 30px;
     font-weight: bold;
   }
-  
-  .nav__buttons {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    font-size: 2rem;
-    color: #000;
-    transition: var(--transition);
-  }
-  
   .theme__toggle,
   .nav__toggle {
     cursor: pointer;

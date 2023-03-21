@@ -155,7 +155,7 @@
   }
     
   .nav__link {
-    color: var(--color-title);
+    color: #4b14e8;
     transition: var(--transition);
   }
 

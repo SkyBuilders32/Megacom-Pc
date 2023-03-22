@@ -1,12 +1,11 @@
 <?php
-
 session_start();
 
 if(!isset($_SESSION['correo'])){
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
-        window.location = "../Inicio_registro_pro/index.php";
+        window.location = "../../Inicio_registro_pro/index.php";
     </script>
     ';
     session_destroy();
@@ -23,13 +22,13 @@ if(!isset($_SESSION['correo'])){
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="Assets/css/prueba.css">
+    <link rel="stylesheet" href="../Assets/css/prueba.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Proovedores</a>
+            <a href="index.html" class="nav__brand">Editar</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -63,7 +62,21 @@ if(!isset($_SESSION['correo'])){
             </div>
         </nav>
     </header>
+    <section>
+        <div>
 
+        </div>
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th class="id">Id</th>
+                    <th class="co">Correo</th>
+                    <th class="con">Contraseña</th>
+                </tr>
+            </thead>
+
+        </table>
+    </section>
 
     <!--=================== SwiperJS  ====================-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

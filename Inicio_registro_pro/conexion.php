@@ -1,6 +1,6 @@
 <?php
 
-$con= new mysqli('localhost', 'root','', 'login_register');
+$con= new mysqli('localhost', 'root','', 'megacom');
 
 if($con->connect_errno){
 

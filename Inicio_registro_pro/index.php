@@ -3,7 +3,7 @@
     session_start();
 
     if(isset($_SESSION['correo'])){
-        header("location:../Page/index.php");
+        header("location:../Page/prueba.php");
     }
 
 ?>

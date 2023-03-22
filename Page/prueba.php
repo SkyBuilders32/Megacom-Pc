@@ -1,4 +1,10 @@
 <?php
+include '../Inicio_registro_pro/conexion.php';
+
+$sql = "SELECT * FROM usuarios";
+$query = mysqli_query($con,$sql);
+
+//sesion
 
 session_start();
 
@@ -29,7 +35,7 @@ if(!isset($_SESSION['correo'])){
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Proovedores</a>
+            <a href="index.html" class="nav__brand">Megacom-Pc</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -63,7 +69,37 @@ if(!isset($_SESSION['correo'])){
             </div>
         </nav>
     </header>
+    <section>
+        <div>
 
+        </div>
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th class="id">Id</th>
+                    <th class="co">Correo</th>
+                    <th class="con">Contraseña</th>
+                    <th class="con">Actualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+            while ($mostrar = mysqli_fetch_array($query)) {?>
+                <tr>
+                    <td class="id"><?php echo $mostrar['id']?></td>
+                    <td class="co"><?php echo $mostrar['correo']?></td>
+                    <td class="con"><?php echo $mostrar['contraseña']?></td>
+                    <td class="con">
+                        <a class="edi" href="consultas/editar.php">Editar<span class="span">/</span></a>
+                        <a class="eli"href="consultas/sp_eliminar.php">Eliminar</a>    
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+            </tbody>
+        </table>
+    </section>
 
     <!--=================== SwiperJS  ====================-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

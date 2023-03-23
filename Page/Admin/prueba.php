@@ -1,4 +1,11 @@
 <?php
+include '../../Inicio_registro_pro/conexion.php';
+
+$sql = "SELECT * FROM usuarios";
+$query = mysqli_query($con,$sql);
+
+//sesion
+
 session_start();
 
 if(!isset($_SESSION['correo'])){
@@ -49,7 +56,7 @@ if(!isset($_SESSION['correo'])){
                             Proovedores</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
+                        <a href="../../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
                             <i class="ri-folders-line nav__icon"></i>
                             Cerrar Sesion</a>
                     </li>
@@ -77,14 +84,14 @@ if(!isset($_SESSION['correo'])){
             </thead>
             <tbody>
             <?php 
-            while ($mostrar = mysqli_fetch_array($query)) {?>
+            while ($mostrar = $query->fetch_assoc()) {?>
                 <tr>
                     <td class="id"><?php echo $mostrar['id']?></td>
                     <td class="co"><?php echo $mostrar['correo']?></td>
                     <td class="con"><?php echo $mostrar['contraseña']?></td>
                     <td class="con">
-                        <a class="edi" href="consultas/editar.php">Editar<span class="span">/</span></a>
-                        <a class="eli"href="consultas/sp_eliminar.php">Eliminar</a>    
+                        <a class="edi" href="actualizar.php?id=<?php echo $mostrar["id"]; ?>">Editar<span class="span">/</span></a>
+                        <a class="eli"href="eliminar.php?id=<?php echo $mostrar['id']?>">Eliminar</a>    
                     </td>
                 </tr>
             <?php

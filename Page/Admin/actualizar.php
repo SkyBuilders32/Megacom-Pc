@@ -1,19 +1,23 @@
 <?php
-
 session_start();
 
 if(!isset($_SESSION['correo'])){
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
-        window.location = "../Inicio_registro_pro/index.php";
+        window.location = "../../Inicio_registro_pro/index.php";
     </script>
     ';
     session_destroy();
     die();
 }
+include "../../Inicio_registro_pro/conexion.php";
+$id = $_GET["id"];
+$sql = "SELECT id, correo, contraseña FROM usuarios WHERE id like $id";
+$query = mysqli_query($con,$sql);
+$mostrar = $query->fetch_assoc();
+
 ?>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,13 +28,13 @@ if(!isset($_SESSION['correo'])){
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="Assets/css/prueba.css">
+    <link rel="stylesheet" href="../Assets/css/prueba.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Proovedores</a>
+            <a href="index.html" class="nav__brand">Editar</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -64,7 +68,18 @@ if(!isset($_SESSION['correo'])){
             </div>
         </nav>
     </header>
-
+    <section>
+        <div>
+            <form action="sp_editar.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $mostrar["id"]; ?>">
+            <label>Nombre:</label>
+            <input type="text" name="correo" value="<?php echo $mostrar["correo"]; ?>"><br>
+            <label>Contraseña:</label>
+            <input type="text" name="contraseña" value="<?php echo $mostrar["contraseña"]; ?>"><br>
+            <input type="submit" value="Hola">
+            </form>
+        </div>
+    </section>
 
     <!--=================== SwiperJS  ====================-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -77,24 +92,3 @@ if(!isset($_SESSION['correo'])){
 </body>
 
 </html>
-=======
-//clientes
-<?php
-include 'Conexion.php';
-echo"entró al guardar";
-    $cedula=$_POST['Cedula'];
-    $Nombre=$_POST['Nombre'];
-    $Apellido=$_POST['Apellido'];
-    $Correo=$_POST['Correo'];
-    $Telefono=$_POST['Telefono'];
-    if (isset($_POST['sub'])) {
-        echo"entró";
-
-    $sql = "INSERT INTO clientes (cedula, nombre, apellido, correo, Telefono) VALUES ('$cedula','$Nombre','$Apellido','$Correo','$Telefono')";
-    $rs = mysqli_query($con,$sql);
-    if ($rs) {
-        header('location:Index.php');
-    }
-}
-?>
->>>>>>> 223993b9915107cbd46070224268f17a62897d54

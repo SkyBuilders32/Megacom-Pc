@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['correo'])){
+if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
@@ -64,7 +64,7 @@ if(!isset($_SESSION['correo'])){
         </nav>
     </header>
     <section>
-        
+
 
     </section>
     --proveedores--
@@ -80,27 +80,27 @@ if(!isset($_SESSION['correo'])){
             <input type="number" name="Proveedor">
         </form>
     </section>
-    
+
     --productos--
     <section>
-    <form action="proveedores.php" method="POST">
-        <label for="Nit">Nit:</label>
-        <input type="number" name="Nit" id="Nit">
-         
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-        
-        <label for="direccion">Direccion:</label>
-        <input type="text" id="direccion" name="direccion">
-        
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad">
-        
-        <label for="Telefono">Telefono:</label>
-        <input type="number" id="Telefono" name="Telefono">
+        <form action="proveedores.php" method="POST">
+            <label for="Nit">Nit:</label>
+            <input type="number" name="Nit" id="Nit">
 
-        <input type="submit" value="send" name="submit">
-    </form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+
+            <label for="direccion">Direccion:</label>
+            <input type="text" id="direccion" name="direccion">
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad">
+
+            <label for="Telefono">Telefono:</label>
+            <input type="number" id="Telefono" name="Telefono">
+
+            <input type="submit" value="send" name="submit">
+        </form>
     </section>
     <!--=================== SwiperJS  ====================-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

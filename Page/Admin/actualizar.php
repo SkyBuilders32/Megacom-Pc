@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['correo'])){
+if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
@@ -14,7 +14,7 @@ if(!isset($_SESSION['correo'])){
 include "../../Inicio_registro_pro/conexion.php";
 $id = $_GET["id"];
 $sql = "SELECT id, correo, contraseña FROM usuarios WHERE id like $id";
-$query = mysqli_query($con,$sql);
+$query = mysqli_query($con, $sql);
 $mostrar = $query->fetch_assoc();
 
 ?>
@@ -71,12 +71,12 @@ $mostrar = $query->fetch_assoc();
     <section>
         <div>
             <form action="sp_editar.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $mostrar["id"]; ?>">
-            <label>Nombre:</label>
-            <input type="text" name="correo" value="<?php echo $mostrar["correo"]; ?>"><br>
-            <label>Contraseña:</label>
-            <input type="text" name="contraseña" value="<?php echo $mostrar["contraseña"]; ?>"><br>
-            <input type="submit" value="Hola">
+                <input type="hidden" name="id" value="<?php echo $mostrar["id"]; ?>">
+                <label>Nombre:</label>
+                <input type="text" name="correo" value="<?php echo $mostrar["correo"]; ?>"><br>
+                <label>Contraseña:</label>
+                <input type="text" name="contraseña" value="<?php echo $mostrar["contraseña"]; ?>"><br>
+                <input type="submit" value="Hola">
             </form>
         </div>
     </section>

@@ -1,15 +1,15 @@
 <?php
 include 'conexion.php';
-if (isset($_POST['registrarse'])){
-    echo"entro";
-    $correo=$_POST['correo'];
-    $contraseña=$_POST['contraseña'];
+if (isset($_POST['registrarse'])) {
+    echo "entro";
+    $correo = $_POST['correo'];
+    $contraseña = $_POST['contraseña'];
 
 
     $sql = "INSERT INTO usuarios (correo, contraseña) VALUES ('$correo','$contraseña')";
 
     $veri = mysqli_query($con, "SELECT * FROM usuarios WHERE correo='$correo' ");
-    if (mysqli_num_rows($veri) > 0){
+    if (mysqli_num_rows($veri) > 0) {
         echo '
             <script>
                 alert("Este correo ya esta registrado, porfavor Inicie Sesion");
@@ -18,16 +18,15 @@ if (isset($_POST['registrarse'])){
         ';
     }
 
-    $resultado = mysqli_query($con,$sql);
-    if($resultado){
+    $resultado = mysqli_query($con, $sql);
+    if ($resultado) {
         echo '
             <script>
                 alert("Correo almacenado exitosamente");
                 window.location = "index.php";
             </script>
         ';
-    }
-    else {
+    } else {
         echo '
             <script>
                 alert("Intentalo de nuevo, usuario no almacenado");

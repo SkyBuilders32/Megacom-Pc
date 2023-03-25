@@ -3,11 +3,10 @@ $id = $_GET['id'];
 
 include '../../Inicio_registro_pro/conexion.php';
 $upd = "DELETE FROM usuarios WHERE id like $id";
-$query = mysqli_query($con,$upd);
-if(!$query){
+$query = mysqli_query($con, $upd);
+if (!$query) {
     echo "No se elimino";
-}
-else{
+} else {
     header("location:prueba.php");
 }
 ?>

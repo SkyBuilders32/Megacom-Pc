@@ -2,13 +2,13 @@
 include '../../Inicio_registro_pro/conexion.php';
 
 $sql = "SELECT * FROM usuarios";
-$query = mysqli_query($con,$sql);
+$query = mysqli_query($con, $sql);
 
 //sesion
 
 session_start();
 
-if(!isset($_SESSION['correo'])){
+if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
@@ -83,20 +83,27 @@ if(!isset($_SESSION['correo'])){
                 </tr>
             </thead>
             <tbody>
-            <?php 
-            while ($mostrar = $query->fetch_assoc()) {?>
-                <tr>
-                    <td class="id"><?php echo $mostrar['id']?></td>
-                    <td class="co"><?php echo $mostrar['correo']?></td>
-                    <td class="con"><?php echo $mostrar['contraseña']?></td>
-                    <td class="con">
-                        <a class="edi" href="actualizar.php?id=<?php echo $mostrar["id"]; ?>">Editar<span class="span">/</span></a>
-                        <a class="eli"href="eliminar.php?id=<?php echo $mostrar['id']?>">Eliminar</a>    
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
+                <?php
+                while ($mostrar = $query->fetch_assoc()) { ?>
+                    <tr>
+                        <td class="id">
+                            <?php echo $mostrar['id'] ?>
+                        </td>
+                        <td class="co">
+                            <?php echo $mostrar['correo'] ?>
+                        </td>
+                        <td class="con">
+                            <?php echo $mostrar['contraseña'] ?>
+                        </td>
+                        <td class="con">
+                            <a class="edi" href="actualizar.php?id=<?php echo $mostrar["id"]; ?>">Editar<span
+                                    class="span">/</span></a>
+                            <a class="eli" href="eliminar.php?id=<?php echo $mostrar['id'] ?>">Eliminar</a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
             </tbody>
         </table>
     </section>

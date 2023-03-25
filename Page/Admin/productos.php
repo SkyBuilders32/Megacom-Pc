@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['correo'])){
+if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");

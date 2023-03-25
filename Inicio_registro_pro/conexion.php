@@ -1,11 +1,11 @@
 <?php
 
-$con= new mysqli('localhost', 'root','', 'megacom');
+$con = new mysqli('localhost', 'root', '', 'megacom');
 
-if($con->connect_errno){
+if ($con->connect_errno) {
 
     die('Error' . $con->connect_errno);
-}else{
+} else {
     // echo"conectada";
 }
 ?>

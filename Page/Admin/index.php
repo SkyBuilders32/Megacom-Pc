@@ -29,17 +29,17 @@ if (!isset($_SESSION['correo'])) {
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../Assets/css/prueba.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Megacom-Pc</a>
+            <a href="index.html" class="nav__brand">Admin</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="prueba.php" class="nav__link">
+                        <a href="../index.php" class="nav__link">
                             <i class="ri-home-line nav__icon"></i>
                             Inicio
                         </a>
@@ -71,7 +71,8 @@ if (!isset($_SESSION['correo'])) {
     </header>
     <section>
         <div>
-
+            <h1>Esta es la pagina que va a ver el Administrador</h1>
+            <br>
         </div>
         <table class="table">
             <thead class="thead">

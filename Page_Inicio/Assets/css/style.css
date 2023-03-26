@@ -243,12 +243,13 @@ body {
 /* Header
 --------------------------------------------------------------*/
 .header {
-  background-color: var(--color-white);
+  background-color: #000;
   box-shadow: var(--shadow-header);
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  
   display: flex;
   align-items: center;
   height: var(--height-header);
@@ -256,10 +257,12 @@ body {
 }
 
 .nav {
+  background-color: #4b14e8;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  /* width: 100px; */
 }
 
 .nav__brand {
@@ -291,14 +294,12 @@ body {
   color: var(--color-title);
   transition: var(--transition);
 }
-
-.nav__l {
+.nav__l{
   background-color: #4b14e8;
   padding: 10px;
   border-radius: 20px;
   color: #fff;
 }
-
 .nav__link:hover {
   color: var(--color-primary);
 }
@@ -338,7 +339,7 @@ body {
     padding: 2rem;
     border-radius: var(--b-radius);
   }
-
+ 
   .nav__icon {
     font-size: 2.4rem;
   }
@@ -367,16 +368,13 @@ body {
   font-size: 40px;
   margin-bottom: 2rem;
 }
-
-.home__img {
+.home__img{
   border-radius: 50px;
 }
-
-.home__img-overlay {
+.home__img-overlay{
   overflow: hidden;
 }
-
-.home__img:hover {
+.home__img:hover{
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -436,7 +434,7 @@ body {
     justify-content: initial;
   }
 
-  .home__img {
+  .home__img{
     text-align: center;
   }
 }

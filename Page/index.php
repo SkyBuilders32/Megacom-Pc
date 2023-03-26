@@ -39,7 +39,7 @@ if (!isset($_SESSION['correo'])) {
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">
+                        <a href="Admin/form/index.php" class="nav__link">
                             <i class="ri-user-line nav__icon"></i>
                             Admin
                         </a>
@@ -65,9 +65,9 @@ if (!isset($_SESSION['correo'])) {
     </header>
     <section>
 
-
+            <h1>Esta es la pagina que va a ver un usuario normal</h1>
     </section>
-    --proveedores--
+    <!-- --proveedores--
     <section>
         <form action="productos.php" method="post">
             <input type="text" name="marca">
@@ -101,7 +101,7 @@ if (!isset($_SESSION['correo'])) {
 
             <input type="submit" value="send" name="submit">
         </form>
-    </section>
+    </section> -->
     <!--=================== SwiperJS  ====================-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 

@@ -6,6 +6,6 @@ if ($con->connect_errno) {
 
     die('Error' . $con->connect_errno);
 } else {
-    // echo"conectada";
+    // echo "conectada";
 }
 ?>

@@ -76,7 +76,7 @@ $mostrar = $query->fetch_assoc();
                 <input type="text" name="correo" value="<?php echo $mostrar["correo"]; ?>"><br>
                 <label>Contraseña:</label>
                 <input type="text" name="contraseña" value="<?php echo $mostrar["contraseña"]; ?>"><br>
-                <input type="submit" value="Hola">
+                <input type="submit" value="Enviar">
             </form>
         </div>
     </section>

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 include 'conexion.php';
 
@@ -9,11 +8,19 @@ $contraseña= $_POST['contraseña'];
 
 
 $validar_login = mysqli_query($con, "SELECT * FROM usuarios WHERE correo='$correo' and contraseña='$contraseña'");
-$validar_login_admin = mysqli_query($con, "SELECT * FROM administrador WHERE correo='$correo' and contraseña='$contraseña'");
 
-if(mysqli_num_rows($validar_login_admin) > 0) {
-    $_SESSION['correo'] = $correo;
-    header("location:../Page/admin/index.php");
+$fila = mysqli_fetch_array($validar_login);
+
+if(mysqli_num_rows($validar_login) > 0) {
+    session_start();
+    $_SESSION['correo'] = $fila[1];
+    $_SESSION['rol'] = $fila[3];
+    if ($fila[3] == 1) {
+        header("location:../Page/admin/index.php");
+    }
+    else {
+        header("location:../Page/index.php");
+    }
     exit;
 }
 elseif (mysqli_num_rows($validar_login) > 0) {

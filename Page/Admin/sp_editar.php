@@ -8,6 +8,6 @@ $query = mysqli_query($con, $upd);
 if (!$query) {
     echo "No se actualizo";
 } else {
-    header("location:prueba.php");
+    header("location:index.php");
 }
 ?>

@@ -7,7 +7,7 @@ $query = mysqli_query($con, $sql);
 //sesion
 
 session_start();
-
+$rol= $_SESSION['rol'];
 if (!isset($_SESSION['correo'])) {
     echo '
     <script>
@@ -17,6 +17,14 @@ if (!isset($_SESSION['correo'])) {
     ';
     session_destroy();
     die();
+}
+elseif($rol == 2){
+    echo '
+    <script>
+        alert("No tienes permiso");
+        window.location = "../index.php";
+    </script>
+    ';
 }
 ?>
 <!DOCTYPE html>

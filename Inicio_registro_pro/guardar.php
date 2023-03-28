@@ -7,7 +7,7 @@ if (isset($_POST['registrarse'])) {
 
 
 
-    $sql = "INSERT INTO usuarios (correo, contraseña) VALUES ('$correo','$contraseña')";
+    $sql = "INSERT INTO usuarios (correo, contraseña, rol) VALUES ('$correo','$contraseña', 2)";
 
     $veri = mysqli_query($con, "SELECT * FROM usuarios WHERE correo='$correo' ");
     if (mysqli_num_rows($veri) > 0) {

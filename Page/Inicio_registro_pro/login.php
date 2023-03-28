@@ -16,16 +16,16 @@ if(mysqli_num_rows($validar_login) > 0) {
     $_SESSION['correo'] = $fila[1];
     $_SESSION['rol'] = $fila[3];
     if ($fila[3] == 1) {
-        header("location:../Page/admin/index.php");
+        header("location:../admin/index.php");
     }
     else {
-        header("location:../Page/index.php");
+        header("location:../index.php");
     }
     exit;
 }
 elseif (mysqli_num_rows($validar_login) > 0) {
     $_SESSION['correo'] = $correo;
-    header("location:../Page/index.php");
+    header("location:index.php");
     exit;
 }
 else{

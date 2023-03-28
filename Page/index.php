@@ -6,7 +6,7 @@ if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
-        window.location = "../Inicio_registro_pro/index.php";
+        window.location = "Inicio_registro_pro/index.php";
     </script>
     ';
     session_destroy();
@@ -50,7 +50,7 @@ if (!isset($_SESSION['correo'])) {
                             Servicios</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
+                        <a href="Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
                             <i class="ri-folders-line nav__icon"></i>
                             Cerrar Sesion</a>
                     </li>

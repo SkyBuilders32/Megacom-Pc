@@ -1,5 +1,5 @@
 <?php
-include '../../Inicio_registro_pro/conexion.php';
+include '../Inicio_registro_pro/conexion.php';
 
 $sql = "SELECT * FROM usuarios";
 $query = mysqli_query($con, $sql);
@@ -7,21 +7,21 @@ $query = mysqli_query($con, $sql);
 //sesion
 
 session_start();
-$rol= $_SESSION['rol'];
 if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
-        window.location = "../../Inicio_registro_pro/index.php";
+        window.location = "../Inicio_registro_pro/index.php";
     </script>
     ';
     session_destroy();
     die();
 }
-elseif($rol == 2){
+$rol= $_SESSION['rol'];
+if($rol == 2){
     echo '
     <script>
-        alert("No tienes permiso");
+        alert("No tienes permiso para entrar aqui");
         window.location = "../index.php";
     </script>
     ';
@@ -41,13 +41,13 @@ elseif($rol == 2){
 </head>
 
 <body>
-    <header class="header">
+<header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Admin</a>
+            <a href="index.html" class="nav__brand">Productos</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="../index.php" class="nav__link">
+                        <a href="index.php" class="nav__link">
                             <i class="ri-home-line nav__icon"></i>
                             Inicio
                         </a>
@@ -64,7 +64,7 @@ elseif($rol == 2){
                             Proovedores</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
+                        <a href="../Inicio_registro_pro/cerrar_sesion.php" class="nav__link">
                             <i class="ri-folders-line nav__icon"></i>
                             Cerrar Sesion</a>
                     </li>
@@ -77,6 +77,7 @@ elseif($rol == 2){
             </div>
         </nav>
     </header>
+
     <section>
         <div>
             <h1>Esta es la pagina que va a ver el Administrador</h1>

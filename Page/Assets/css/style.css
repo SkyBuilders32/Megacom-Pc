@@ -100,7 +100,6 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--color-gray);
 }
 
 main {
@@ -229,6 +228,17 @@ th, td {
   display: flex;
   padding: 20px;
   justify-content: center;
+}
+.btn{
+  position: relative;
+  float: left;
+  bottom: 22px;
+  margin-left: 10px;
+  background-color: #0067ac;
+  box-shadow: 2px 4px 10px #8d8d8d;
+  color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Mobile menu */

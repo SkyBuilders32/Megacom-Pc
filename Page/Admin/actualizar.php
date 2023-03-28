@@ -5,13 +5,13 @@ if (!isset($_SESSION['correo'])) {
     echo '
     <script>
         alert("Por favor debes iniciar sesion");
-        window.location = "../../Inicio_registro_pro/index.php";
+        window.location = "../Inicio_registro_pro/index.php";
     </script>
     ';
     session_destroy();
     die();
 }
-include "../../Inicio_registro_pro/conexion.php";
+include "../Inicio_registro_pro/conexion.php";
 $id = $_GET["id"];
 $sql = "SELECT id, correo, contraseña FROM usuarios WHERE id like $id";
 $query = mysqli_query($con, $sql);
@@ -24,21 +24,21 @@ $mostrar = $query->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../Assets/css/prueba.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__brand">Editar</a>
+            <a href="index.html" class="nav__brand">Actualizar</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="prueba.php" class="nav__link">
+                        <a href="index.php" class="nav__link">
                             <i class="ri-home-line nav__icon"></i>
                             Inicio
                         </a>
@@ -69,13 +69,14 @@ $mostrar = $query->fetch_assoc();
         </nav>
     </header>
     <section>
+        <a href="index.php" class="btn">Regresar</a>
         <div>
             <form action="sp_editar.php" method="POST">
-                <input type="hidden" name="id" value="<?php echo $mostrar["id"]; ?>">
+                <input type="hidden" name="id" class="id" value="<?php echo $mostrar["id"]; ?>">
                 <label>Nombre:</label>
-                <input type="text" name="correo" value="<?php echo $mostrar["correo"]; ?>"><br>
+                <input type="text" name="correo" class="co" value="<?php echo $mostrar["correo"]; ?>"><br>
                 <label>Contraseña:</label>
-                <input type="text" name="contraseña" value="<?php echo $mostrar["contraseña"]; ?>"><br>
+                <input type="text" name="contraseña" class="con" value="<?php echo $mostrar["contraseña"]; ?>"><br>
                 <input type="submit" value="Enviar">
             </form>
         </div>

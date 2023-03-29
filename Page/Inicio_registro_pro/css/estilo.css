@@ -121,6 +121,7 @@ form.sign-in-form {
 .icon-eye{
     right: 15px;
     position: absolute;
+    cursor: pointer;
 }
 #hide1,#hide3{
     display: none;
@@ -163,23 +164,7 @@ form.sign-in-form {
     color: #686868;
     border-color: #000000;
 }
-.botn{
-    position: relative;
-    float: left;
-    top: 15px;
-    margin-left: 10px;
-    background-color: #005eff;
-    box-shadow: 2px 4px 10px #8d8d8d;
-    border: none;
-    cursor: pointer;
-    color: #f1f1f1;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    
-    z-index: 1;
-  }
+
 .btn {
     width: 150px;
     background-color: #005eff;

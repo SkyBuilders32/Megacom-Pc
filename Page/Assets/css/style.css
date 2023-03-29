@@ -45,7 +45,7 @@
   --transition: 0.4s ease-in-out;
   --shadow-primary: 0 0 85px 0 #e9eefc;
   --shadow-secondary: 0px 30px 60px 2px rgba(0, 0, 0, 0.1);
-  --shadow-header: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  --shadow-header: 0px 3px 15px rgba(0, 0, 0, 0.15);
 
   /* border-radius */
   --b-radius: 1.5rem;
@@ -133,7 +133,7 @@ body {
   left: 0;
   display: flex;
   align-items: center;
-  height: 5rem;
+  height: 4.5rem;
 }
 
 .nav {
@@ -145,7 +145,7 @@ body {
 
 .nav__brand {
   color: #080808;
-  text-shadow: 1px 2px 2px #d5d5d5;
+  text-shadow: 1px 2px 2px #e9e9e9;
   font-size: 25px;
   font-weight: bold;
 }
@@ -158,6 +158,7 @@ body {
 .nav__link {
   color: #000000;
   transition: var(--transition);
+  font-size: 18px;
 }
 
 

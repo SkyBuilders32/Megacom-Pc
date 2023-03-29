@@ -8,7 +8,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,14 +15,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"  />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="./css/estilo.css" />
     <title>Inicio de Sesion y Registro</title>
 </head>
 
 <body>
     <div class="container">
         <div class="forms-container">
-            <a href="../../index.html" class="botn">Regesar</a>
             <div class="signin-signup">
                 <form action="login.php" method="post" class="sign-in-form">
                     <h2 class="title">Iniciar Sesión</h2>
@@ -42,7 +40,7 @@
                     <input type="submit" value="Iniciar Sesión" class="btn solid" />
                     <p class="social-text">O inicia sesión con plataformas</p>
                     <div class="social-media">
-                        <i href="https://facebook.com"
+                        <a href="https://facebook.com"
                             class="social-icon-fa">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -55,7 +53,6 @@
                         </a>
                     </div>
                 </form>
-
                 <form action="guardar.php" method="POST" class="sign-up-form">
                     <h2 class="title">Registrate</h2>
                     <div class="input-field">

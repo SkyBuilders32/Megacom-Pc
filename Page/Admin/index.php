@@ -17,8 +17,8 @@ if (!isset($_SESSION['correo'])) {
     session_destroy();
     die();
 }
-$rol= $_SESSION['rol'];
-if($rol == 2){
+$rol = $_SESSION['rol'];
+if ($rol == 2) {
     echo '
     <script>
         alert("No tienes permiso para entrar aqui");
@@ -33,7 +33,7 @@ if($rol == 2){
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
@@ -41,7 +41,7 @@ if($rol == 2){
 </head>
 
 <body>
-<header class="header">
+    <header class="header">
         <nav class="nav container">
             <a href="index.html" class="nav__brand">Productos</a>
             <div class="nav__menu" id="nav-menu">
@@ -108,7 +108,7 @@ if($rol == 2){
                         <td class="con">
                             <a class="edi" href="actualizar.php?id=<?php echo $mostrar["id"]; ?>">Editar<span
                                     class="span">/</span></a>
-                            <a class="eli" href="eliminar.php?id=<?php echo $mostrar['id'] ?>">Eliminar</a>
+                            <a class="eli" href="eliminar.php?id=<?php echo $mostrar['id']; ?>">Eliminar</a>
                         </td>
                     </tr>
                     <?php

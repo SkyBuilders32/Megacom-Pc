@@ -63,7 +63,7 @@
 
 html {
   font-size: 70%;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body,
@@ -144,108 +144,30 @@ body {
 }
 
 .nav__brand {
+  position: relative;
+  right: 10px;
   color: #080808;
   text-shadow: 1px 2px 2px #e9e9e9;
   font-size: 25px;
   font-weight: bold;
 }
-
-.theme__toggle,
-.nav__toggle {
-  cursor: pointer;
+.nav__list{
+  position: relative;
+  left: 30px;
 }
-
 .nav__link {
   color: #000000;
   transition: var(--transition);
-  font-size: 18px;
-}
-
-
-section {
-  margin-top: 90px;
-  text-align: center;
-  color: #000;
-}
-
-.table {
-  background-color: #4d4d4d;
-  margin: auto;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-.thead {
-  background-color: #a3a3a3;
-
-}
-
-tbody {
-  background-color: #d4d4d4;
-
-}
-
-tr {
-  display: flex;
-
-}
-
-.id {
-  margin: 10px;
-  width: 50px;
-  border: 3px solid #000;
-  border-radius: 5px;
-}
-
-.co {
-  margin: 10px;
-  width: 250px;
-  border: 3px solid #000;
-  border-radius: 5px;
-}
-
-.con {
-  margin: 10px;
-  width: 150px;
-  border: 3px solid #000;
-  border-radius: 5px;
-
-}
-
-.span {
-  color: #0099ff;
-}
-
-.edi, .eli {
-  font-size: 20px;
-  color: #0099ff;
-}
-
-.edi:hover, .eli:hover {
-  color: #002c49;
-}
-
-th, td {
-  display: flex;
-  padding: 20px;
-  justify-content: center;
-}
-.btn{
-  position: relative;
-  float: left;
-  bottom: 22px;
-  margin-left: 10px;
-  background-color: #0067ac;
-  box-shadow: 2px 4px 10px #8d8d8d;
-  color: #f1f1f1;
-  padding: 10px;
-  border-radius: 10px;
+  font-size: 19px;
 }
 
 /* Mobile menu */
 @media screen and (max-width: 968px) {
   .nav__brand {
+    position: relative;
     margin: auto;
+    left: 10px;
+    font-size: 28px;
   }
 
   .nav__menu {

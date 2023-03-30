@@ -34,6 +34,31 @@ input {
     overflow: hidden;
 }
 
+.regresar-left{
+    background-color: #0066ff;
+    box-shadow: 2px 2px 5px #585858;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    top: 20px;
+    margin-left: 10px;
+    padding: 12px;
+    border-radius: 15px;
+    z-index: 1;
+}
+.regresar-right{
+    background-color: #0066ff;
+    box-shadow: -2px 2px 5px #585858;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    float: right;
+    /* top: 18px; */
+    margin: 10px;
+    padding: 12px;
+    border-radius: 15px;
+    z-index: 1;
+}
 .forms-container {
     position: absolute;
     width: 100%;

@@ -1,9 +1,9 @@
 <?php
     include 'conexion.php';
     
+    session_start();
     if(isset($_SESSION['correo'])){
-        session_start();
-        header("location: ../admin/index.php");
+        header("location: ../index.php");
     }
 
 ?>
@@ -22,6 +22,8 @@
 <body>
     <div class="container">
         <div class="forms-container">
+            <a href="../../index.html" class="regresar-left">Regresar</a>
+            <a href="../../index.html" class="regresar-right">Regresar</a>
             <div class="signin-signup">
                 <form action="login.php" method="post" class="sign-in-form">
                     <h2 class="title">Iniciar Sesión</h2>
@@ -53,6 +55,7 @@
                         </a>
                     </div>
                 </form>
+
                 <form action="guardar.php" method="POST" class="sign-up-form">
                     <h2 class="title">Registrate</h2>
                     <div class="input-field">

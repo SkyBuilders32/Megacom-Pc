@@ -122,62 +122,6 @@ body {
   margin-top: var(--height-header);
 }
 
-/* Dark Theme 
---------------------------------------------------------------*/
-.dark-theme {
-  background-color: var(--color-secondary);
-  color: var(--color-gray-light);
-  --color-title: #fff;
-  --shadow-header: 0px 5px 10px rgba(0, 0, 0, 0.09);
-}
-
-.dark-theme .header,
-.dark-theme .nav__menu {
-  background-color: var(--color-secondary);
-}
-
-.dark-theme .section-bg {
-  background-color: var(--color-secondary-dark);
-}
-
-.dark-theme .nav__menu {
-  border-color: var(--color-secondary-dark);
-}
-
-.dark-theme .social__link {
-  background-color: var(--color-secondary-dark);
-  color: var(--color-title);
-}
-
-.dark-theme .skills__card,
-.dark-theme .service__card,
-.dark-theme .blog__post,
-.dark-theme .testimonial__card,
-.dark-theme .form__input {
-  background-color: var(--color-secondary);
-  box-shadow: none;
-}
-
-.dark-theme .service__icon {
-  background-color: var(--color-secondary-dark);
-}
-
-.dark-theme .blog__post {
-  background-color: var(--color-secondary-dark);
-}
-
-.dark-theme .form__input::placeholder {
-  opacity: 0.3;
-}
-
-.dark-theme::-webkit-scrollbar {
-  background-color: var(--color-gray);
-}
-
-.dark-theme::-webkit-scrollbar-thumb {
-  background-color: var(--color-gray-light);
-}
-
 /* Reausable CSS Classes
 --------------------------------------------------------------*/
 .container {
@@ -243,7 +187,7 @@ body {
 /* Header
 --------------------------------------------------------------*/
 .header {
-  background-color: var(--color-white);
+  background-color: #ffffff;
   box-shadow: var(--shadow-header);
   position: fixed;
   top: 0;
@@ -251,8 +195,7 @@ body {
   left: 0;
   display: flex;
   align-items: center;
-  height: var(--height-header);
-  z-index: var(--zindex-menu);
+  height: 4.5rem;
 }
 
 .nav {
@@ -263,18 +206,10 @@ body {
 }
 
 .nav__brand {
-  color: var(--color-title);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-bold);
-}
-
-.nav__buttons {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  font-size: 2rem;
-  color: var(--color-title);
-  transition: var(--transition);
+  color: #080808;
+  text-shadow: 1px 2px 2px #e9e9e9;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .theme__toggle,
@@ -282,18 +217,16 @@ body {
   cursor: pointer;
 }
 
-.theme__toggle:hover,
-.nav__toggle:hover {
-  color: var(--color-primary);
-}
-
 .nav__link {
-  color: var(--color-title);
+  color: #000000;
   transition: var(--transition);
+  font-size: 18px;
 }
-
-.nav__link:hover {
-  color: var(--color-primary);
+.nav__l{
+  background-color: #7016ff;
+  padding: 6px;
+  color: #fff;
+  border-radius: 20px;
 }
 
 /* Mobile menu */

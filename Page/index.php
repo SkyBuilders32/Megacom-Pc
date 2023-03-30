@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['correo'])) {
     echo '
     <script>
-        alert("Por favor debes iniciar sesion");
+        alert("Por favor, debes iniciar sesion");
         window.location = "Inicio_registro_pro/index.php";
     </script>
     ';
@@ -63,10 +63,7 @@ if (!isset($_SESSION['correo'])) {
             </div>
         </nav>
     </header>
-    <section>
 
-            <h1>Esta es la pagina que va a ver un usuario normal</h1>
-    </section>
     <!-- --proveedores--
     <section>
         <form action="productos.php" method="post">

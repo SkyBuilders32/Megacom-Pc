@@ -37,7 +37,7 @@ if ($rol == 2) {
     <title>Megacom</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 
 <body>

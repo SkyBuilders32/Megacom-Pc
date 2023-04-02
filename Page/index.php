@@ -33,15 +33,15 @@ if (!isset($_SESSION['correo'])) {
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link">
+                        <a href="index.php" class="nav__link">
                             <i class="ri-home-line nav__icon"></i>
                             Inicio
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="Admin/form/index.php" class="nav__link">
+                        <a href="Admin/.php" class="nav__link">
                             <i class="ri-user-line nav__icon"></i>
-                            Admin
+                            Productos
                         </a>
                     </li>
                     <li class="nav__item">

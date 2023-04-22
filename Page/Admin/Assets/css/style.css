@@ -173,22 +173,23 @@ section {
 .table {
   background-color: #4d4d4d;
   margin: auto;
-  padding: 10px;
+  padding: 15px;
   border-radius: 15px;
 }
 
 .thead {
   background-color: #a3a3a3;
-
+  font-size: 25px;
 }
 
 tbody {
   background-color: #d4d4d4;
-
+  
 }
 
 tr {
   display: flex;
+  font-size: 25px;
 
 }
 

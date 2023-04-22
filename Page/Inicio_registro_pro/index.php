@@ -1,8 +1,8 @@
 <html>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    </html>
-    <?php
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>
+<?php
 include 'conexion.php';
 include 'sweetalerts.php';
 session_start();
@@ -28,29 +28,29 @@ if (isset($_POST['registrarse'])) {
     }
 }
 //login
-if (isset($_POST['inicio'])){
+if (isset($_POST['inicio'])) {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $validar_login = mysqli_query($con, "SELECT * FROM usuarios WHERE correo='$correo' and contraseña='$contraseña'");
 
-$fila = mysqli_fetch_array($validar_login);
+    $fila = mysqli_fetch_array($validar_login);
 
-if (mysqli_num_rows($validar_login) > 0) {
-    $_SESSION['correo'] = $fila[1];
-    $_SESSION['rol'] = $fila[3];
-    if ($fila[3] == 1) {
-      echo $inicio_admin;
-    } else {      
-        header("location:../index.php");
+    if (mysqli_num_rows($validar_login) > 0) {
+        $_SESSION['correo'] = $fila[1];
+        $_SESSION['rol'] = $fila[3];
+        if ($fila[3] == 1) {
+            echo $inicio_admin;
+        } else {
+            header("location:../index.php");
+        }
+        exit;
+    } elseif (mysqli_num_rows($validar_login) > 0) {
+        $_SESSION['correo'] = $correo;
+        header("location:index.php");
+        exit;
+    } else {
+        echo $error_inicio;
     }
-    exit;
-} elseif (mysqli_num_rows($validar_login) > 0) {
-    $_SESSION['correo'] = $correo;
-    header("location:index.php");
-    exit;
-} else {
-    echo $error_inicio;
-}
 }
 ?>
 <!DOCTYPE html>
@@ -86,7 +86,7 @@ if (mysqli_num_rows($validar_login) > 0) {
                             <i class="fas fa-eye-slash" id="hide2"></i>
                         </span>
                     </div>
-                    <input type="submit" value="Iniciar Sesión" class="btn solid" name="inicio"/>
+                    <input type="submit" value="Iniciar Sesión" class="btn solid" name="inicio" />
                     <p class="social-text">O inicia sesión con plataformas</p>
                     <div class="social-media">
                         <a href="https://facebook.com" class="social-icon-fa">
@@ -159,8 +159,10 @@ if (mysqli_num_rows($validar_login) > 0) {
             </div>
         </div>
     </div>
+    
 
     <script src="js/app.js"></script>
+
 </body>
 
 </html>

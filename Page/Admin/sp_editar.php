@@ -1,4 +1,4 @@
-<?php
+<cite></cite><?php
 $id = $_POST['id'];
 $correo = $_POST['correo'];
 $contraseña = $_POST['contraseña'];

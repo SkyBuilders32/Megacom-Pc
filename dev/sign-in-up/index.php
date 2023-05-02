@@ -3,23 +3,23 @@
 
 </html>
 <?php
-include 'conexion.php';
-include 'sweetalerts.php';
+include("../conexion/conexion.php");
+include("../sweetalerts/sweetalerts.php");
 session_start();
-
 if (isset($_SESSION['correo'])) {
-    header("location: ../index.php");
+    header("location: ../page/index.php");
 }
 // Guardar los datos
 if (isset($_POST['registrarse'])) {
-    $correo = $_POST['correo'];
-    $veri = "SELECT * FROM usuarios WHERE correo = '$correo'";
+    $usuario = $_POST['usuario'];
+    $veri = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
     $result = $con->query($veri);
     if ($result->num_rows > 0) {
         echo $repet_registro;
     } else {
+        $correo = $_POST['correo'];
         $contraseña = $_POST['contraseña'];
-        $sql = "INSERT INTO usuarios (correo, contraseña, rol) VALUES ('$correo','$contraseña', 2)";
+        $sql = "INSERT INTO usuarios (usuario, correo, contraseña, rol) VALUES ('$usuario','$correo','$contraseña', 2)";
         if ($con->query($sql) === TRUE) {
             echo $correo_ok;
         } else {
@@ -37,11 +37,11 @@ if (isset($_POST['inicio'])) {
 
     if (mysqli_num_rows($validar_login) > 0) {
         $_SESSION['correo'] = $fila[1];
-        $_SESSION['rol'] = $fila[3];
-        if ($fila[3] == 1) {
+        $_SESSION['rol'] = $fila[4];
+        if ($fila[4] == 1) {
             echo $inicio_admin;
         } else {
-            header("location:../index.php");
+            header("location:../page/index.php");
         }
         exit;
     } elseif (mysqli_num_rows($validar_login) > 0) {
@@ -53,6 +53,7 @@ if (isset($_POST['inicio'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -60,17 +61,15 @@ if (isset($_POST['inicio'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/estilo.css" />
+    <link rel="stylesheet" href="css/style.css">
     <title>Inicio de Sesion y Registro</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="js/guardar.js"></script> -->
 </head>
 
 <body>
     <div class="container">
         <div class="forms-container">
-            <a href="../../index.html" class="regresar-left">Regresar</a>
-            <a href="../../index.html" class="regresar-right">Regresar</a>
+            <a href="../index.html" class="regresar">Regresar</a>
             <div class="signin-signup">
                 <form action="index.php" method="post" class="sign-in-form">
                     <h2 class="title">Iniciar Sesión</h2>
@@ -89,13 +88,13 @@ if (isset($_POST['inicio'])) {
                     <input type="submit" value="Iniciar Sesión" class="btn solid" name="inicio" />
                     <p class="social-text">O inicia sesión con plataformas</p>
                     <div class="social-media">
-                        <a href="https://facebook.com" class="social-icon-fa">
+                        <a href="https://facebook.com" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://twitter.com/i/flow/login" class="social-icon-tw">
+                        <a href="https://twitter.com/i/flow/login" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://google.com" class="social-icon-go">
+                        <a href="https://google.com" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                     </div>
@@ -103,6 +102,10 @@ if (isset($_POST['inicio'])) {
 
                 <form action="index.php" method="POST" class="sign-up-form">
                     <h2 class="title">Registrate</h2>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" name="usuario" placeholder="Usuario" required />
+                    </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="correo" placeholder="Emal" required />
@@ -120,13 +123,14 @@ if (isset($_POST['inicio'])) {
                     <input type="submit" class="btn" value="registrarse" name="registrarse"></input>
                     <p class="social-text">O registrate con plataformas sociales</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon-fa">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
+                            
                         </a>
-                        <a href="#" class="social-icon-tw">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon-go">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                     </div>

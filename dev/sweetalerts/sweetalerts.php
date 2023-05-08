@@ -164,4 +164,19 @@ Swal.fire({
   }
 });
 </script>";
+$error_admin = "
+<script>
+Swal.fire({
+  icon: 'error',
+  title: 'No tienes permiso para entrar aqui',
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+  },
+  willClose: () => {
+    window.location.href = '../index.php';
+  }
+});
+</script>";
 ?>

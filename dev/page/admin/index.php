@@ -18,12 +18,7 @@ session_destroy();
 }
 $rol = $_SESSION['rol'];
 if ($rol == 2) {
-    echo '
-    <script>
-        alert("No tienes permiso para entrar aqui");
-        window.location = "../index.php";
-    </script>
-    ';
+    echo $error_admin;
 }
 ?>
 <!DOCTYPE html>

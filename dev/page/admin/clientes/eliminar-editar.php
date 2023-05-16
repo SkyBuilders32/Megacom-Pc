@@ -10,25 +10,25 @@
         <form method="POST" action="nuevo.php">
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Cedula</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="number" class="form-control" name="cedula" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="nombre" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Apellido</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="apellido" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Correo</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="email" class="form-control" name="correo" required>
             </div>
           </div>
@@ -55,25 +55,25 @@
         <form method="POST" action="edit.php?cedula=<?php echo $mostrar['cedula']; ?>">
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Cedula</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="number" class="form-control" name="usuario" value="<?php echo $mostrar['cedula']; ?>" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="nombre" value="<?php echo $mostrar['nombre']; ?>" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Apellido</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="apellido" value="<?php echo $mostrar['apellido']; ?>" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Correo</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="email" class="form-control" name="correo" value="<?php echo $mostrar['correo']; ?>" required>
             </div>
           </div>

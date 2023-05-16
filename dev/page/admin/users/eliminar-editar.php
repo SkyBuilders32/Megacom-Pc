@@ -10,19 +10,19 @@
         <form method="POST" action="edit.php?id=<?php echo $mostrar['id']; ?>">
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Usuario</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="usuario" value="<?php echo $mostrar['usuario']; ?>">
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Correo</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="correo" value="<?php echo $mostrar['correo']; ?>">
             </div>
           </div>
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Contraseña</label>
-            <div class="col-sm-10">
+            <div class="mb-3">
               <input type="text" class="form-control" name="contraseña" value="<?php echo $mostrar['contraseña']; ?>">
             </div>
           </div>

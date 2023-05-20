@@ -120,6 +120,7 @@ if ($rol == 2) {
 								<th class="">Nombre</th>
 								<th class="">Apellido</th>
 								<th class="">Correo</th>
+								<th class="">Telefono</th>
 								<th class="">Actualizar</th>
 							</tr>
 						</thead>
@@ -131,7 +132,7 @@ if ($rol == 2) {
 							while ($mostrar = $query->fetch_assoc()) { ?>
 								<tr>
 									<td class="">
-										<?php echo $mostrar['cedula'] ?>
+										<?php echo $mostrar['Cedula'] ?>
 									</td>
 									<td class="">
 										<?php echo $mostrar['nombre'] ?>
@@ -142,11 +143,14 @@ if ($rol == 2) {
 									<td class="">
 										<?php echo $mostrar['correo'] ?>
 									</td>
+									<td class="">
+										<?php echo $mostrar['Telefono'] ?>
+									</td>
 									<td>
-										<a href="#edit_<?php echo $mostrar['cedula']; ?>" class="btn btn-success btn-sm"
+										<a href="#edit_<?php echo $mostrar['Cedula']; ?>" class="btn btn-success btn-sm"
 											data-bs-toggle="modal">
 											Edit</a>
-										<a href="#delete_<?php echo $mostrar['cedula']; ?>" class="btn btn-danger btn-sm"
+										<a href="#delete_<?php echo $mostrar['Cedula']; ?>" class="btn btn-danger btn-sm"
 											data-bs-toggle="modal">
 											Delete</a>
 									</td>

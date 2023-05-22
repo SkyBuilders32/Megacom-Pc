@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="edit_<?php echo $mostrar['cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
+<div class="modal fade" id="edit_<?php echo $mostrar['Cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -52,11 +52,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="edit.php?cedula=<?php echo $mostrar['cedula']; ?>">
+        <form method="POST" action="edit.php?cedula=<?php echo $mostrar['Cedula']; ?>">
           <div class="mb-3 mostrar">
             <label class="col-sm-2 col-form-label">Cedula</label>
             <div class="mb-3">
-              <input type="number" class="form-control" name="usuario" value="<?php echo $mostrar['cedula']; ?>" required>
+              <input type="number" class="form-control" name="usuario" value="<?php echo $mostrar['Cedula']; ?>" required>
             </div>
           </div>
           <div class="mb-3 mostrar">
@@ -89,7 +89,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete_<?php echo $mostrar['cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
+<div class="modal fade" id="delete_<?php echo $mostrar['Cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -100,7 +100,7 @@
       <div class="modal-body">
         <p class="text-center">Are you sure you want to Delete</p>
         <h2 class="text-center">
-          Cedula: <?php echo  $mostrar['cedula']; ?>
+          Cedula: <?php echo  $mostrar['Cedula']; ?>
         </h2>
         <h2 class="text-center">
           Nombre: <?php echo  $mostrar['nombre']; ?>
@@ -114,7 +114,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="delete.php?cedula=<?php echo $mostrar['cedula']; ?>" class="btn btn-danger"> Yes</a>
+        <a href="delete.php?cedula=<?php echo $mostrar['Cedula']; ?>" class="btn btn-danger"> Yes</a>
       </div>
     </div>
   </div>

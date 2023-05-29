@@ -12,7 +12,7 @@
             $upd = "UPDATE clientes set nombre='$nombre', apellido='$apellido', correo='$correo' WHERE cedula='$cedula'";
 
             $query = mysqli_query($con, $upd);
- 
+            
         }
         
     header('location: index.php');

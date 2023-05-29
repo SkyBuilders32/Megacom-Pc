@@ -8,9 +8,8 @@
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $correo = $_POST['correo'];
-            $telefono = $_POST['telefono'];
  
-            $sql = "INSERT INTO clientes (Cedula, nombre, apellido, correo, Telefono) VALUES ('$cedula','$nombre','$apellido','$correo','$telefono' )";
+            $sql = "INSERT INTO clientes (cedula, nombre, apellido, correo) VALUES ('$cedula','$nombre','$apellido','$correo')";
            
 
             $query = $con->query($sql);

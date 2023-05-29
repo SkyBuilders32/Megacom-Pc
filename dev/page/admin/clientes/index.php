@@ -35,7 +35,8 @@ if ($rol == 2) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="../assets/css/style.css">
-	<link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
 	<title>AdminSite</title>
 	<style>
@@ -108,8 +109,8 @@ if ($rol == 2) {
 			<h1 class="page-header text-center">Usuarios</h1>
 			<div class="row">
 				<div class="col-auto">
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">
-				<span class="glyphicon glyphicon-plus"></span> Nuevo usuario   <i class="fa fa-plus"></i> </a></button>
+					<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
+							class="fa-solid fa-circle-plus"></i> Nuevo registro</a>
 				</div>
 				<div class="col-12 mt-3">
 					<table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
@@ -119,7 +120,6 @@ if ($rol == 2) {
 								<th class="">Nombre</th>
 								<th class="">Apellido</th>
 								<th class="">Correo</th>
-								<th class="">Telefono</th>
 								<th class="">Actualizar</th>
 							</tr>
 						</thead>
@@ -131,7 +131,7 @@ if ($rol == 2) {
 							while ($mostrar = $query->fetch_assoc()) { ?>
 								<tr>
 									<td class="">
-										<?php echo $mostrar['Cedula'] ?>
+										<?php echo $mostrar['cedula'] ?>
 									</td>
 									<td class="">
 										<?php echo $mostrar['nombre'] ?>
@@ -142,14 +142,11 @@ if ($rol == 2) {
 									<td class="">
 										<?php echo $mostrar['correo'] ?>
 									</td>
-									<td class="">
-										<?php echo $mostrar['Telefono'] ?>
-									</td>
 									<td>
-										<a href="#edit_<?php echo $mostrar['Cedula']; ?>" class="btn btn-success btn-sm"
+										<a href="#edit_<?php echo $mostrar['cedula']; ?>" class="btn btn-success btn-sm"
 											data-bs-toggle="modal">
 											Edit</a>
-										<a href="#delete_<?php echo $mostrar['Cedula']; ?>" class="btn btn-danger btn-sm"
+										<a href="#delete_<?php echo $mostrar['cedula']; ?>" class="btn btn-danger btn-sm"
 											data-bs-toggle="modal">
 											Delete</a>
 									</td>
@@ -185,72 +182,4 @@ if ($rol == 2) {
 		</script>
 </body>
 
-<!--VENTANA MODAL-->
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros</title>
-
-	<link rel="stylesheet" href="./css/es.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <ad>
-
-<body id="page-top">
-
-<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h3 class="modal-title" id="exampleModalLabel">Registro de Usuarios</h3>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                 <form  action="guardarcliente.php" method="POST" >
-
-                          <div class="form-group">
-                                <label for="cedula">Cedula:</label><br>
-                                <input type="number" name="Cedula" id="cedula" class="form-control" placeholder="">
-                            </div>  
-                            
-                            <div class="form-group">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text"  id="nombre" name="Nombre" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="apellido" class="form-label">apellido</label>
-                            <input type="text"  id="apellido" name="Apellido" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                              <label for="nombre" class="form-label">Correo</label>
-                              <input type="email"  id="correo" name="Correo" class="form-control">
-                            
-                            <div class="form-group">
-                                  <label for="telefono" class="form-label">Telefono</label>
-                                <input type="tel"  id="telefono" name="Telefono" class="form-control">
-                             
-                            </div>
-                      <br>
-
-                                <div class="mb-3">
-                                    
-                               <input type="submit" value="Guardar" id="register" class="btn btn-success" 
-                               name="sub">
-                               <a href="user.php" class="btn btn-danger">Cancelar</a>
-                               
-                            </div>
-                       
-
-                        </form>
-                        </div>link rel="stylesheet" href="./package/dist/sweetalert2.css">
-</he> 		
 </html>

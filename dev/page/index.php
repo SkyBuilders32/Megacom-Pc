@@ -25,7 +25,7 @@ if (!isset($_SESSION['correo'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -50,23 +50,23 @@ if (!isset($_SESSION['correo'])) {
         <ul class="navbar-list">
 
           <li class="navbar-item activ">
-            <a href="index.php" class="navbar-link activ" data-nav-toggler>Inicio</a>
+            <a href="index.php" class="navbar-link" data-nav-toggler>Inicio</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>About</a>
+            <a href="../page-inicio/proyectos.php" class="navbar-link" data-nav-toggler>Proyectos</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#courses" class="navbar-link" data-nav-toggler>Courses</a>
+            <a href="../page-inicio/servicios.php" class="navbar-link" data-nav-toggler>Servicios</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#event" class="navbar-link" data-nav-toggler>Event</a>
+            <a href="nosotros.php" class="navbar-link" data-nav-toggler>Nosotros</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>Blog</a>
+            <a href="#" class="navbar-link" data-nav-toggler>Contactanos  </a>
           </li>
 
         </ul>
@@ -77,7 +77,7 @@ if (!isset($_SESSION['correo'])) {
         <button class="header-action-btn" aria-label="Open search" data-search-toggler>
           <ion-icon name="search-outline"></ion-icon>
         </button>
-
+        
         <div class="header-action-btn login-btn profile">
           <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
           <span class="span img">
@@ -136,7 +136,8 @@ if (!isset($_SESSION['correo'])) {
         - #HERO
       -->
 
-      <section class="hero" id="home" aria-label="hero" style="background-image: url('../page-inicio/assets/images/hero-bg.jpg')">
+      <section class="hero" id="home" aria-label="hero"
+        style="background-image: url('../page-inicio/assets/images/hero-bg.jpg')">
         <div class="container">
 
           <div class="hero-content">
@@ -158,10 +159,17 @@ if (!isset($_SESSION['correo'])) {
           </div>
 
           <figure class="hero-banner">
-                        <img src="../page-inicio/assets/images/hero-ban.jpg" width="500" height="500" loading="lazy"
-                            alt="hero image" class="w-10">
 
-                    </figure>
+            <img src="../page-inicio/assets/images/hero-banner.png" width="500" height="500" loading="lazy"
+              alt="hero image" class="w-100">
+
+            <img src="../page-inicio/assets/images/hero-abs-1.png" width="318" height="352" loading="lazy"
+              aria-hidden="true" class="abs-img abs-img-1">
+
+            <img src="../page-inicio/assets/images/hero-abs-2.png" width="160" height="160" loading="lazy"
+              aria-hidden="true" class="abs-img abs-img-2">
+
+          </figure>
 
         </div>
       </section>
@@ -177,11 +185,14 @@ if (!isset($_SESSION['correo'])) {
 
           <figure class="about-banner">
 
-            <img src="../page-inicio/assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner" class="w-100 about-img">
+            <img src="../page-inicio/assets/images/about-banner.jpg" width="450" height="590" loading="lazy"
+              alt="about banner" class="w-100 about-img">
 
-            <img src="../page-inicio/assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true" class="abs-img abs-img-1">
+            <img src="../page-inicio/assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy"
+              aria-hidden="true" class="abs-img abs-img-1">
 
-            <img src="../page-inicio/assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy" aria-hidden="true" class="abs-img abs-img-2">
+            <img src="../page-inicio/assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy"
+              aria-hidden="true" class="abs-img abs-img-2">
 
           </figure>
 
@@ -196,7 +207,8 @@ if (!isset($_SESSION['correo'])) {
               <li class="about-item">
 
                 <div class="item-icon item-icon-1">
-                  <img src="../page-inicio/assets/images/about-icon-1.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="../page-inicio/assets/images/about-icon-1.png" width="30" height="30" loading="lazy"
+                    aria-hidden="true">
                 </div>
 
                 <div>
@@ -213,7 +225,8 @@ if (!isset($_SESSION['correo'])) {
               <li class="about-item">
 
                 <div class="item-icon item-icon-2">
-                  <img src="../page-inicio/assets/images/about-icon-2.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="../page-inicio/assets/images/about-icon-2.png" width="30" height="30" loading="lazy"
+                    aria-hidden="true">
                 </div>
 
                 <div>
@@ -230,7 +243,8 @@ if (!isset($_SESSION['correo'])) {
               <li class="about-item">
 
                 <div class="item-icon item-icon-3">
-                  <img src="../page-inicio/assets/images/about-icon-3.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="../page-inicio/assets/images/about-icon-3.png" width="30" height="30" loading="lazy"
+                    aria-hidden="true">
                 </div>
 
                 <div>
@@ -260,7 +274,8 @@ if (!isset($_SESSION['correo'])) {
         - #NEWSLETTER
       -->
 
-      <section class="section newsletter" aria-label="newsletter" style="background-image: url('../page-inicio/assets/images/newsletter-bg.jpg')">
+      <section class="section newsletter" aria-label="newsletter"
+        style="background-image: url('../page-inicio/assets/images/newsletter-bg.jpg')">
         <div class="container">
 
           <p class="section-subtitle">Subscribe Newsletter</p>
@@ -270,7 +285,8 @@ if (!isset($_SESSION['correo'])) {
           <form action="" class="newsletter-form">
 
             <div class="input-wrapper">
-              <input type="email" name="email_address" aria-label="email" placeholder="Enter your mail address" required class="email-field">
+              <input type="email" name="email_address" aria-label="email" placeholder="Enter your mail address" required
+                class="email-field">
 
               <ion-icon name="mail-open-outline" aria-hidden="true"></ion-icon>
             </div>
@@ -492,8 +508,7 @@ if (!isset($_SESSION['correo'])) {
 
       <div class="footer-bottom">
         <p class="copyright">
-          Copyright 2023. All Rights Reserved by
-          <a href="#" class="copyright-link">Megacom-Pc</a>
+          Copyright 2022 EduHome. All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
         </p>
       </div>
 

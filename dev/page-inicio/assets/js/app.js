@@ -1,15 +1,8 @@
-'use strict';
-
-
-
+'use strict';x
 /**
  * element toggle function
  */
-
 const toggleElem = function (elem) { elem.classList.toggle("active"); }
-
-
-
 /**
  * navbar toggle
  */
@@ -25,15 +18,11 @@ for (let i = 0; i < navTogglers.length; i++) {
   });
 }
 
-
-
 /**
  * header sticky & back to top button
  */
-
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
-
 window.addEventListener("scroll", function () {
   if (window.scrollY >= 100) {
     header.classList.add("active");
@@ -45,22 +34,16 @@ window.addEventListener("scroll", function () {
     header.classList.remove("header-anim");
   }
 });
-
-
-
 /**
  * search box toggle
  */
-
 const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 const searchBox = document.querySelector("[data-search-box]");
-
 for (let i = 0; i < searchTogglers.length; i++) {
   searchTogglers[i].addEventListener("click", function () {
     toggleElem(searchBox);
   });
 }
-
 const profile = document.querySelector('.profile');
 const imgProfile = profile.querySelector('.img');
 const dropdownProfile = profile.querySelector('.profile-link');
@@ -68,12 +51,9 @@ const dropdownProfile = profile.querySelector('.profile-link');
 imgProfile.addEventListener('click', function () {
 	dropdownProfile.classList.toggle('show');
 })
-
-
 /**
  * whishlist button toggle
  */
-
 const whishlistBtns = document.querySelectorAll("[data-whish-btn]");
 
 for (let i = 0; i < whishlistBtns.length; i++) {

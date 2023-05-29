@@ -1,0 +1,1265 @@
+MariaDB [(none)]> show databases;
++--------------------------+
+| Database                 |
++--------------------------+
+| asuntos_gabinete         |
+| informacion_zoologicos   |
+| informaciones_zoologicos |
+| information_schema       |
+| juanchagei               |
+| mysql                    |
+| performance_schema       |
+| phpmyadmin               |
+| taller                   |
+| test                     |
++--------------------------+
+10 rows in set (0.000 sec)
+
+MariaDB [(none)]> use taller;
+Database changed
+MariaDB [taller]> show databases;
++--------------------------+
+| Database                 |
++--------------------------+
+| asuntos_gabinete         |
+| informacion_zoologicos   |
+| informaciones_zoologicos |
+| information_schema       |
+| juanchagei               |
+| mysql                    |
+| performance_schema       |
+| phpmyadmin               |
+| taller                   |
+| test                     |
++--------------------------+
+10 rows in set (0.000 sec)
+
+MariaDB [taller]> CREATE DATABASE supermercado;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [taller]> USE supermercado;
+Database changed
+MariaDB [supermercado]> CREATE TABLE empleados(
+    -> id INT PRIMARY KEY AUTO_INCREMENT,
+    -> numero_empleado INT(5) NOT NULL,
+    -> nombre varchar(50) NOT NULL,
+    -> edad INT(3) NOT NULL,
+    -> oficina INT(3) NOT NULL,
+    -> titulo VARCHAR(50) NOT NULL,
+    -> contrato DATE NOT NULL,
+    -> jefe INT (4),
+    -> cuota FLOAT NOT NULL,
+    -> ventas FLOAT NOT NULL);
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [supermercado]> DESCRIBE empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   |     | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.005 sec)
+
+MariaDB [supermercado]> CREATE TABLE fabricantes(
+    ->     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    ->     nombre VARCHAR(50) NOT NULL,
+    ->     direccion VARCHAR(50) NOT NULL,
+    ->     telefono VARCHAR(20) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [supermercado]> DESCRIBE fabricantes;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(50) | NO   |     | NULL    |                |
+| direccion | varchar(50) | NO   |     | NULL    |                |
+| telefono  | varchar(20) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.006 sec)
+
+MariaDB [supermercado]> CREATE TABLE oficinas(
+    ->     id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     oficina INT NOT NULL,
+    ->     ciudad VARCHAR(30) NOT NULL,
+    ->     region VARCHAR(20) NOT NULL,
+    ->     direccion VARCHAR(50),
+    ->     objetivo FLOAT,
+    ->     ventas FLOAT);
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [supermercado]> DESCRIBE oficinas;    
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| oficina   | int(11)     | NO   |     | NULL    |                |
+| ciudad    | varchar(30) | NO   |     | NULL    |                |
+| region    | varchar(20) | NO   |     | NULL    |                |
+| direccion | varchar(50) | YES  |     | NULL    |                |
+| objetivo  | float       | YES  |     | NULL    |                |
+| ventas    | float       | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.006 sec)
+
+MariaDB [supermercado]> CREATE TABLE clientes(
+    ->     id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     numero_cliente INT NOT NULL,
+    ->     nombre VARCHAR(50) NOT NULL,
+    ->     id_empleado INT NOT NULL,
+    ->     limite_credito FLOAT);
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [supermercado]> DESCRIBE clientes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_cliente | int(11)     | NO   |     | NULL    |                |
+| nombre         | varchar(50) | NO   |     | NULL    |                |
+| id_empleado    | int(11)     | NO   |     | NULL    |                |
+| limite_credito | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.007 sec)
+
+MariaDB [supermercado]> CREATE TABLE productos(
+    ->     id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     id_fabricante INT NOT NULL,
+    ->     id_producto INT NOT NULL,
+    ->     descripcion VARCHAR(15) NOT NULL,
+    ->     precio FLOAT NOT NULL,
+    ->     existencias INT NOT NULL);
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [supermercado]> DESCRIBE productos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id_fabricante | int(11)     | NO   |     | NULL    |                |
+| id_producto   | int(11)     | NO   |     | NULL    |                |
+| descripcion   | varchar(15) | NO   |     | NULL    |                |
+| precio        | float       | NO   |     | NULL    |                |
+| existencias   | int(11)     | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.005 sec)
+
+MariaDB [supermercado]> CREATE TABLE pedidos(
+    ->     id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     numero_pedido INT NOT NULL,
+    ->     fecha_pedido DATE NOT NULL,
+    ->     id_cliente INT NOT NULL,
+    ->     id_empleado INT NOT NULL,
+    ->     id_fabricante VARCHAR(7) NOT NULL,
+    ->     producto VARCHAR(10) NOT NULL,
+    ->     cantidad INT NOT NULL,
+    ->     importe FLOAT NOT NULL);
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [supermercado]> DESCRIBE pedidos; 
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   |     | NULL    |                |
+| id_empleado   | int(11)     | NO   |     | NULL    |                |
+| id_fabricante | varchar(7)  | NO   |     | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.007 sec)
+
+MariaDB [supermercado]> show tables;
++------------------------+
+| Tables_in_supermercado |
++------------------------+
+| clientes               |
+| empleados              |
+| fabricantes            |
+| oficinas               |
+| pedidos                |
+| productos              |
++------------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   |     | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.009 sec)
+
+MariaDB [supermercado]> ALTER TABLE empleados ADD CONSTRAINT empleados_fk1 FOREIGN KEY(oficina) REFERENCES oficinas(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.069 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> DESCRIBE empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe clientes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_cliente | int(11)     | NO   |     | NULL    |                |
+| nombre         | varchar(50) | NO   |     | NULL    |                |
+| id_empleado    | int(11)     | NO   |     | NULL    |                |
+| limite_credito | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.005 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.005 sec)
+
+MariaDB [supermercado]> ALTER TABLE clientes ADD CONSTRAINT clientes_fk1 FOREIGN KEY(id_empleado) REFERENCES empleados(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.056 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> DESCRIBE clientes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_cliente | int(11)     | NO   |     | NULL    |                |
+| nombre         | varchar(50) | NO   |     | NULL    |                |
+| id_empleado    | int(11)     | NO   | MUL | NULL    |                |
+| limite_credito | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.048 sec)
+
+MariaDB [supermercado]> show tables;
++------------------------+
+| Tables_in_supermercado |
++------------------------+
+| clientes               |
+| empleados              |
+| fabricantes            |
+| oficinas               |
+| pedidos                |
+| productos              |
++------------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [supermercado]> ALTER TABLE productos ADD CONSTRAINT productos_fk1 FOREIGN KEY(id_fabricante) REFERENCES fabricantes(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.057 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> describe productos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id_fabricante | int(11)     | NO   | MUL | NULL    |                |
+| id_producto   | int(11)     | NO   |     | NULL    |                |
+| descripcion   | varchar(15) | NO   |     | NULL    |                |
+| precio        | float       | NO   |     | NULL    |                |
+| existencias   | int(11)     | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.007 sec)
+
+MariaDB [supermercado]> describe pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   |     | NULL    |                |
+| id_empleado   | int(11)     | NO   |     | NULL    |                |
+| id_fabricante | varchar(7)  | NO   |     | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> ALTER TABLE pedidos ADD CONSTRAINT pedidos_fk1 FOREIGN KEY(id_cliente) REFERENCES clientes(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.062 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> ALTER TABLE pedidos ADD CONSTRAINT pedidos_fk2 FOREIGN KEY(id_empleado) REFERENCES empleados(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.060 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> DESCRIBE pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | varchar(7)  | NO   |     | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe fabricantes;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(50) | NO   |     | NULL    |                |
+| direccion | varchar(50) | NO   |     | NULL    |                |
+| telefono  | varchar(20) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.006 sec)
+
+MariaDB [supermercado]> ALTER TABLE pedidos MODIFY COLUMN id_fabricante INT;
+Query OK, 0 rows affected (0.064 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> DESCRIBE pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | int(11)     | YES  |     | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> ALTER TABLE pedidos ADD CONSTRAINT pedidos_fk3 FOREIGN KEY(id_fabricante) REFERENCES fabricantes(id) ON UPDATE CASCADE ON DELETE CASCADE;
+Query OK, 0 rows affected (0.056 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> DESCRIBE pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | int(11)     | YES  | MUL | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe fabricantes;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(50) | NO   |     | NULL    |                |
+| direccion | varchar(50) | NO   |     | NULL    |                |
+| telefono  | varchar(20) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.006 sec)
+
+MariaDB [supermercado]> ALTER TABLE fabricantes ADD COLUMN descripcion VARCHAR(50);
+Query OK, 0 rows affected (0.009 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> describe fabricantes;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre      | varchar(50) | NO   |     | NULL    |                |
+| direccion   | varchar(50) | NO   |     | NULL    |                |
+| telefono    | varchar(20) | NO   |     | NULL    |                |
+| descripcion | varchar(50) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.005 sec)
+
+MariaDB [supermercado]> describe oficinas;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| oficina   | int(11)     | NO   |     | NULL    |                |
+| ciudad    | varchar(30) | NO   |     | NULL    |                |
+| region    | varchar(20) | NO   |     | NULL    |                |
+| direccion | varchar(50) | YES  |     | NULL    |                |
+| objetivo  | float       | YES  |     | NULL    |                |
+| ventas    | float       | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.006 sec)
+
+MariaDB [supermercado]> INSERT INTO oficinas (oficina, ciudad, region, direccion, objetivo, ventas) VALUES (11, 'Valencia', 'Este', '106', 575000, 693000);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [supermercado]> SELECT * FROM oficinas;
++----+---------+----------+--------+-----------+----------+--------+
+| id | oficina | ciudad   | region | direccion | objetivo | ventas |
++----+---------+----------+--------+-----------+----------+--------+
+|  1 |      11 | Valencia | Este   | 106       |   575000 | 693000 |
++----+---------+----------+--------+-----------+----------+--------+
+1 row in set (0.002 sec)
+
+MariaDB [supermercado]> SELECT ciudad, ventas FROM oficinas;
++----------+--------+
+| ciudad   | ventas |
++----------+--------+
+| Valencia | 693000 |
++----------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [supermercado]> INSERT INTO oficinas (oficina, ciudad, region, direccion, objetivo, ventas) VALUES (11, 'Valencia', 'Este', '106', 575000, 693000),
+    -> (11, 'Valencia', 'Este', '106', 575000, 693000),
+    -> (12, 'Alicante', 'Este', '104', 800000, 735000),
+    -> (13, 'Castellon', 'Este', '105', 350000, 368000),
+    -> (21, 'Babajoz', 'Oeste', '108', 725000, 836000),
+    -> (22, 'A Coru¤a', 'Oeste', '108', 300000, 186000),
+    -> (23, 'Madrir', 'Centro', '108', NULL, NULL);
+Query OK, 7 rows affected (0.008 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> SELECT * FROM oficinas;
++----+---------+-----------+--------+-----------+----------+--------+
+| id | oficina | ciudad    | region | direccion | objetivo | ventas |
++----+---------+-----------+--------+-----------+----------+--------+
+|  1 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  2 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  3 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  4 |      12 | Alicante  | Este   | 104       |   800000 | 735000 |
+|  5 |      13 | Castellon | Este   | 105       |   350000 | 368000 |
+|  6 |      21 | Babajoz   | Oeste  | 108       |   725000 | 836000 |
+|  7 |      22 | A Coru¤a  | Oeste  | 108       |   300000 | 186000 |
+|  8 |      23 | Madrir    | Centro | 108       |     NULL |   NULL |
++----+---------+-----------+--------+-----------+----------+--------+
+8 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe fabricantes;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre      | varchar(50) | NO   |     | NULL    |                |
+| direccion   | varchar(50) | NO   |     | NULL    |                |
+| telefono    | varchar(20) | NO   |     | NULL    |                |
+| descripcion | varchar(50) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.006 sec)
+
+MariaDB [supermercado]> INSERT INTO fabricantes (nombre, direccion, telefono, descripcion) VALUES ('jet', 'direccion1', '3126567034', 'hi'),
+    -> ('yupi', 'direccion2', '3133534034', 'ho'),
+    -> ('margarita', 'direccion3', '3536361034', 'hu'),
+    -> ('colombina', 'direccion4', '3533534134', 'hj'),
+    -> ('nestle', 'direccion5', '33135358094', 'hf'),
+    -> ('noel', 'direccion6', '3133801034', 'hq'),
+    -> ('colanta', 'direccion7', '3633131034', 'hz');
+Query OK, 7 rows affected (0.008 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> SELECT * FROM fabricantes;
++----+-----------+------------+-------------+-------------+
+| id | nombre    | direccion  | telefono    | descripcion |
++----+-----------+------------+-------------+-------------+
+|  1 | jet       | direccion1 | 3126567034  | hi          |
+|  2 | yupi      | direccion2 | 3133534034  | ho          |
+|  3 | margarita | direccion3 | 3536361034  | hu          |
+|  4 | colombina | direccion4 | 3533534134  | hj          |
+|  5 | nestle    | direccion5 | 33135358094 | hf          |
+|  6 | noel      | direccion6 | 3133801034  | hq          |
+|  7 | colanta   | direccion7 | 3633131034  | hz          |
++----+-----------+------------+-------------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.047 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.045 sec)
+
+MariaDB [supermercado]> describe clientes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_cliente | int(11)     | NO   |     | NULL    |                |
+| nombre         | varchar(50) | NO   |     | NULL    |                |
+| id_empleado    | int(11)     | NO   | MUL | NULL    |                |
+| limite_credito | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe productos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id_fabricante | int(11)     | NO   | MUL | NULL    |                |
+| id_producto   | int(11)     | NO   |     | NULL    |                |
+| descripcion   | varchar(15) | NO   |     | NULL    |                |
+| precio        | float       | NO   |     | NULL    |                |
+| existencias   | int(11)     | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | int(11)     | YES  | MUL | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> describe oficinas;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| oficina   | int(11)     | NO   |     | NULL    |                |
+| ciudad    | varchar(30) | NO   |     | NULL    |                |
+| region    | varchar(20) | NO   |     | NULL    |                |
+| direccion | varchar(50) | YES  |     | NULL    |                |
+| objetivo  | float       | YES  |     | NULL    |                |
+| ventas    | float       | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.005 sec)
+
+MariaDB [supermercado]> SELECT * FROM oficinas;
++----+---------+-----------+--------+-----------+----------+--------+
+| id | oficina | ciudad    | region | direccion | objetivo | ventas |
++----+---------+-----------+--------+-----------+----------+--------+
+|  1 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  2 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  3 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  4 |      12 | Alicante  | Este   | 104       |   800000 | 735000 |
+|  5 |      13 | Castellon | Este   | 105       |   350000 | 368000 |
+|  6 |      21 | Babajoz   | Oeste  | 108       |   725000 | 836000 |
+|  7 |      22 | A Coru¤a  | Oeste  | 108       |   300000 | 186000 |
+|  8 |      23 | Madrir    | Centro | 108       |     NULL |   NULL |
++----+---------+-----------+--------+-----------+----------+--------+
+8 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.007 sec)
+
+MariaDB [supermercado]> describe oficinas;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| oficina   | int(11)     | NO   |     | NULL    |                |
+| ciudad    | varchar(30) | NO   |     | NULL    |                |
+| region    | varchar(20) | NO   |     | NULL    |                |
+| direccion | varchar(50) | YES  |     | NULL    |                |
+| objetivo  | float       | YES  |     | NULL    |                |
+| ventas    | float       | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.007 sec)
+
+
+MariaDB [supermercado]> SELECT * FROM empleados;
+Empty set (0.000 sec)
+
+MariaDB [supermercado]> INSERT INTO empleados (numero_empleado, nombre, edad, oficina, titulo, contrato, jefe, cuota, ventas) VALUES (101, 'Antonio Viguer', 45, 1, 'representante', '1986-07-20', 104, 300000, 305000),
+    -> (102, 'Alvaro Jaumes', 48, 1, 'representante', '1968-06-20', 108, 350000, 305000),
+    -> (103, 'Juan Rovira', 29, 2, 'representante', '1998-05-14', 104, 275000, 474000),
+    -> (104, 'Jose Gonzales', 33, 3, 'director ventas', '2000-06-10', 106, 200000, 286000),
+    -> (105, 'Vicente Pantalla', 37, 4, 'representante', '1978-03-15', 104, 350000, 143000),
+    -> (106, 'Luis Antonio', 52, 4, 'director general', '1988-05-21', NULL, 275000, 368000),
+    -> (107, 'Jorge Gutierrez', 49, 1, 'representante', '1996-03-20', 108, 300000, 299000);
+Query OK, 7 rows affected (0.018 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> SELECT * FROM empleados;
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| id | numero_empleado | nombre           | edad | oficina | titulo           | contrato   | jefe | cuota  | ventas |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| 22 |             101 | Antonio Viguer   |   45 |       1 | representante    | 1986-07-20 |  104 | 300000 | 305000 |
+| 23 |             102 | Alvaro Jaumes    |   48 |       1 | representante    | 1968-06-20 |  108 | 350000 | 305000 |
+| 24 |             103 | Juan Rovira      |   29 |       2 | representante    | 1998-05-14 |  104 | 275000 | 474000 |
+| 25 |             104 | Jose Gonzales    |   33 |       3 | director ventas  | 2000-06-10 |  106 | 200000 | 286000 |
+| 26 |             105 | Vicente Pantalla |   37 |       4 | representante    | 1978-03-15 |  104 | 350000 | 143000 |
+| 27 |             106 | Luis Antonio     |   52 |       4 | director general | 1988-05-21 | NULL | 275000 | 368000 |
+| 28 |             107 | Jorge Gutierrez  |   49 |       1 | representante    | 1996-03-20 |  108 | 300000 | 299000 |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM fabricantes;
++----+-----------+------------+-------------+-------------+
+| id | nombre    | direccion  | telefono    | descripcion |
++----+-----------+------------+-------------+-------------+
+|  1 | jet       | direccion1 | 3126567034  | hi          |
+|  2 | yupi      | direccion2 | 3133534034  | ho          |
+|  3 | margarita | direccion3 | 3536361034  | hu          |
+|  4 | colombina | direccion4 | 3533534134  | hj          |
+|  5 | nestle    | direccion5 | 33135358094 | hf          |
+|  6 | noel      | direccion6 | 3133801034  | hq          |
+|  7 | colanta   | direccion7 | 3633131034  | hz          |
++----+-----------+------------+-------------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM empleados
+    -> ;
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| id | numero_empleado | nombre           | edad | oficina | titulo           | contrato   | jefe | cuota  | ventas |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| 22 |             101 | Antonio Viguer   |   45 |       1 | representante    | 1986-07-20 |  104 | 300000 | 305000 |
+| 23 |             102 | Alvaro Jaumes    |   48 |       1 | representante    | 1968-06-20 |  108 | 350000 | 305000 |
+| 24 |             103 | Juan Rovira      |   29 |       2 | representante    | 1998-05-14 |  104 | 275000 | 474000 |
+| 25 |             104 | Jose Gonzales    |   33 |       3 | director ventas  | 2000-06-10 |  106 | 200000 | 286000 |
+| 26 |             105 | Vicente Pantalla |   37 |       4 | representante    | 1978-03-15 |  104 | 350000 | 143000 |
+| 27 |             106 | Luis Antonio     |   52 |       4 | director general | 1988-05-21 | NULL | 275000 | 368000 |
+| 28 |             107 | Jorge Gutierrez  |   49 |       1 | representante    | 1996-03-20 |  108 | 300000 | 299000 |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> INSERT INTO clientes (numero_cliente, nombre, id_empleado, limite_credito) VALUES (2101, 'Luis Garcia Anton',25, 65000),
+    -> (2102, 'Alvaro Rodrigez', 22, 65000),
+    -> (2103, 'Jaime Llorens', 23, 50000),
+    -> (2104, 'Antonio Canales', 24, 45000),
+    -> (2105, 'Juan Suarez', 26, 65000),
+    -> (2106, 'Julian Lopez', 24, 35000),
+    -> (2107, 'Julian antequera', 24, 55000);
+Query OK, 7 rows affected (0.008 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> SELECT * FROM clientes;
++----+----------------+-------------------+-------------+----------------+
+| id | numero_cliente | nombre            | id_empleado | limite_credito |
++----+----------------+-------------------+-------------+----------------+
+|  1 |           2101 | Luis Garcia Anton |          25 |          65000 |
+|  2 |           2102 | Alvaro Rodrigez   |          22 |          65000 |
+|  3 |           2103 | Jaime Llorens     |          23 |          50000 |
+|  4 |           2104 | Antonio Canales   |          24 |          45000 |
+|  5 |           2105 | Juan Suarez       |          26 |          65000 |
+|  6 |           2106 | Julian Lopez      |          24 |          35000 |
+|  7 |           2107 | Julian antequera  |          24 |          55000 |
++----+----------------+-------------------+-------------+----------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM productos;
+Empty set (0.001 sec)
+
+MariaDB [supermercado]> INSERT INTO productos (id_fabricante, id_producto, descripcion, precio, existencias) VALUES (2, 41001, 'arandela', 58, 277),
+    -> (1, 41002, 'bisagra', 58, 277),
+    -> (2, 41003, 'art t3', 80, 167),
+    -> (3, 41004, 'art t4', 112, 207),
+    -> (3, 4100, 'junta', 123, 139),
+    -> (2, 4100, 'extractor', 26, 37),
+    -> (1, 41003, 'mont', 2888, 25);
+Query OK, 7 rows affected (0.013 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> SELECT * FROM productos
+    -> ;
++----+---------------+-------------+-------------+--------+-------------+
+| id | id_fabricante | id_producto | descripcion | precio | existencias |
++----+---------------+-------------+-------------+--------+-------------+
+|  1 |             2 |       41001 | arandela    |     58 |         277 |
+|  2 |             1 |       41002 | bisagra     |     58 |         277 |
+|  3 |             2 |       41003 | art t3      |     80 |         167 |
+|  4 |             3 |       41004 | art t4      |    112 |         207 |
+|  5 |             3 |        4100 | junta       |    123 |         139 |
+|  6 |             2 |        4100 | extractor   |     26 |          37 |
+|  7 |             1 |       41003 | mont        |   2888 |          25 |
++----+---------------+-------------+-------------+--------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM clientes
+    -> ;
++----+----------------+-------------------+-------------+----------------+
+| id | numero_cliente | nombre            | id_empleado | limite_credito |
++----+----------------+-------------------+-------------+----------------+
+|  1 |           2101 | Luis Garcia Anton |          25 |          65000 |
+|  2 |           2102 | Alvaro Rodrigez   |          22 |          65000 |
+|  3 |           2103 | Jaime Llorens     |          23 |          50000 |
+|  4 |           2104 | Antonio Canales   |          24 |          45000 |
+|  5 |           2105 | Juan Suarez       |          26 |          65000 |
+|  6 |           2106 | Julian Lopez      |          24 |          35000 |
+|  7 |           2107 | Julian antequera  |          24 |          55000 |
++----+----------------+-------------------+-------------+----------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM empleados;
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| id | numero_empleado | nombre           | edad | oficina | titulo           | contrato   | jefe | cuota  | ventas |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| 22 |             101 | Antonio Viguer   |   45 |       1 | representante    | 1986-07-20 |  104 | 300000 | 305000 |
+| 23 |             102 | Alvaro Jaumes    |   48 |       1 | representante    | 1968-06-20 |  108 | 350000 | 305000 |
+| 24 |             103 | Juan Rovira      |   29 |       2 | representante    | 1998-05-14 |  104 | 275000 | 474000 |
+| 25 |             104 | Jose Gonzales    |   33 |       3 | director ventas  | 2000-06-10 |  106 | 200000 | 286000 |
+| 26 |             105 | Vicente Pantalla |   37 |       4 | representante    | 1978-03-15 |  104 | 350000 | 143000 |
+| 27 |             106 | Luis Antonio     |   52 |       4 | director general | 1988-05-21 | NULL | 275000 | 368000 |
+| 28 |             107 | Jorge Gutierrez  |   49 |       1 | representante    | 1996-03-20 |  108 | 300000 | 299000 |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> INSERT INTO pedidos (numero_pedido,fecha_pedido, id_cliente, id_empleado, id_fabricante, producto, cantidad, importe) VALUES (110036, '1997-01-14', 7, 22,1, '4100z', 9, 22500),
+    -> (110036, '1996-07-15', 1, 22,4, '4100z', 7, 31500),
+    -> (110036, '1995-06-16', 2, 23,3, '4100z', 28, 3276),
+    -> (112963, '1994-05-17', 3, 24,2, '4100z', 34, 3978),
+    -> (112968, '1993-04-14', 4, 25,2, '4100z', 6, 2100),
+    -> (112975, '1992-02-18', 5, 26,1, '4100z', 6, 15000),
+    -> (110036, '1991-02-20', 6, 27,3, '4100z', 6, 702);
+Query OK, 7 rows affected (0.018 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> show tables;
++------------------------+
+| Tables_in_supermercado |
++------------------------+
+| clientes               |
+| empleados              |
+| fabricantes            |
+| oficinas               |
+| pedidos                |
+| productos              |
++------------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM fabricantes;
++----+-----------+------------+-------------+-------------+
+| id | nombre    | direccion  | telefono    | descripcion |
++----+-----------+------------+-------------+-------------+
+|  1 | jet       | direccion1 | 3126567034  | hi          |
+|  2 | yupi      | direccion2 | 3133534034  | ho          |
+|  3 | margarita | direccion3 | 3536361034  | hu          |
+|  4 | colombina | direccion4 | 3533534134  | hj          |
+|  5 | nestle    | direccion5 | 33135358094 | hf          |
+|  6 | noel      | direccion6 | 3133801034  | hq          |
+|  7 | colanta   | direccion7 | 3633131034  | hz          |
++----+-----------+------------+-------------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM productos;
++----+---------------+-------------+-------------+--------+-------------+
+| id | id_fabricante | id_producto | descripcion | precio | existencias |
++----+---------------+-------------+-------------+--------+-------------+
+|  1 |             2 |       41001 | arandela    |     58 |         277 |
+|  2 |             1 |       41002 | bisagra     |     58 |         277 |
+|  3 |             2 |       41003 | art t3      |     80 |         167 |
+|  4 |             3 |       41004 | art t4      |    112 |         207 |
+|  5 |             3 |        4100 | junta       |    123 |         139 |
+|  6 |             2 |        4100 | extractor   |     26 |          37 |
+|  7 |             1 |       41003 | mont        |   2888 |          25 |
++----+---------------+-------------+-------------+--------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM clientes;
++----+----------------+-------------------+-------------+----------------+
+| id | numero_cliente | nombre            | id_empleado | limite_credito |
++----+----------------+-------------------+-------------+----------------+
+|  1 |           2101 | Luis Garcia Anton |          25 |          65000 |
+|  2 |           2102 | Alvaro Rodrigez   |          22 |          65000 |
+|  3 |           2103 | Jaime Llorens     |          23 |          50000 |
+|  4 |           2104 | Antonio Canales   |          24 |          45000 |
+|  5 |           2105 | Juan Suarez       |          26 |          65000 |
+|  6 |           2106 | Julian Lopez      |          24 |          35000 |
+|  7 |           2107 | Julian antequera  |          24 |          55000 |
++----+----------------+-------------------+-------------+----------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM pedidos;
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+| id | numero_pedido | fecha_pedido | id_cliente | id_empleado | id_fabricante | producto | cantidad | importe |
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+|  1 |        110036 | 1997-01-14   |          7 |          22 |             1 | 4100z    |        9 |   22500 |
+|  2 |        110036 | 1996-07-15   |          1 |          22 |             4 | 4100z    |        7 |   31500 |
+|  3 |        110036 | 1995-06-16   |          2 |          23 |             3 | 4100z    |       28 |    3276 |
+|  4 |        112963 | 1994-05-17   |          3 |          24 |             2 | 4100z    |       34 |    3978 |
+|  5 |        112968 | 1993-04-14   |          4 |          25 |             2 | 4100z    |        6 |    2100 |
+|  6 |        112975 | 1992-02-18   |          5 |          26 |             1 | 4100z    |        6 |   15000 |
+|  7 |        110036 | 1991-02-20   |          6 |          27 |             3 | 4100z    |        6 |     702 |
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM empleados;
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| id | numero_empleado | nombre           | edad | oficina | titulo           | contrato   | jefe | cuota  | ventas |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+| 22 |             101 | Antonio Viguer   |   45 |       1 | representante    | 1986-07-20 |  104 | 300000 | 305000 |
+| 23 |             102 | Alvaro Jaumes    |   48 |       1 | representante    | 1968-06-20 |  108 | 350000 | 305000 |
+| 24 |             103 | Juan Rovira      |   29 |       2 | representante    | 1998-05-14 |  104 | 275000 | 474000 |
+| 25 |             104 | Jose Gonzales    |   33 |       3 | director ventas  | 2000-06-10 |  106 | 200000 | 286000 |
+| 26 |             105 | Vicente Pantalla |   37 |       4 | representante    | 1978-03-15 |  104 | 350000 | 143000 |
+| 27 |             106 | Luis Antonio     |   52 |       4 | director general | 1988-05-21 | NULL | 275000 | 368000 |
+| 28 |             107 | Jorge Gutierrez  |   49 |       1 | representante    | 1996-03-20 |  108 | 300000 | 299000 |
++----+-----------------+------------------+------+---------+------------------+------------+------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT * FROM oficinas;
++----+---------+-----------+--------+-----------+----------+--------+
+| id | oficina | ciudad    | region | direccion | objetivo | ventas |
++----+---------+-----------+--------+-----------+----------+--------+
+|  1 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  2 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  3 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  4 |      12 | Alicante  | Este   | 104       |   800000 | 735000 |
+|  5 |      13 | Castellon | Este   | 105       |   350000 | 368000 |
+|  6 |      21 | Babajoz   | Oeste  | 108       |   725000 | 836000 |
+|  7 |      22 | A Coru¤a  | Oeste  | 108       |   300000 | 186000 |
+|  8 |      23 | Madrir    | Centro | 108       |     NULL |   NULL |
++----+---------+-----------+--------+-----------+----------+--------+
+8 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT id_fabricante, id_producto, descripcion, precio, ((precio * 0.19) + precio) AS precio_iva FROM productos;
++---------------+-------------+-------------+--------+--------------------+
+| id_fabricante | id_producto | descripcion | precio | precio_iva         |
++---------------+-------------+-------------+--------+--------------------+
+|             2 |       41001 | arandela    |     58 |              69.02 |
+|             1 |       41002 | bisagra     |     58 |              69.02 |
+|             2 |       41003 | art t3      |     80 |               95.2 |
+|             3 |       41004 | art t4      |    112 |             133.28 |
+|             3 |        4100 | junta       |    123 |             146.37 |
+|             2 |        4100 | extractor   |     26 |              30.94 |
+|             1 |       41003 | mont        |   2888 | 3436.7200000000003 |
++---------------+-------------+-------------+--------+--------------------+
+7 rows in set (0.003 sec)
+
+MariaDB [supermercado]> show tables;
++------------------------+
+| Tables_in_supermercado |
++------------------------+
+| clientes               |
+| empleados              |
+| fabricantes            |
+| oficinas               |
+| pedidos                |
+| productos              |
++------------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | int(11)     | YES  | MUL | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.007 sec)
+
+MariaDB [supermercado]> select * from pedidos;
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+| id | numero_pedido | fecha_pedido | id_cliente | id_empleado | id_fabricante | producto | cantidad | importe |
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+|  1 |        110036 | 1997-01-14   |          7 |          22 |             1 | 4100z    |        9 |   22500 |
+|  2 |        110036 | 1996-07-15   |          1 |          22 |             4 | 4100z    |        7 |   31500 |
+|  3 |        110036 | 1995-06-16   |          2 |          23 |             3 | 4100z    |       28 |    3276 |
+|  4 |        112963 | 1994-05-17   |          3 |          24 |             2 | 4100z    |       34 |    3978 |
+|  5 |        112968 | 1993-04-14   |          4 |          25 |             2 | 4100z    |        6 |    2100 |
+|  6 |        112975 | 1992-02-18   |          5 |          26 |             1 | 4100z    |        6 |   15000 |
+|  7 |        110036 | 1991-02-20   |          6 |          27 |             3 | 4100z    |        6 |     702 |
++----+---------------+--------------+------------+-------------+---------------+----------+----------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> delete from pedidos;
+Query OK, 7 rows affected (0.008 sec)
+
+MariaDB [supermercado]> truncate pedidos;
+Query OK, 0 rows affected (0.045 sec)
+
+MariaDB [supermercado]> select * from productos;
++----+---------------+-------------+-------------+--------+-------------+
+| id | id_fabricante | id_producto | descripcion | precio | existencias |
++----+---------------+-------------+-------------+--------+-------------+
+|  1 |             2 |       41001 | arandela    |     58 |         277 |
+|  2 |             1 |       41002 | bisagra     |     58 |         277 |
+|  3 |             2 |       41003 | art t3      |     80 |         167 |
+|  4 |             3 |       41004 | art t4      |    112 |         207 |
+|  5 |             3 |        4100 | junta       |    123 |         139 |
+|  6 |             2 |        4100 | extractor   |     26 |          37 |
+|  7 |             1 |       41003 | mont        |   2888 |          25 |
++----+---------------+-------------+-------------+--------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe pedidos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11)     | NO   |     | NULL    |                |
+| fecha_pedido  | date        | NO   |     | NULL    |                |
+| id_cliente    | int(11)     | NO   | MUL | NULL    |                |
+| id_empleado   | int(11)     | NO   | MUL | NULL    |                |
+| id_fabricante | int(11)     | YES  | MUL | NULL    |                |
+| producto      | varchar(10) | NO   |     | NULL    |                |
+| cantidad      | int(11)     | NO   |     | NULL    |                |
+| importe       | float       | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> alter table pedidos CHANGE producto id_producto INT NOT NULL;
+Query OK, 0 rows affected (0.079 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> describe pedidos;
++---------------+---------+------+-----+---------+----------------+
+| Field         | Type    | Null | Key | Default | Extra          |
++---------------+---------+------+-----+---------+----------------+
+| id            | int(11) | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11) | NO   |     | NULL    |                |
+| fecha_pedido  | date    | NO   |     | NULL    |                |
+| id_cliente    | int(11) | NO   | MUL | NULL    |                |
+| id_empleado   | int(11) | NO   | MUL | NULL    |                |
+| id_fabricante | int(11) | YES  | MUL | NULL    |                |
+| id_producto   | int(11) | NO   |     | NULL    |                |
+| cantidad      | int(11) | NO   |     | NULL    |                |
+| importe       | float   | NO   |     | NULL    |                |
++---------------+---------+------+-----+---------+----------------+
+9 rows in set (0.007 sec)
+
+MariaDB [supermercado]> alter table pedidos add constraint pedidos_fk4 foreign key(id_producto) references productos(id) on update cascade on delete cascade;
+Query OK, 0 rows affected (0.061 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> describe pedidos;
++---------------+---------+------+-----+---------+----------------+
+| Field         | Type    | Null | Key | Default | Extra          |
++---------------+---------+------+-----+---------+----------------+
+| id            | int(11) | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11) | NO   |     | NULL    |                |
+| fecha_pedido  | date    | NO   |     | NULL    |                |
+| id_cliente    | int(11) | NO   | MUL | NULL    |                |
+| id_empleado   | int(11) | NO   | MUL | NULL    |                |
+| id_fabricante | int(11) | YES  | MUL | NULL    |                |
+| id_producto   | int(11) | NO   | MUL | NULL    |                |
+| cantidad      | int(11) | NO   |     | NULL    |                |
+| importe       | float   | NO   |     | NULL    |                |
++---------------+---------+------+-----+---------+----------------+
+9 rows in set (0.007 sec)
+
+MariaDB [supermercado]> select * from pedidos;
+Empty set (0.000 sec)
+
+MariaDB [supermercado]> select *  from productos;
++----+---------------+-------------+-------------+--------+-------------+
+| id | id_fabricante | id_producto | descripcion | precio | existencias |
++----+---------------+-------------+-------------+--------+-------------+
+|  1 |             2 |       41001 | arandela    |     58 |         277 |
+|  2 |             1 |       41002 | bisagra     |     58 |         277 |
+|  3 |             2 |       41003 | art t3      |     80 |         167 |
+|  4 |             3 |       41004 | art t4      |    112 |         207 |
+|  5 |             3 |        4100 | junta       |    123 |         139 |
+|  6 |             2 |        4100 | extractor   |     26 |          37 |
+|  7 |             1 |       41003 | mont        |   2888 |          25 |
++----+---------------+-------------+-------------+--------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> select * from productos;
++----+---------------+-------------+-------------+--------+-------------+
+| id | id_fabricante | id_producto | descripcion | precio | existencias |
++----+---------------+-------------+-------------+--------+-------------+
+|  1 |             2 |       41001 | arandela    |     58 |         277 |
+|  2 |             1 |       41002 | bisagra     |     58 |         277 |
+|  3 |             2 |       41003 | art t3      |     80 |         167 |
+|  4 |             3 |       41004 | art t4      |    112 |         207 |
+|  5 |             3 |        4100 | junta       |    123 |         139 |
+|  6 |             2 |        4100 | extractor   |     26 |          37 |
+|  7 |             1 |       41003 | mont        |   2888 |          25 |
++----+---------------+-------------+-------------+--------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe productos;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id_fabricante | int(11)     | NO   | MUL | NULL    |                |
+| id_producto   | int(11)     | NO   |     | NULL    |                |
+| descripcion   | varchar(15) | NO   |     | NULL    |                |
+| precio        | float       | NO   |     | NULL    |                |
+| existencias   | int(11)     | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.006 sec)
+
+MariaDB [supermercado]> INSERT INTO pedidos (numero_pedido,fecha_pedido, id_cliente, id_empleado, id_fabricante, id_producto, cantidad, importe) VALUES (110036, '1997-01-14', 7, 22, 1, 1, 9, 22500),
+    -> (110036, '1996-07-15', 1, 22,4, 3, 7, 31500),
+    -> (110036, '1995-06-16', 2, 23,3, 2, 28, 3276),
+    -> (112963, '1994-05-17', 3, 24,2, 2, 34, 3978),
+    -> (112968, '1993-04-14', 4, 25,2, 5, 6, 2100),
+    -> (112975, '1992-02-18', 5, 26,1, 6, 6, 15000),
+    -> (110036, '1991-02-20', 6, 27,3, 6, 6, 702);
+Query OK, 7 rows affected (0.009 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [supermercado]> select *  from pedidos;
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+| id | numero_pedido | fecha_pedido | id_cliente | id_empleado | id_fabricante | id_producto | cantidad | importe |
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+|  8 |        110036 | 1997-01-14   |          7 |          22 |             1 |           1 |        9 |   22500 |
+|  9 |        110036 | 1996-07-15   |          1 |          22 |             4 |           3 |        7 |   31500 |
+| 10 |        110036 | 1995-06-16   |          2 |          23 |             3 |           2 |       28 |    3276 |
+| 11 |        112963 | 1994-05-17   |          3 |          24 |             2 |           2 |       34 |    3978 |
+| 12 |        112968 | 1993-04-14   |          4 |          25 |             2 |           5 |        6 |    2100 |
+| 13 |        112975 | 1992-02-18   |          5 |          26 |             1 |           6 |        6 |   15000 |
+| 14 |        110036 | 1991-02-20   |          6 |          27 |             3 |           6 |        6 |     702 |
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT pedidos.id_fabricante, productos.descripcion, pedidos.cantidad, productos.precio, pedidos.importe FROM pedidos INNER JOIN productos ON productos.id = pedidos.id_producto;
++---------------+-------------+----------+--------+---------+
+| id_fabricante | descripcion | cantidad | precio | importe |
++---------------+-------------+----------+--------+---------+
+|             1 | arandela    |        9 |     58 |   22500 |
+|             4 | art t3      |        7 |     80 |   31500 |
+|             3 | bisagra     |       28 |     58 |    3276 |
+|             2 | bisagra     |       34 |     58 |    3978 |
+|             2 | junta       |        6 |    123 |    2100 |
+|             1 | extractor   |        6 |     26 |   15000 |
+|             3 | extractor   |        6 |     26 |     702 |
++---------------+-------------+----------+--------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> SELECT pedidos.id_fabricante, productos.descripcion, pedidos.cantidad, productos.precio, pedidos.importe FROM pedidos, productos WHERE pedidos.id_producto = productos.id;
++---------------+-------------+----------+--------+---------+
+| id_fabricante | descripcion | cantidad | precio | importe |
++---------------+-------------+----------+--------+---------+
+|             1 | arandela    |        9 |     58 |   22500 |
+|             4 | art t3      |        7 |     80 |   31500 |
+|             3 | bisagra     |       28 |     58 |    3276 |
+|             2 | bisagra     |       34 |     58 |    3978 |
+|             2 | junta       |        6 |    123 |    2100 |
+|             1 | extractor   |        6 |     26 |   15000 |
+|             3 | extractor   |        6 |     26 |     702 |
++---------------+-------------+----------+--------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> DESCRIBE empleados;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_empleado | int(5)      | NO   |     | NULL    |                |
+| nombre          | varchar(50) | NO   |     | NULL    |                |
+| edad            | int(3)      | NO   |     | NULL    |                |
+| oficina         | int(3)      | NO   | MUL | NULL    |                |
+| titulo          | varchar(50) | NO   |     | NULL    |                |
+| contrato        | date        | NO   |     | NULL    |                |
+| jefe            | int(4)      | YES  |     | NULL    |                |
+| cuota           | float       | NO   |     | NULL    |                |
+| ventas          | float       | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+10 rows in set (0.006 sec)
+
+MariaDB [supermercado]> SELECT nombre, TIMESTAMPDIFF(DAY,contrato, CURDATE()) AS dias_trabajados, DATE_SUB(NOW(),INTERVAL edad YEAR) AS fecha_nacimiento FROM empleados;
++------------------+-----------------+---------------------+
+| nombre           | dias_trabajados | fecha_nacimiento    |
++------------------+-----------------+---------------------+
+| Antonio Viguer   |           13163 | 1977-08-03 21:47:47 |
+| Alvaro Jaumes    |           19767 | 1974-08-03 21:47:47 |
+| Juan Rovira      |            8847 | 1993-08-03 21:47:47 |
+| Jose Gonzales    |            8089 | 1989-08-03 21:47:47 |
+| Vicente Pantalla |           16212 | 1985-08-03 21:47:47 |
+| Luis Antonio     |           12492 | 1970-08-03 21:47:47 |
+| Jorge Gutierrez  |            9632 | 1973-08-03 21:47:47 |
++------------------+-----------------+---------------------+
+7 rows in set (0.007 sec)
+
+MariaDB [supermercado]> DESCRIBE clientes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| numero_cliente | int(11)     | NO   |     | NULL    |                |
+| nombre         | varchar(50) | NO   |     | NULL    |                |
+| id_empleado    | int(11)     | NO   | MUL | NULL    |                |
+| limite_credito | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.006 sec)
+
+MariaDB [supermercado]> SELECT * FROM clientes GROUP BY id_empleado;
++----+----------------+-------------------+-------------+----------------+
+| id | numero_cliente | nombre            | id_empleado | limite_credito |
++----+----------------+-------------------+-------------+----------------+
+|  2 |           2102 | Alvaro Rodrigez   |          22 |          65000 |
+|  3 |           2103 | Jaime Llorens     |          23 |          50000 |
+|  4 |           2104 | Antonio Canales   |          24 |          45000 |
+|  1 |           2101 | Luis Garcia Anton |          25 |          65000 |
+|  5 |           2105 | Juan Suarez       |          26 |          65000 |
++----+----------------+-------------------+-------------+----------------+
+5 rows in set (0.000 sec)
+
+MariaDB [supermercado]> DESCRIBE oficinas
+    -> ;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| oficina   | int(11)     | NO   |     | NULL    |                |
+| ciudad    | varchar(30) | NO   |     | NULL    |                |
+| region    | varchar(20) | NO   |     | NULL    |                |
+| direccion | varchar(50) | YES  |     | NULL    |                |
+| objetivo  | float       | YES  |     | NULL    |                |
+| ventas    | float       | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.006 sec)
+
+MariaDB [supermercado]> SELECT * FROM oficinas ORDER BY region, ciudad, oficina;
++----+---------+-----------+--------+-----------+----------+--------+
+| id | oficina | ciudad    | region | direccion | objetivo | ventas |
++----+---------+-----------+--------+-----------+----------+--------+
+|  8 |      23 | Madrir    | Centro | 108       |     NULL |   NULL |
+|  4 |      12 | Alicante  | Este   | 104       |   800000 | 735000 |
+|  5 |      13 | Castellon | Este   | 105       |   350000 | 368000 |
+|  1 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  2 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  3 |      11 | Valencia  | Este   | 106       |   575000 | 693000 |
+|  7 |      22 | A Coru¤a  | Oeste  | 108       |   300000 | 186000 |
+|  6 |      21 | Babajoz   | Oeste  | 108       |   725000 | 836000 |
++----+---------+-----------+--------+-----------+----------+--------+
+8 rows in set (0.000 sec)
+
+MariaDB [supermercado]> describe pedidos;
++---------------+---------+------+-----+---------+----------------+
+| Field         | Type    | Null | Key | Default | Extra          |
++---------------+---------+------+-----+---------+----------------+
+| id            | int(11) | NO   | PRI | NULL    | auto_increment |
+| numero_pedido | int(11) | NO   |     | NULL    |                |
+| fecha_pedido  | date    | NO   |     | NULL    |                |
+| id_cliente    | int(11) | NO   | MUL | NULL    |                |
+| id_empleado   | int(11) | NO   | MUL | NULL    |                |
+| id_fabricante | int(11) | YES  | MUL | NULL    |                |
+| id_producto   | int(11) | NO   | MUL | NULL    |                |
+| cantidad      | int(11) | NO   |     | NULL    |                |
+| importe       | float   | NO   |     | NULL    |                |
++---------------+---------+------+-----+---------+----------------+
+9 rows in set (0.006 sec)
+
+MariaDB [supermercado]> select * from pedidos order by fecha_pedido;
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+| id | numero_pedido | fecha_pedido | id_cliente | id_empleado | id_fabricante | id_producto | cantidad | importe |
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+| 14 |        110036 | 1991-02-20   |          6 |          27 |             3 |           6 |        6 |     702 |
+| 13 |        112975 | 1992-02-18   |          5 |          26 |             1 |           6 |        6 |   15000 |
+| 12 |        112968 | 1993-04-14   |          4 |          25 |             2 |           5 |        6 |    2100 |
+| 11 |        112963 | 1994-05-17   |          3 |          24 |             2 |           2 |       34 |    3978 |
+| 10 |        110036 | 1995-06-16   |          2 |          23 |             3 |           2 |       28 |    3276 |
+|  9 |        110036 | 1996-07-15   |          1 |          22 |             4 |           3 |        7 |   31500 |
+|  8 |        110036 | 1997-01-14   |          7 |          22 |             1 |           1 |        9 |   22500 |
++----+---------------+--------------+------------+-------------+---------------+-------------+----------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [supermercado]> exit;

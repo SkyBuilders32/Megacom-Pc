@@ -1,4 +1,4 @@
-'use strict';x
+'use strict';
 /**
  * element toggle function
  */

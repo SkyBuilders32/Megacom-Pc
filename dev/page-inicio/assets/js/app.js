@@ -1,12 +1,13 @@
-'use strict';
+"use strict";
 /**
  * element toggle function
  */
-const toggleElem = function (elem) { elem.classList.toggle("active"); }
+const toggleElem = function (elem) {
+  elem.classList.toggle("active");
+};
 /**
  * navbar toggle
  */
-
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
 const overlay = document.querySelector("[data-overlay]");
@@ -44,13 +45,13 @@ for (let i = 0; i < searchTogglers.length; i++) {
     toggleElem(searchBox);
   });
 }
-const profile = document.querySelector('.profile');
-const imgProfile = profile.querySelector('.img');
-const dropdownProfile = profile.querySelector('.profile-link');
+const profile = document.querySelector(".profile");
+const imgProfile = profile.querySelector(".img");
+const dropdownProfile = profile.querySelector(".profile-link");
 
-imgProfile.addEventListener('click', function () {
-	dropdownProfile.classList.toggle('show');
-})
+imgProfile.addEventListener("click", function () {
+  dropdownProfile.classList.toggle("show");
+});
 /**
  * whishlist button toggle
  */

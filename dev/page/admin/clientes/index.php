@@ -62,6 +62,7 @@ if ($rol == 2) {
 					<li><a href="#">Celulares</a></li>
 					<li><a href="#">Tablets</a></li>
 					<li><a href="#">Accesorios</a></li>
+					<li><a href="#">Componentes</a></li>
 				</ul>
 			</li>
 			<li><a href="../users/index.php"><i class='bx bxs-chart icon'></i>Usuarios</a></li>

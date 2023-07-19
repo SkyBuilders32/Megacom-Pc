@@ -275,7 +275,8 @@ body {
 }
 
 .header.active {
-  background-color: var(--white);
+  background-color: hsla(0, 0%, 94%, 0.589);
+  backdrop-filter: blur(30px);
   box-shadow: var(--shadow-2);
 }
 

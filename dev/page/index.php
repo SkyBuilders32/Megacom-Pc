@@ -54,7 +54,7 @@ if (!isset($_SESSION['correo'])) {
           </li>
 
           <li class="navbar-item">
-            <a href="../page-inicio/proyectos.php" class="navbar-link" data-nav-toggler>Proyectos</a>
+            <a href="../page-inicio/proyectos.php" class="navbar-link" data-nav-toggler>Productos</a>
           </li>
 
           <li class="navbar-item">
@@ -66,7 +66,7 @@ if (!isset($_SESSION['correo'])) {
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>Contactanos  </a>
+            <a href="#" class="navbar-link" data-nav-toggler>Contactanos</a>
           </li>
 
         </ul>

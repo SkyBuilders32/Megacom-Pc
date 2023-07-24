@@ -50,11 +50,6 @@ if ($rol == 2) {
         <ul class="side-menu">
             <li><a href="../index.php" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
-            <li><a href="../productos/index.php"><i class='bx bxs-inbox icon'></i> Productos</i></a></li>
-            <li><a href="index.php"><i class='bx bxs-widget icon'></i>Clientes</a></li>
-            <li class="divider" data-text="table and forms">Table and forms</li>
-            <li><a href="#"><i class='bx bx-table icon'></i> Tables</a></li>
-            <li>
 
             <li>
                 <a href="#"><i class='bx bxs-inbox icon'></i> Productos <i

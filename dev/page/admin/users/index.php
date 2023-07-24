@@ -52,7 +52,7 @@ if ($rol == 2) {
 	<section id="sidebar">
 		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
 		<ul class="side-menu">
-			<li><a href="../index.php" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
+			<li><a href="../admin/index.php" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
 			<li class="divider" data-text="main">Main</li>
 			<li>
 				<a href="#"><i class='bx bxs-inbox icon'></i> Productos <i

@@ -119,7 +119,7 @@ if ($rol == 2) {
                                 <th class="">Correo</th>
                                 <th class="">Actualizar</th>
                             </tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             <?php
 							$sql = "SELECT * FROM clientes";

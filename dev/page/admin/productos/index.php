@@ -44,30 +44,37 @@ if ($rol == 2) {
 </head>
 
 <body>
-
-    <!-- SIDEBAR -->
-    <section id="sidebar">
-        <a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
-        <ul class="side-menu">
-            <li><a href="../index.php" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
-            <li class="divider" data-text="main">Main</li>
-            <li><a href="index.php"><i class='bx bxs-inbox icon'></i> Productos</i></a></li>
-            <li><a href="../clientes/index.php"><i class='bx bxs-widget icon'></i>Clientes</a></li>
-            <li class="divider" data-text="table and forms">Table and forms</li>
-            <li><a href="#"><i class='bx bx-table icon'></i> Tables</a></li>
-            <li>
-                <a href="#"><i class='bx bxs-notepad icon'></i> Forms <i class='bx bx-chevron-right icon-right'></i></a>
-                <ul class="side-dropdown">
-                    <li><a href="#">Basic</a></li>
-                    <li><a href="#">Select</a></li>
-                    <li><a href="#">Checkbox</a></li>
-                    <li><a href="#">Radio</a></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <!-- SIDEBAR -->
-
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
+		<ul class="side-menu">
+			<li><a href="../index.php"><i class='bx bxs-dashboard icon' ></i> Panel</a></li>
+			<li class="divider" data-text="main">Main</li>
+			<li>
+				<a href="index.php" class="active"><i class='bx bxs-inbox icon' ></i> Productos <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="index.php">Computadores</a></li>
+					<li><a href="#">Celulares</a></li>
+					<li><a href="#">Tablets</a></li>
+					<li><a href="#">Accesorios</a></li>
+				</ul>
+			</li>
+			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
+			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
+			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
+			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
+			<li>
+				<a href="#"><i class='bx bxs-notepad icon' ></i> Forms <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">Basic</a></li>
+					<li><a href="#">Select</a></li>
+					<li><a href="#">Checkbox</a></li>
+					<li><a href="#">Radio</a></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
     <!-- NAVBAR -->
     <section id="content">
         <!-- NAVBAR -->

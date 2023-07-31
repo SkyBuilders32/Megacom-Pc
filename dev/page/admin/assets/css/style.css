@@ -292,3 +292,40 @@ nav .profile .profile-link a:hover {
 		display: none;
 	}
 }
+
+.container_inve {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+  }
+  
+  .item {
+	width: 170px;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	padding: 1rem;
+	margin: 0.5rem;
+	text-align: center;
+  }
+  
+  .item__image {
+	max-width: 100%;
+	border-radius: 5px;
+  }
+  
+  .item__name {
+	margin-top: 1rem;
+  }
+  
+  .item__description {
+	font-size: 17px;
+	margin-top: 11px;
+  }
+  
+  .item__price {
+	display: block;
+	margin-top: 1rem;
+	font-weight:700;
+	font-size: 20px;
+	color: #333;
+  }

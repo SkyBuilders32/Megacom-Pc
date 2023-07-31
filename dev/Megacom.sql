@@ -46,3 +46,7 @@ ALTER TABLE facturas ADD CONSTRAINT facturasfk2 FOREIGN KEY(cedula) REFERENCES c
 ALTER TABLE productos ADD CONSTRAINT productosfk1 FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor) ON UPDATE CASCADE ON DELETE CASCADE; 
 ALTER TABLE pedidos ADD CONSTRAINT pedidosfk2 FOREIGN KEY(cliente) REFERENCES clientes(cedula) ON UPDATE CASCADE ON DELETE CASCADE; 
 ALTER TABLE pedidos ADD CONSTRAINT pedidosfk1 FOREIGN KEY(id_producto) REFERENCES productos(id_producto) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE compras ADD CONSTRAINT comprasfk1 FOREIGN KEY(proveedor) REFERENCES proveedores(id_proveedor);
+ALTER TABLE compras ADD CONSTRAINT comprasfk2 FOREIGN KEY(factura) REFERENCES facturas_compras(numero_facturas);
+ALTER TABLE compras ADD CONSTRAINT comprasfk3 FOREIGN KEY(producto) REFERENCES productos(id_producto);

@@ -5,7 +5,7 @@
 <?php
 include '../../conexion/conexion.php';
 include '../../sweetalerts/sweetalerts.php';
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM clientes";
 $query = mysqli_query($con, $sql);
 
 //sesion

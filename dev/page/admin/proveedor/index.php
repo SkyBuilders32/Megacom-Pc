@@ -5,7 +5,7 @@
 <?php
 include '../../../conexion/conexion.php';
 include '../../../sweetalerts/sweetalerts.php';
-$sql = "SELECT * FROM clientes";
+$sql = "SELECT * FROM proveedores";
 $query = mysqli_query($con, $sql);
 //sesion
 session_start();
@@ -102,48 +102,52 @@ if ($rol == 2) {
         </nav>
         <!-- NAVBAR -->
         <div class="container">
-            <h1 class="page-header text-center">Clientes</h1>
+            <h1 class="page-header text-center">Proveedores</h1>
             <div class="row">
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                            class="fa-solid fa-circle-plus"></i>Nuevo Cliente</a>
+                            class="fa-solid fa-circle-plus"></i>Nuevo Proveedor</a>
                 </div>
                 <div class="col-12 mt-3">
                     <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
                         <thead>
                             <tr>
-                                <th class="">Cedula</th>
+                                <th class="">Nit</th>
                                 <th class="">Nombre</th>
-                                <th class="">Apellido</th>
-                                <th class="">Correo</th>
+                                <th class="">Direccion</th>
+                                <th class="">Ciudad</th>
+                                <th class="">Telefono</th>
                                 <th class="">Actualizar</th>
                             </tr>
                         </thead> 
                         <tbody>
                             <?php
-							$sql = "SELECT * FROM clientes";
+							$sql = "SELECT * FROM proveedores";
 							$query = mysqli_query($con, $sql);
 
 							while ($mostrar = $query->fetch_assoc()) { ?>
                             <tr>
                                 <td class="">
-                                    <?php echo $mostrar['cedula'] ?>
+                                    <?php echo $mostrar['nit'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['apellido'] ?>
+                                    <?php echo $mostrar['direccion'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['correo'] ?>
+                                    <?php echo $mostrar['ciudad'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['telefono'] ?>
                                 </td>
 
                                 <td class="text-center">
-                                    <a href="#edit_<?php echo $mostrar['cedula']; ?>"
+                                    <a href="#edit_<?php echo $mostrar['nit']; ?>"
                                         class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-pencil'></i></a>
-                                    <a href="#delete_<?php echo $mostrar['cedula']; ?>"
+                                    <a href="#delete_<?php echo $mostrar['nit']; ?>"
                                         class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-trash-alt'></i></a>
                                 </td>

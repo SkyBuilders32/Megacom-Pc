@@ -116,6 +116,7 @@ if ($rol == 2) {
                                 <th class="">Nombre</th>
                                 <th class="">Direccion</th>
                                 <th class="">Ciudad</th>
+                                <th class="">Correo</th>
                                 <th class="">Telefono</th>
                                 <th class="">Actualizar</th>
                             </tr>
@@ -138,6 +139,9 @@ if ($rol == 2) {
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['ciudad'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['correo'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['telefono'] ?>

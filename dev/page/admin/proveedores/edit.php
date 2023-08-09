@@ -4,12 +4,13 @@
  
     if(isset($_POST['nuevo'])){
     
-            $cedula = $_POST['cedula'];
+            $nit = $_POST['nit'];
             $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
             $correo = $_POST['correo'];
- 
-            $sql = "INSERT INTO clientes (cedula, nombre, apellido, correo) VALUES ('$cedula','$nombre','$apellido','$correo')";
+            $direccion = $_POST['direccion'];
+            $ciudad = $_POST['ciudad'];
+            $telefono = $_POST['telefono'];
+            $sql = "UPDATE clientes WHERE nit VALUES ('$nit','$nombre','$correo','$direccion','$ciudad', '$telefono')";
            
 
             $query = $con->query($sql);

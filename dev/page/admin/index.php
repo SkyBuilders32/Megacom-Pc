@@ -5,7 +5,7 @@
 <?php
 include '../../conexion/conexion.php';
 include '../../sweetalerts/sweetalerts.php';
-$sql = "SELECT * FROM clientes";
+$sql = "SELECT * FROM clientes"; 
 $query = mysqli_query($con, $sql);
 
 //sesion
@@ -20,7 +20,7 @@ $rol = $_SESSION['rol'];
 if ($rol == 2) {
     echo '
     <script>
-        alert("No tienes permiso para entrar aqui");
+        alert("No  tienes permiso para entrar aqui");
         window.location = "../index.php";
     </script>
     ';

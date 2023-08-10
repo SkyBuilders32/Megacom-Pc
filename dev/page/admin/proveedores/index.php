@@ -112,6 +112,7 @@ if ($rol == 2) {
                     <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
                         <thead>
                             <tr>
+                                <th class="">Id_Proveedor</th>
                                 <th class="">Nit</th>
                                 <th class="">Nombre</th>
                                 <th class="">Direccion</th>
@@ -128,6 +129,9 @@ if ($rol == 2) {
 
 							while ($mostrar = $query->fetch_assoc()) { ?>
                             <tr>
+                            <td class="">
+                                    <?php echo $mostrar['id_proveedor'] ?>
+                                </td>
                                 <td class="">
                                     <?php echo $mostrar['nit'] ?>
                                 </td>

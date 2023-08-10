@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <form method="POST" action="nuevo.php">
                 <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="id_proveedor">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
                         <?php
                             while ($pr = mysqli_fetch_array($consult)){
                             echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." </option>"; 
@@ -21,12 +21,6 @@
                         ?>
                         </select>
                         <label for="floatingSelect">Selecciona el Proveedor</label>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-4 col-form-label">ID Producto</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="id_producto" required>
-                        </div>
                     </div>
                     <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Marca</label>

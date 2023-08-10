@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <form method="POST" action="nuevo.php">
                 <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Proveedor">
                         <?php
                             while ($pr = mysqli_fetch_array($consult)){
                             echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." </option>"; 
@@ -75,7 +75,7 @@
             <div class="modal-body">
                 <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>">
                 <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="id_proveedor">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Proveedor">
                         <?php
                             while ($proe = mysqli_fetch_array($consulta)){
                             echo " <option value=".$proe[0]." > ".$proe[0]." / ".$proe[1]." / ".$proe[2]." / ".$proe[3]." </option>"; 

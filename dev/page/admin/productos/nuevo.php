@@ -9,10 +9,10 @@
             $precio_base = $_POST['precio_base'];
             $existencias = $_POST['existencias'];
             $descripcion = $_POST['descripcion'];
-            $roveedor = $_POST['Proveedor'];
+            $proveedor = $_POST['proveedor'];
 
  
-            $sql = "INSERT INTO productos (marca, modelo, precio_base, existencias, descripcion, Proveedor) VALUES ('$marca','$modelo','$precio_base','$existencias','$descripcion','$proveedor')";
+            $sql = "INSERT INTO productos (marca, modelo, precio_base, existencias, descripcion, proveedor) VALUES ('$marca','$modelo','$precio_base','$existencias','$descripcion','$proveedor')";
            
 
             $query = $con->query($sql);

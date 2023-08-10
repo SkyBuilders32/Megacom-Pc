@@ -11,7 +11,7 @@
             $precio_base = $_POST['precio_base'];
             $existencias = $_POST['existencias'];
             $descripcion = $_POST['descripcion'];
-            $proveedor = $_POST['Proveedor'];
+            $proveedor = $_POST['proveedor'];
             
  
             $upd = "UPDATE productos set marca='$marca', modelo='$modelo', precio_base='$precio_base', existencias='$existencias', descripcion='$descripcion', proveedor='$proveedor' WHERE id_producto like $id_producto";

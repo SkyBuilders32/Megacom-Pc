@@ -148,7 +148,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['descripcion'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['Proveedor'] ?>
+                                    <?php echo $mostrar['proveedor'] ?>
                                 </td>
                                 <td class="text-center">
                                     <a href="#edit_<?php echo $mostrar['id_producto']; ?>"

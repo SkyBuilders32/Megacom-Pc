@@ -1,19 +1,19 @@
-<!-- Nuevo Cliente -->
+<!-- Nuevo Proveedor -->
 
 
 <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel">Nuevo cliente</h5>
+                <h5 class="modal-title" id="ModalLabel">Nuevo Proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="POST" action="nuevo.php">
                     <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Cedula:</label>
+                        <label class="col-sm-2 col-form-label">Nit:</label>
                         <div class="col-sm-13">
-                            <input type="number" class="form-control" name="cedula" required>
+                            <input type="number" class="form-control" name="nit" required>
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
@@ -23,15 +23,27 @@
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Apellido:</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="apellido" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Correo:</label>
                         <div class="col-sm-13">
                             <input type="email" class="form-control" name="correo" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Direccion:</label>
+                        <div class="col-sm-13">
+                            <input type="text" class="form-control" name="direccion" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Ciudad:</label>
+                        <div class="col-sm-13">
+                            <input type="text" class="form-control" name="ciudad" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Telefono:</label>
+                        <div class="col-sm-13">
+                            <input type="number" class="form-control" name="telefono" required>
                         </div>
                     </div>
 
@@ -46,24 +58,24 @@
 </div>
 
 
-<!-- Editar Cliente -->
+<!-- Editar Proveedor -->
 
 
-<div class="modal fade" id="edit_<?php echo $mostrar['cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
+<div class="modal fade" id="edit_<?php echo $mostrar['nit']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel">Editar Cliente</h5>
+                <h5 class="modal-title" id="ModalLabel">Editar Proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="edit.php?cedula=<?php echo $mostrar['cedula']; ?>">
+                <form method="POST" action="edit.php?nit=<?php echo $mostrar['nit']; ?>">
                     <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Cedula:</label>
+                        <label class="col-sm-2 col-form-label">Nit:</label>
                         <div class="col-sm-13">
-                            <input type="number" class="form-control" name="usuario"
-                                value="<?php echo $mostrar['cedula']; ?>" required>
+                            <input type="number" class="form-control" name="nit"
+                                value="<?php echo $mostrar['nit']; ?>" required>
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
@@ -74,17 +86,31 @@
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Apellido:</label>
+                        <label class="col-sm-2 col-form-label">Correo:</label>
                         <div class="col-sm-13">
-                            <input type="text" class="form-control" name="apellido"
-                                value="<?php echo $mostrar['apellido']; ?>" required>
+                            <input type="email" class="form-control" name="correo" 
+                            value = "<?php echo $mostrar['correo']; ?>" required>
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Correo:</label>
+                        <label class="col-sm-2 col-form-label">Direccion:</label>
                         <div class="col-sm-13">
-                            <input type="email" class="form-control" name="correo"
-                                value="<?php echo $mostrar['correo']; ?>" required>
+                            <input type="text" class="form-control" name="direccion"
+                            value = "<?php echo $mostrar['direccion']; ?>" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Ciudad:</label>
+                        <div class="col-sm-13">
+                            <input type="text" class="form-control" name="ciudad"
+                            value = "<?php echo $mostrar['ciudad']; ?>" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Telefono:</label>
+                        <div class="col-sm-13">
+                            <input type="number" class="form-control" name="telefono"
+                            value = "<?php echo $mostrar['telefono']; ?>" required>
                         </div>
                     </div>
 
@@ -99,35 +125,35 @@
 </div>
 
 
-<!-- Eliminar Cliente -->
+<!-- Eliminar Proveedor -->
 
 
-<div class="modal fade" id="delete_<?php echo $mostrar['cedula']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
+<div class="modal fade" id="delete_<?php echo $mostrar['nit']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel">Eliminar Cliente</h5>
+                <h5 class="modal-title" id="ModalLabel">Eliminar Proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="text-center">Estas seguro de que quieres borrar este cliente</p>
+                <p class="text-center">Estas seguro de que quieres borrar este proveedor</p>
                 <h2 class="text-center">
-                    Cedula: <?php echo  $mostrar['cedula']; ?>
+                    Nit: <?php echo  $mostrar['nit']; ?>
                 </h2>
                 <h2 class="text-center">
                     Nombre: <?php echo  $mostrar['nombre']; ?>
                 </h2>
                 <h2 class="text-center">
-                    Apellido: <?php echo  $mostrar['apellido']; ?>
+                    Correo: <?php echo  $mostrar['correo']; ?>
                 </h2>
                 <h2 class="text-center">
-                    Correo: <?php echo  $mostrar['correo']; ?>
+                    Telefono: <?php echo  $mostrar['telefono']; ?>
                 </h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="delete.php?cedula=<?php echo $mostrar['cedula']; ?>" class="btn btn-danger"> Yes</a>
+                <a href="delete.php?nit=<?php echo $mostrar['nit']; ?>" class="btn btn-danger"> Yes</a>
             </div>
         </div>
     </div>

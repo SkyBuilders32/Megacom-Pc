@@ -10,7 +10,7 @@
             $direccion = $_POST['direccion'];
             $ciudad = $_POST['ciudad'];
             $telefono = $_POST['telefono'];
-            $sql = "INSERT INTO clientes (nit, nombre, correo, direccion, ciudad, telefono) VALUES ('$nit','$nombre','$correo','$direccion','$ciudad', '$telefono')";
+            $sql = "INSERT INTO proveedores (nit, nombre, correo, direccion, ciudad, telefono) VALUES ('$nit','$nombre','$correo','$direccion','$ciudad', '$telefono')";
            
 
             $query = $con->query($sql);

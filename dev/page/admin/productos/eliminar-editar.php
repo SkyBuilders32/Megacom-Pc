@@ -11,7 +11,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="nuevo.php">
+                <form method="POST" action="nuevo.php" enctype="multipart/form-data">
                 <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
                         <?php
@@ -22,6 +22,13 @@
                         </select>
                         <label for="floatingSelect">Selecciona el Proveedor</label>
                     </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Imagen</label>
+                        <div class="col-sm-13">
+                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                        </div>
+                    </div>
+
                     <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Marca</label>
                         <div class="col-sm-13">

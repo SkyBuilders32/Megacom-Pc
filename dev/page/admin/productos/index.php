@@ -111,6 +111,7 @@ if ($rol == 2) {
                         <thead>
                             <tr>
                                 <th class="">Id Producto</th>
+                                <th class="">Imagen</th>
                                 <th class="">Marca</th>
                                 <th class="">Modelo</th>
                                 <th class="">Precio Base</th>
@@ -124,13 +125,20 @@ if ($rol == 2) {
                         </thead>
                         <tbody>
                             <?php
-							$sql = "SELECT * FROM productos";
+							$sql = "SELECT productos.*, p.nombre, p.id_proveedor 
+                            FROM productos
+                            INNER JOIN proveedores as p
+                            ON productos.proveedor = p.id_proveedor;";
+                            
 							$query = mysqli_query($con, $sql);
 
 							while ($mostrar = $query->fetch_assoc()) { ?>
                             <tr>
                                 <td class="">
                                     <?php echo $mostrar['id_producto'] ?>
+                                </td>
+                                <td class="">
+                                <img src="<?php echo $mostrar['imagen'] ?>">;
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['marca'] ?>
@@ -148,7 +156,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['descripcion'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['proveedor'] ?>
+                                    <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="text-center">
                                     <a href="#edit_<?php echo $mostrar['id_producto']; ?>"

@@ -50,3 +50,8 @@ ALTER TABLE pedidos ADD CONSTRAINT pedidosfk1 FOREIGN KEY(id_producto) REFERENCE
 ALTER TABLE compras ADD CONSTRAINT comprasfk1 FOREIGN KEY(proveedor) REFERENCES proveedores(id_proveedor);
 ALTER TABLE compras ADD CONSTRAINT comprasfk2 FOREIGN KEY(factura) REFERENCES facturas_compras(numero_facturas);
 ALTER TABLE compras ADD CONSTRAINT comprasfk3 FOREIGN KEY(producto) REFERENCES productos(id_producto);
+      <?php  $consult = mysqli_query($con, "SELECT nombre FROM proveedores WHERE id_proveedor = $mostrar" )?>
+                                    <?php
+                                while ($pr = mysqli_fetch_array($consult)){
+                                echo ".$pr[3]."; 
+                                }

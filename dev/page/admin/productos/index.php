@@ -138,7 +138,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['id_producto'] ?>
                                 </td>
                                 <td class="">
-                                <img src="<?php echo $mostrar['imagen'] ?>">;
+                                <img src="<?php echo $mostrar['imagen'] ?>">
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['marca'] ?>

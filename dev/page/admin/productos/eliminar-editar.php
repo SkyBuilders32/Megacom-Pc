@@ -92,6 +92,12 @@
                         <label for="floatingSelect">Selecciona el Id Proveedor</label>
                     </div>
                     <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Imagen</label>
+                        <div class="col-sm-13">
+                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
                         <label class="col-sm-4 col-form-label">ID Producto</label>
                         <div class="col-sm-13">
                             <input type="number" class="form-control" name="id_producto"

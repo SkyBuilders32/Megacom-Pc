@@ -138,7 +138,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['id_producto'] ?>
                                 </td>
                                 <td class="">
-                                <img src="<?php echo $mostrar['imagen'] ?>">;
+                                <img class="imagen" src="<?php echo $mostrar['imagen'] ?>">
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['marca'] ?>
@@ -162,7 +162,7 @@ if ($rol == 2) {
                                     <a href="#edit_<?php echo $mostrar['id_producto']; ?>"
                                         class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-pencil'></i></a>
-                                    <a href="#delete_<?php echo $mostrar['id_producto']; ?>"
+                                    <a href="#delet_<?php echo $mostrar['id_producto']; ?>"
                                         class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-trash-alt'></i></a>
                                 </td>

@@ -146,7 +146,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete_<?php echo $mostrar['id_producto']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
+<div class="modal fade" id="delet_<?php echo $mostrar['id_producto']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

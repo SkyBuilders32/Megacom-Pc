@@ -329,3 +329,7 @@ nav .profile .profile-link a:hover {
 	font-size: 20px;
 	color: #333;
   }
+  .imagen{
+	display: flex;
+	width: 100px;
+  }

@@ -94,7 +94,8 @@
                     <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Imagen</label>
                         <div class="col-sm-13">
-                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                            <input type="file" accept="image/*" class="form-control" name="imagen" 
+                            value="<?php echo $mostrar['imagen']; ?>">
                         </div>
                     </div>
                     <div class="mb-3 mostrar">

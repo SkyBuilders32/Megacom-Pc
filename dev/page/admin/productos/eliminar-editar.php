@@ -72,7 +72,7 @@
 <!-- Editar -->
 
 <div class="modal fade" id="edit_<?php echo $mostrar['id_producto']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
-    aria-hidden="true" enctype="multipart/form-data">
+    aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,7 +80,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>">
+                <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>" enctype="multipart/form-data">
                 <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
                         <?php
@@ -94,7 +94,7 @@
                     <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Imagen</label>
                         <div class="col-sm-13">
-                            <input type="file" accept="image/*" class="form-control" name="image" required>
+                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
                         </div>
                     </div>
                     <div class="mb-3 mostrar">

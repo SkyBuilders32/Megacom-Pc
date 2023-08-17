@@ -16,7 +16,7 @@
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
                         <?php
                             while ($pr = mysqli_fetch_array($consult)){
-                            echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." </option>"; 
+                            echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." / ".$pr[7]." </option>"; 
                             }
                         ?>
                         </select>

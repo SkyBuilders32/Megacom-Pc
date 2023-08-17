@@ -61,7 +61,9 @@ if ($rol == 2) {
                     <li><a href="#">Accesorios</a></li>
                 </ul>
             </li>
-			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
+			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
+			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
+
 			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
 			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
 			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
@@ -102,20 +104,17 @@ if ($rol == 2) {
         </nav>
         <!-- NAVBAR -->
         <div class="container">
-            <h1 class="page-header text-center">Clientes</h1>
+            <h1 class="page-header text-center">Usuarios</h1>
             <div class="row">
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                            class="fa-solid fa-circle-plus"></i>Nuevo Cliente</a>
-                </div>
+
                 <div class="col-12 mt-3">
                     <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
                         <thead>
                             <tr>
-                                <th class="">Cedula</th>
-                                <th class="">Nombre</th>
-                                <th class="">Apellido</th>
+                                <th class="">Id</th>
+                                <th class="">Usuario</th>
                                 <th class="">Correo</th>
+                                <th class="">Contraseña</th>
                                 <th class="">Actualizar</th>
                             </tr>
                         </thead> 

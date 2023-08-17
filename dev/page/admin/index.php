@@ -113,11 +113,21 @@ if ($rol == 2) {
 		?>
                 </div>
                 <div class="item">
-                    <img src="assets/media/clients.svg" alt="Producto 2" class="item__image">
+                    <img src="assets/media/clients.svg" alt="Clientes" class="item__image">
                     <h3 class="item__name">Clientes</h3>
                     <p class="item__description">Cantidad de clientes</p>
                     <?php
 		$result = mysqli_query($con, "SELECT COUNT(1) AS Total FROM clientes");
+		$row = mysqli_fetch_assoc($result);
+		echo '<span class="item__price"> '.$row['Total'].'</span>';
+		?>
+                </div>
+                <div class="item">
+                    <img src="assets/media/user.svg" alt="Usuarios" class="item__image">
+                    <h3 class="item__name">Usuarios</h3>
+                    <p class="item__description">Cantidad de Usuarios</p>
+                    <?php
+		$result = mysqli_query($con, "SELECT COUNT(1) AS Total FROM usuarios");
 		$row = mysqli_fetch_assoc($result);
 		echo '<span class="item__price"> '.$row['Total'].'</span>';
 		?>

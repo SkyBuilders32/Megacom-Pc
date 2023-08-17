@@ -48,7 +48,7 @@ if ($rol == 2) {
     <section id="sidebar">
         <a href="../index.php" class="brand"><i class='bx bxs-smile icon'></i>AdminSite</a>
         <ul class="side-menu">
-            <li><a href="../index.php"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
+            <li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
 
             <li>
@@ -62,6 +62,7 @@ if ($rol == 2) {
                 </ul>
             </li>
 			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
+			<li><a href="../users/index.php" ><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
 			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
 			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
 			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>

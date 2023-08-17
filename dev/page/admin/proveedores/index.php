@@ -61,8 +61,9 @@ if ($rol == 2) {
                     <li><a href="#">Accesorios</a></li>
                 </ul>
             </li>
-			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
-			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
+			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
+			<li><a href="../users/index.php"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
+			<li><a href="../proveedores/index.php"  class="active"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
 			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
 			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
                 <a href="#"><i class='bx bxs-notepad icon'></i> Forms <i class='bx bx-chevron-right icon-right'></i></a>

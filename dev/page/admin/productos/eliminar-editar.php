@@ -16,7 +16,7 @@
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
                         <?php
                             while ($pr = mysqli_fetch_array($consult)){
-                            echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." </option>"; 
+                            echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." / ".$pr[7]." </option>"; 
                             }
                         ?>
                         </select>
@@ -94,7 +94,8 @@
                     <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Imagen</label>
                         <div class="col-sm-13">
-                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                            <input type="file" accept="image/*" class="form-control" name="imagen" 
+                            value="<?php echo $mostrar['imagen']; ?>">
                         </div>
                     </div>
                     <div class="mb-3 mostrar">

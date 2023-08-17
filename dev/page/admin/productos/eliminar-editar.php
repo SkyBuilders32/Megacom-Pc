@@ -168,7 +168,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="delete.php?id=<?php echo $mostrar['id_producto']; ?>" class="btn btn-danger"> Yes</a>
+                <a href="delete.php?id_producto=<?php echo $mostrar['id_producto']; ?>" class="btn btn-danger"> Yes</a>
             </div>
         </div>
     </div>

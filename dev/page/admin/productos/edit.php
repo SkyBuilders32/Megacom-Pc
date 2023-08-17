@@ -6,7 +6,6 @@
             $nombre=$_FILES['imagen']['tmp_name'];//nombre temporal
             $truta='imagenes/'.$_FILES['imagen']['name']; // esta ruta según la ubicación de tus archivos
             move_uploaded_file($nombre,$truta);//manda la imagen a la carpeta del proyecto
-            $imagen = addslashes(file_get_contents($_FILES ['imagen'] ['tmp_name'] ));
             $id_producto = $_GET['id_producto'];
             $marca = $_POST['marca'];
             $modelo = $_POST['modelo'];

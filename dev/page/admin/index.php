@@ -47,7 +47,7 @@ if ($rol == 2) {
             <li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
             <li>
-                <a href="productos/index.php"><i class='bx bxs-inbox icon'></i> Productos <i
+                <a href="productos/index.php"><i class='bx bxs-briefcase icon'></i> Productos <i
                         class='bx bx-chevron-right icon-right'></i></a>
                 <ul class="side-dropdown">
                     <li><a href="productos/index.php">Computadores</a></li>
@@ -128,6 +128,16 @@ if ($rol == 2) {
                     <p class="item__description">Cantidad de Usuarios</p>
                     <?php
 		$result = mysqli_query($con, "SELECT COUNT(1) AS Total FROM usuarios");
+		$row = mysqli_fetch_assoc($result);
+		echo '<span class="item__price"> '.$row['Total'].'</span>';
+		?>
+                </div>
+                <div class="item">
+                    <img src="assets/media/verified-person.svg" alt="Proveedores" class="item__image">
+                    <h3 class="item__name">Proveedores</h3>
+                    <p class="item__description">Cantidad de Provedores</p>
+                    <?php
+		$result = mysqli_query($con, "SELECT COUNT(1) AS Total FROM proveedores");
 		$row = mysqli_fetch_assoc($result);
 		echo '<span class="item__price"> '.$row['Total'].'</span>';
 		?>

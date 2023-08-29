@@ -3,10 +3,8 @@
 
 </html>
 <?php
-include '../../conexion/conexion.php';
-include '../../sweetalerts/sweetalerts.php';
-$sql = "SELECT * FROM clientes"; 
-$query = mysqli_query($con, $sql);
+include '../../../conexion/conexion.php';
+include '../../../sweetalerts/sweetalerts.php';
 
 //sesion
 
@@ -33,7 +31,7 @@ if ($rol == 2) {
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <title>AdminSite</title>
 </head>
@@ -96,5 +94,7 @@ if ($rol == 2) {
             </div>
         </nav>
         <!-- NAVBAR -->
+        
+
 </body>
 </html>

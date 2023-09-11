@@ -5,7 +5,7 @@
 <?php
 include '../../../conexion/conexion.php';
 include '../../../sweetalerts/sweetalerts.php';
-$sql = "SELECT * FROM proveedores";
+$sql = "SELECT * FROM clientes";
 $query = mysqli_query($con, $sql);
 //sesion
 session_start();
@@ -48,32 +48,15 @@ if ($rol == 2) {
     <section id="sidebar">
         <a href="../index.php" class="brand"><i class='bx bxs-smile icon'></i>AdminSite</a>
         <ul class="side-menu">
-            <li><a href="../index.php"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
+            <li><a href="../"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
 
-            <li>
-                <a href="#"><i class='bx bxs-inbox icon'></i>Productos <i
-                        class='bx bx-chevron-right icon-right'></i></a>
-                <ul class="side-dropdown">
-                    <li><a href="../productos/index.php">Computadores</a></li>
-                    <li><a href="#">Celulares</a></li>
-                    <li><a href="#">Tablets</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                </ul>
-            </li>
-			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
-			<li><a href="../users/index.php"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
-			<li><a href="../proveedores/index.php"  class="active"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
-			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
-			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
-                <a href="#"><i class='bx bxs-notepad icon'></i> Forms <i class='bx bx-chevron-right icon-right'></i></a>
-                <ul class="side-dropdown">
-                    <li><a href="#">Basic</a></li>
-                    <li><a href="#">Select</a></li>
-                    <li><a href="#">Checkbox</a></li>
-                    <li><a href="#">Radio</a></li>
-                </ul>
-            </li>
+            <li><a href="../productos/index.php"><i class='bx bxs-inbox icon'></i>Productos</a></li>
+            <li><a href="index.php" class="active"><i class='bx bxs-widget icon'></i>Clientes</a></li>
+            <li><a href="../users/index.php"><i class='bx bxs-widget icon'></i>Usuarios</a></li>
+            <li><a href="../proveedores/index.php"><i class='bx bxs-widget icon'></i>Provedores</a></li>
+            <li><a href="../ventas/index.php"><i class='bx bxs-widget icon'></i>Ventas</a></li>
+            <li><a href="../stocks/index.php"><i class='bx bxs-widget icon'></i>Stocks</a></li>
         </ul>
     </section>
     <!-- SIDEBAR -->
@@ -103,60 +86,48 @@ if ($rol == 2) {
         </nav>
         <!-- NAVBAR -->
         <div class="container">
-            <h1 class="page-header text-center">Proveedores</h1>
+            <h1 class="page-header text-center">Clientes</h1>
             <div class="row">
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                            class="fa-solid fa-circle-plus"></i>Nuevo Proveedor</a>
+                            class="fa-solid fa-circle-plus"></i>Nuevo Cliente</a>
                 </div>
                 <div class="col-12 mt-3">
                     <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
                         <thead>
                             <tr>
-                                <th class="">Id_Proveedor</th>
-                                <th class="">Nit</th>
+                                <th class="">Cedula</th>
                                 <th class="">Nombre</th>
-                                <th class="">Direccion</th>
-                                <th class="">Ciudad</th>
+                                <th class="">Apellido</th>
                                 <th class="">Correo</th>
-                                <th class="">Telefono</th>
                                 <th class="">Actualizar</th>
                             </tr>
-                        </thead> 
+                        </thead>
                         <tbody>
                             <?php
-							$sql = "SELECT * FROM proveedores";
+							$sql = "SELECT * FROM clientes";
 							$query = mysqli_query($con, $sql);
 
 							while ($mostrar = $query->fetch_assoc()) { ?>
                             <tr>
-                            <td class="">
-                                    <?php echo $mostrar['id_proveedor'] ?>
-                                </td>
                                 <td class="">
-                                    <?php echo $mostrar['nit'] ?>
+                                    <?php echo $mostrar['cedula'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['direccion'] ?>
-                                </td>
-                                <td class="">
-                                    <?php echo $mostrar['ciudad'] ?>
+                                    <?php echo $mostrar['apellido'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['correo'] ?>
                                 </td>
-                                <td class="">
-                                    <?php echo $mostrar['telefono'] ?>
-                                </td>
 
                                 <td class="text-center">
-                                    <a href="#edit_<?php echo $mostrar['nit']; ?>"
+                                    <a href="#edit_<?php echo $mostrar['cedula']; ?>"
                                         class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-pencil'></i></a>
-                                    <a href="#delete_<?php echo $mostrar['nit']; ?>"
+                                    <a href="#delete_<?php echo $mostrar['cedula']; ?>"
                                         class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-trash-alt'></i></a>
                                 </td>

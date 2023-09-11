@@ -2,7 +2,7 @@
 
 
 <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Nuevo Proveedor</h5>
@@ -63,7 +63,7 @@
 
 <div class="modal fade" id="edit_<?php echo $mostrar['nit']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Editar Proveedor</h5>

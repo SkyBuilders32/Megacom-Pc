@@ -46,31 +46,14 @@ if ($rol == 2) {
         <ul class="side-menu">
             <li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
-            <li>
-                <a href="productos/index.php"><i class='bx bxs-briefcase icon'></i> Productos <i
-                        class='bx bx-chevron-right icon-right'></i></a>
-                <ul class="side-dropdown">
-                    <li><a href="productos/index.php">Computadores</a></li>
-                    <li><a href="#">Celulares</a></li>
-                    <li><a href="#">Tablets</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                </ul>
-            </li>
+            <li><a href="productos/index.php"><i class='bx bxs-inbox icon'></i>Productos</a></li>
             <li><a href="clientes/index.php"><i class='bx bxs-widget icon'></i>Clientes</a></li>
-			<li><a href="users/index.php"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
+            <li><a href="users/index.php"><i class='bx bxs-widget icon'></i>Usuarios</a></li>
 
             <li><a href="proveedores/index.php"><i class='bx bxs-widget icon'></i>Provedores</a></li>
             <li><a href="ventas/index.php"><i class='bx bxs-widget icon'></i>Ventas</a></li>
             <li><a href="stocks/index.php"><i class='bx bxs-widget icon'></i>Stocks</a></li>
-            <li>
-                <a href="#"><i class='bx bxs-notepad icon'></i> Forms <i class='bx bx-chevron-right icon-right'></i></a>
-                <ul class="side-dropdown">
-                    <li><a href="#">Basic</a></li>
-                    <li><a href="#">Select</a></li>
-                    <li><a href="#">Checkbox</a></li>
-                    <li><a href="#">Radio</a></li>
-                </ul>
-            </li>
+
         </ul>
     </section>
     <!-- SIDEBAR -->
@@ -142,7 +125,7 @@ if ($rol == 2) {
 		echo '<span class="item__price"> '.$row['Total'].'</span>';
 		?>
                 </div>
-				
+
             </div>
         </section>
 

@@ -3,9 +3,9 @@
 
 </html>
 <?php
+session_start();
 include("../conexion/conexion.php");
 include("../sweetalerts/sweetalerts.php");
-session_start();
 if (isset($_SESSION['correo'])) {
     header("location: ../page/index.php");
 }

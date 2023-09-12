@@ -52,11 +52,11 @@ if ($rol == 2) {
             <li class="divider" data-text="main">Main</li>
 
             <li><a href="../productos/index.php"><i class='bx bxs-inbox icon'></i>Productos</a></li>
-			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
-			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
-			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
-			<li><a href="../ventas/index.php"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
-			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
+            <li><a href="../clientes/index.php"><i class='bx bxs-widget icon'></i>Clientes</a></li>
+            <li><a href="index.php" class="active"><i class='bx bxs-widget icon'></i>Usuarios</a></li>
+            <li><a href="../proveedores/index.php"><i class='bx bxs-widget icon'></i>Provedores</a></li>
+            <li><a href="../ventas/index.php"><i class='bx bxs-widget icon'></i>Ventas</a></li>
+            <li><a href="../stocks/index.php"><i class='bx bxs-widget icon'></i>Stocks</a></li>
 
         </ul>
     </section>
@@ -100,7 +100,7 @@ if ($rol == 2) {
                                 <th class="">Contraseña</th>
                                 <th class="">Actualizar</th>
                             </tr>
-                        </thead> 
+                        </thead>
                         <tbody>
                             <?php
 							$sql = "SELECT * FROM usuarios";

@@ -5,53 +5,59 @@
 <?php
 include '../../../conexion/conexion.php';
 include '../../../sweetalerts/sweetalerts.php';
-
+$sql = "SELECT * FROM usuarios";
+$query = mysqli_query($con, $sql);
 //sesion
-
 session_start();
 if (!isset($_SESSION['correo'])) {
-  echo $ple_sign_1;
-session_destroy();
-    die();
+	echo $ple_sign_2;
+	session_destroy();
+	die();
 }
 $rol = $_SESSION['rol'];
 if ($rol == 2) {
-    echo '
+	echo '
     <script>
-        alert("No  tienes permiso para entrar aqui");
+        alert("No tienes permiso para entrar aqui");
         window.location = "../index.php";
     </script>
     ';
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<?php include "includes/scripts.php" ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-
-    <title>Nueva Venta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+    <title>AdminSite</title>
+    <style>
+    a {
+        text-decoration: none;
+    }
+    </style>
 </head>
+
 <body>
+
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
+        <a href="../index.php" class="brand"><i class='bx bxs-smile icon'></i>AdminSite</a>
         <ul class="side-menu">
             <li><a href="../index.php"><i class='bx bxs-dashboard icon'></i> Panel</a></li>
             <li class="divider" data-text="main">Main</li>
 
             <li><a href="../productos/index.php"><i class='bx bxs-inbox icon'></i>Productos</a></li>
-			<li><a href="../clientes/index.php"><i class='bx bxs-widget icon' ></i>Clientes</a></li>
-			<li><a href="../users/index.php"><i class='bx bxs-widget icon' ></i>Usuarios</a></li>
-			<li><a href="../proveedores/index.php"><i class='bx bxs-widget icon' ></i>Provedores</a></li>
-			<li><a href="index.php" class="active"><i class='bx bxs-widget icon' ></i>Ventas</a></li>
-			<li><a href="../stocks/index.php"><i class='bx bxs-widget icon' ></i>Stocks</a></li>
- 
+            <li><a href="../clientes/index.php"><i class='bx bxs-widget icon'></i>Clientes</a></li>
+            <li><a href="../users/index.php"><i class='bx bxs-widget icon'></i>Usuarios</a></li>
+            <li><a href="../proveedores/index.php"><i class='bx bxs-widget icon'></i>Provedores</a></li>
+            <li><a href="index.php" class="active"><i class='bx bxs-widget icon'></i>Ventas</a></li>
+            <li><a href="../stocks/index.php"><i class='bx bxs-widget icon'></i>Stocks</a></li>
+
         </ul>
     </section>
     <!-- SIDEBAR -->
@@ -67,6 +73,7 @@ if ($rol == 2) {
                     <i class='bx bx-search icon'></i>
                 </div>
             </form>
+
             <span class="divider"></span>
             <div class="profile">
                 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
@@ -74,50 +81,100 @@ if ($rol == 2) {
                 <ul class="profile-link">
                     <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
                     <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
-                    <li><a href="../cerrar_sesion.php"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                    <li><a href="../../cerrar_sesion.php"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
                 </ul>
             </div>
         </nav>
         <!-- NAVBAR -->
-        <section id="container"> 
-            <div class="title_page">
-                <h1> <i class="fas fa-cube"></i>Nueva Venta </h1>
-            </div>
-            <div class="datos_cliente">
-                <div class="action_cliente">
-                    <h4>Datos del cliente</h4>
-                    <a href="" class="btn_new btn_new_cliente"> <i class="fas fa-plus"></i>Nuevo Cliente</a>
+        <div class="container">
+            <h1 class="page-header text-center">Venta</h1>
+            <div class="row">
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
+                            class="fa-solid fa-circle-plus"></i>Nuevo Venta</a>
                 </div>
+                <div class="col-12 mt-3">
+                    <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
+                        <thead>
+                            <tr>
+                                <th class="">Id Venta</th>
+                                <th class="">Cantidad</th>
+                                <th class="">Fecha</th>
+                                <th class="">Cliente</th>
+                                <th class="">Productos</th>
+                                <th class="">Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php  $consult = mysqli_query($con, "SELECT * FROM clientes");?>
+                        <?php  $consulta = mysqli_query($con, "SELECT * FROM productos");?>
+                            <?php
+							$sql = "SELECT * FROM ventas";
+							$query = mysqli_query($con, $sql);
 
-                <form name="form_new_cliente_venta" id="form_new_cliente_venta" class="datos">
-                    <input type="hidden" name="action" value="addcliente">
-                    <input type="hidden" id="idcliente" name="idcliente" value="" required>
+							while ($mostrar = $query->fetch_assoc()) { ?>
+                            <tr>
+                                <td class="">
+                                    <?php echo $mostrar['id_venta'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['cantidad'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['fecha'] ?>
+                                </td>
+                                <?php
+                                    while ($pr = mysqli_fetch_array($consult)) {
+                                        echo "<td>".$pr[1]." / ".$pr[2]. "</td>";
+                                    }
+                                ?>
+                                <?php
+                                    while ($pr = mysqli_fetch_array($consulta)) {
+                                        echo "<td>".$pr[0]." / ".$pr[2]. "</td>";
+                                    }
+                                ?>
 
-                    <div class="wd30">
-                        <label>Nit</label>
-                        <input type="text" name="nit_cliente" id="nit_cliente">
-                    </div>
+                                <td class="text-center">
+                                    <a href="#edit_<?php echo $mostrar['id_venta']; ?>"
+                                        class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
+                                        <i class='bx bxs-pencil'></i></a>
+                                    <a href="#delete_<?php echo $mostrar['id_venta']; ?>"
+                                        class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
+                                        <i class='bx bxs-trash-alt'></i></a>
+                                </td>
+                                <?php include('eliminar-editar.php'); ?>
+                            </tr>
 
-                    <div class="wd30">
-                        <label>Nombre</label>
-                        <input type="text" name="nom_cliente" id="nom_cliente" disabled required>
-                    </div>
-
-                    <div class="wd30">
-                        <label>Telefono</label>
-                        <input type="number" name="tel_cliente" id="tel_cliente" disabled required>
-                    </div>
-
-                    <div class="wd100">
-                        <label>Direccion</label>
-                        <input type="text" name="dir_cliente" id="dir_cliente" disabled required>
-                    </div>
-                    <div id="div_registro_cliente" class="wd100"> 
-                        <button type="submit" class="btn_save"> <i class="far fa-save fa-lg"></i> Guardar </button>
-                    </div>
-                </form>
+                            <?php include('eliminar-editar.php'); ?>
+                            </tr>
+                            <?php
+							}
+							?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
-
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+            integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+            integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/buscador.js"></script>
+        <script>
+        $('#mitabla').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json'
+            }
+        });
+        </script>
 </body>
+
 </html>

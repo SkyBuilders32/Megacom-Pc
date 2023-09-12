@@ -32,7 +32,7 @@ if ($rol == 2) {
 <?php include "includes/scripts.php" ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <title>Nueva Venta</title>
@@ -117,7 +117,19 @@ if ($rol == 2) {
                     </div>
                 </form>
             </div>
+            <div class="datos_venta"></div>
+            <div class="datos">
+                <div class="wd50">
+                    <label >Vendedor</label>
+                    <p>*T*T*T*T*T*TT*</p>
+                </div>
+            </div>
         </section>
 
+
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="../assets/js/app.js"></script>
+</body>
 </body>
 </html>

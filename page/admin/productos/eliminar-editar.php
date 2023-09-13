@@ -2,9 +2,8 @@
 
 <?php  $consult = mysqli_query($con, "SELECT * FROM proveedores");?>
 <?php  $consulta = mysqli_query($con, "SELECT * FROM proveedores");?>
-
 <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Nueva Venta</h5>
@@ -12,140 +11,130 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="nuevo.php" enctype="multipart/form-data">
-                <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
-                        <?php
-                            while ($pr = mysqli_fetch_array($consult)){
-                            echo " <option value=".$pr[0]." >  ".$pr[1]." / ".$pr[2]." / ".$pr[7]." </option>"; 
-                            }
-                        ?>
-                        </select>
-                        <label for="floatingSelect">Selecciona el Proveedor</label>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Imagen</label>
-                        <div class="col-sm-13">
-                            <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="floatingSelect">Selecciona el Proveedor</label>
+                                <select class="form-select" id="floatingSelect" aria-label="Proveedor" name="proveedor">
+                                    <?php
+                                    while ($pr = mysqli_fetch_array($consult)){
+                                        echo "<option value=".$pr[0].">".$pr[1]." / ".$pr[2]." / ".$pr[7]."</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Marca</label>
+                                <input type="text" class="form-control" name="marca" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Modelo</label>
+                                <input type="text" class="form-control" name="modelo" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Precio Base</label>
+                                <input type="number" class="form-control" name="precio_base" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="mb-3">
+                                <label class="form-label">Imagen</label>
+                                <input type="file" accept="image/*" class="form-control" name="imagen" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Existencias</label>
+                                <input type="number" class="form-control" name="existencias" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" name="descripcion" required>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Marca</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="marca" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Modelo</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="modelo" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-4 col-form-label">Precio Base</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="precio_base" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Existencias</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="existencias" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Descripcion</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="descripcion" required>
-                        </div>
-                    </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" name="nuevo" class="btn btn-primary">Aceptar</a>
-                    </form>
+                <button type="submit" name="nuevo" class="btn btn-primary">Aceptar</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<!-- Editar -->
 
+<!-- Editar -->
 <div class="modal fade" id="edit_<?php echo $mostrar['id_producto']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
-    aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-scrollable">
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Editar Producto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>" enctype="multipart/form-data">
-                <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="proveedor">
-                        <?php
-                            while ($proe = mysqli_fetch_array($consulta)){
-                            echo " <option value=".$proe[0]." > ".$proe[0]." / ".$proe[1]." / ".$proe[2]." / ".$proe[3]." </option>"; 
-                            }
-                        ?>
-                        </select>
-                        <label for="floatingSelect">Selecciona el Id Proveedor</label>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Imagen</label>
-                        <div class="col-sm-13">
-                            <input type="file" accept="image/*" class="form-control" name="imagen">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-4 col-form-label">ID Producto</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="id_producto"
-                                value="<?php echo $mostrar['id_producto']; ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Marca</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="marca"
-                                value="<?php echo $mostrar['marca']; ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Modelo</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="modelo"
-                                value="<?php echo $mostrar['modelo']; ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-4 col-form-label">Precio Base</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="precio_base"
-                                value="<?php echo $mostrar['precio_base']; ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Existencias</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="existencias"
-                                value="<?php echo $mostrar['existencias']; ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Descripcion</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="descripcion"
-                                value="<?php echo $mostrar['descripcion']; ?>">
-                        </div>
-                    </div>
+                <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>"
+                    enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="floatingSelect">Selecciona el Id Proveedor</label>
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example" name="proveedor">
+                                    <?php
+                                        while ($proe = mysqli_fetch_array($consulta)){
+                                            echo "<option value=".$proe[0]."> ".$proe[0]." / ".$proe[1]." / ".$proe[2]." / ".$proe[3]." </option>"; 
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">ID Producto</label>
+                                <input type="number" class="form-control" name="id_producto"
+                                    value="<?php echo $mostrar['id_producto']; ?>">
+                            </div>
 
-
+                            <div class="mb-3">
+                                <label class="col-form-label">Marca</label>
+                                <input type="text" class="form-control" name="marca"
+                                    value="<?php echo $mostrar['marca']; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Modelo</label>
+                                <input type="text" class="form-control" name="modelo"
+                                    value="<?php echo $mostrar['modelo']; ?>">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 mostrar">
+                                <label class="col-sm-2 col-form-label">Imagen</label>
+                                <div class="col-sm-13">
+                                    <input type="file" accept="image/*" class="form-control" name="imagen">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Precio Base</label>
+                                <input type="number" class="form-control" name="precio_base"
+                                    value="<?php echo $mostrar['precio_base']; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Existencias</label>
+                                <input type="number" class="form-control" name="existencias"
+                                    value="<?php echo $mostrar['existencias']; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Descripcion</label>
+                                <input type="text" class="form-control" name="descripcion"
+                                    value="<?php echo $mostrar['descripcion']; ?>">
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="edit" class="btn btn-primary"> Update</a>
-                    </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" name="edit" class="btn btn-primary">Actualizar</button>
+                </form>
             </div>
         </div>
     </div>

@@ -1,8 +1,7 @@
 <!-- Nuevo Cliente -->
 
-
 <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Nuevo cliente</h5>
@@ -10,36 +9,37 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="nuevo.php">
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Cedula:</label>
-                        <div class="col-sm-13">
-                            <input type="number" class="form-control" name="cedula" required>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3 mostrar">
+                                <label class="col-form-label">Cedula:</label>
+                                <input type="number" class="form-control" name="cedula" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 mostrar">
+                                <label class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" name="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 mostrar">
+                                <label class="col-form-label">Apellido:</label>
+                                <input type="text" class="form-control" name="apellido" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 mostrar">
+                                <label class="col-form-label">Correo:</label>
+                                <input type="email" class="form-control" name="correo" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Nombre:</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="nombre" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Apellido:</label>
-                        <div class="col-sm-13">
-                            <input type="text" class="form-control" name="apellido" required>
-                        </div>
-                    </div>
-                    <div class="mb-3 mostrar">
-                        <label class="col-sm-2 col-form-label">Correo:</label>
-                        <div class="col-sm-13">
-                            <input type="email" class="form-control" name="correo" required>
-                        </div>
-                    </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" name="nuevo" class="btn btn-primary">Aceptar</a>
-                    </form>
+                <button type="submit" name="nuevo" class="btn btn-primary">Aceptar</button>
+                </form>
             </div>
         </div>
     </div>

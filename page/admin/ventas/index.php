@@ -36,7 +36,12 @@ if ($rol == 2) {
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
 
-    <title>Nueva Venta</title>
+    <title>Venta</title>
+    <style>
+    a {
+        text-decoration: none;
+    }
+    </style>
 </head>
 
 <body>
@@ -82,46 +87,69 @@ if ($rol == 2) {
                 </ul>
             </div>
         </nav>
-        <!-- NAVBAR -->
-        <section id="container"> 
-            <div class="title_page">
-                <h1> <i class="fas fa-cube"></i>Nueva Venta </h1>
-            </div>
-            <div class="datos_cliente">
-                <div class="action_cliente">
-                    <h4>Datos del cliente</h4>
-                    <a href="" class="btn_new btn_new_cliente"> <i class="fas fa-plus"></i>Nuevo Cliente</a>
+        <div class="container">
+            <h1 class="page-header text-center">Ventas</h1>
+            <div class="row">
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
+                            class="fa-solid fa-circle-plus"></i>Nuevo Venta</a>
                 </div>
+                <div class="col-12 mt-3">
+                    <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
+                        <thead>
+                            <tr>
+                                <th class="">Id Venta</th>
+                                <th class="">Cantidad</th>
+                                <th class="">Fecha</th>
+                                <th class="">Cliente</th>
+                                <th class="">Productos</th>
+                                <th class="">Acciones</th>
 
-                <form name="form_new_cliente_venta" id="form_new_cliente_venta" class="datos">
-                    <input type="hidden" name="action" value="addcliente">
-                    <input type="hidden" id="idcliente" name="idcliente" value="" required>
 
-                    <div class="wd30">
-                        <label>Nit</label>
-                        <input type="text" name="nit_cliente" id="nit_cliente">
-                    </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+							$sql = "SELECT * FROM ventas";
+                            $query = mysqli_query($con, $sql);
 
-                    <div class="wd30">
-                        <label>Nombre</label>
-                        <input type="text" name="nom_cliente" id="nom_cliente" disabled required>
-                    </div>
-
-                    <div class="wd30">
-                        <label>Telefono</label>
-                        <input type="number" name="tel_cliente" id="tel_cliente" disabled required>
-                    </div>
-
-                    <div class="wd100">
-                        <label>Direccion</label>
-                        <input type="text" name="dir_cliente" id="dir_cliente" disabled required>
-                    </div>
-                    <div id="div_registro_cliente" class="wd100"> 
-                        <button type="submit" class="btn_save"> <i class="far fa-save fa-lg"></i> Guardar </button>
-                    </div>
-                </form>
+							while ($mostrar = $query->fetch_assoc()) { ?>
+                            <tr>
+                                <td class="">
+                                    <?php echo $mostrar['id_venta'] ?>
+                                </td>                                
+                                <td class="">
+                                    <?php echo $mostrar['cantidad'] ?>
+                                </td>
+                        
+                                <td class="">
+                                    <?php echo $mostrar['fecha'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['cliente'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['productos'] ?>
+                                </td>
+                                
+                                </td>
+                                <td class="text-center">
+                                    <a href="#edit_<?php echo $mostrar['id_venta']; ?>"
+                                        class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
+                                        <i class='bx bxs-pencil'></i></a>
+                                    <a href="#delet_<?php echo $mostrar['id_venta']; ?>"
+                                        class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
+                                        <i class='bx bxs-trash-alt'></i></a>
+                                </td>
+                                <?php include('eliminar-editar.php'); ?>
+                            </tr>
+                            <?php
+							}
+							?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
 
 </body>
 

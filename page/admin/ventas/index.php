@@ -110,10 +110,10 @@ if ($rol == 2) {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT ventas.*,c.modelo, c.id_producto, b.nombre, b.Id FROM ventas
+                            $sql = "SELECT ventas.*,a.marca, a.id_producto, c.modelo, c.id_producto, b.nombre, b.Id FROM ventas
                         INNER JOIN productos as c ON ventas.productos = c.id_producto
-                        INNER JOIN clientes as b ON ventas.cliente = b.Id";
-
+                        INNER JOIN clientes as b ON ventas.cliente = b.Id
+                        INNER JOIN productos as a ON ventas.productos = a.id_producto";
                             
 
                             $query = mysqli_query($con, $sql); 
@@ -134,7 +134,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['modelo'] ?>
+                                    <?php echo $mostrar['modelo'] . $mostrar['marca'] ?>
                                 </td>
                                 
                                 </td>

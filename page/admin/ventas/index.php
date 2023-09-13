@@ -134,7 +134,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['modelo'] ." ". $mostrar['marca'] ?>
+                                    <?php echo $mostrar['modelo'] ."// ". $mostrar['marca'] ?>
                                 </td>
                                 
                                 </td>

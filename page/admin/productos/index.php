@@ -113,7 +113,7 @@ if ($rol == 2) {
 							$sql = "SELECT productos.*, p.nombre, p.id_proveedor 
                             FROM productos
                             INNER JOIN proveedores as p
-                            ON productos.proveedor = p.id_proveedor;";
+                            ON productos.proveedor = p.id_proveedor";
                             
 							$query = mysqli_query($con, $sql);
 

@@ -110,7 +110,12 @@ if ($rol == 2) {
                         </thead>
                         <tbody>
                             <?php
-							$sql = "SELECT * FROM ventas";
+                            $sql = "SELECT ventas.*, p.nombre, p.Id
+                            FROM ventas
+                            INNER JOIN clientes as p
+                            ON ventas.cliente = p.Id;";
+
+							
                             $query = mysqli_query($con, $sql);
 
 							while ($mostrar = $query->fetch_assoc()) { ?>
@@ -126,7 +131,7 @@ if ($rol == 2) {
                                     <?php echo $mostrar['fecha'] ?>
                                 </td>
                                 <td class="">
-                                    <?php echo $mostrar['cliente'] ?>
+                                    <?php echo $mostrar['nombre'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['productos'] ?>

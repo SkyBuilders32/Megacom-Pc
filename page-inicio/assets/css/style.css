@@ -216,7 +216,8 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--ultramarine-blue);
+
+  background-color: rgba(0, 3, 173, 0.76);
   color: var(--white);
 }
 
@@ -287,7 +288,7 @@ body {
 }
 
 .logo {
-  color: var(--ultramarine-blue);
+  color: rgb(0, 3, 173);
   font-size: 2.4rem;
   font-weight: var(--fw-800);
 }
@@ -856,7 +857,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--ultramarine-blue);
+    background-color: var(--space-cadet-2);
+    
     color: var(--white);
     min-height: 50px;
     padding-inline: 25px;

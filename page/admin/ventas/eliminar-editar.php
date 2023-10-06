@@ -24,8 +24,15 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 mostrar">
-                                <label class="col-form-label">Apellido:</label>
+                                <label 
+                                class="col-form-label">Apellido:</label>
                                 <input type="text" class="form-control" name="apellido" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 mostrar">
+                                <label class="col-form-label">Telefono:</label>
+                                <input type="number" class="form-control" name="telefono" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -40,6 +47,9 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="submit" name="nuevo" class="btn btn-primary">Aceptar</button>
                 </form>
+            </div>
+            <div class="modal-body">
+                for
             </div>
         </div>
     </div>

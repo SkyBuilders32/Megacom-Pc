@@ -110,8 +110,11 @@ li {
 i{
 	font-size: 18px;
 }
+#sidebar .side-menu > li > a {
+	background: rgb(244, 244, 244);
+}
 #sidebar .side-menu > li > a:hover {
-	background: var(--grey);
+	background: rgb(210, 210, 210);
 }
 #sidebar .side-menu > li > a.active .icon-right {
 	transform: rotateZ(90deg);
@@ -301,11 +304,20 @@ nav .profile .profile-link a:hover {
   
   .item {
 	width: 170px;
-	background-color: #f5f5f5;
-	border: 1px solid #ddd;
+	background-color: #ffffff;
+	border-radius: 15px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 	padding: 1rem;
 	margin: 0.5rem;
 	text-align: center;
+	transition: all 0.5s;
+  }
+  .item:hover{
+	/* width: 200px; */
+	/* position: relative; */
+	/* transform: translateY(9px); */
+	/* transform: translateX(-9px); */
+	transform: scale(0.95);
   }
   
   .item__image {

@@ -117,7 +117,7 @@ if ($rol == 2) {
                             
 							$query = mysqli_query($con, $sql);
 
-							while ($mostrar = $query->fetch_assoc()) { ?>
+							while ($mostrar = mysqli_fetch_array($query)) { ?>
                             <tr>
                                 <td class="">
                                     <?php echo $mostrar['id_producto'] ?>

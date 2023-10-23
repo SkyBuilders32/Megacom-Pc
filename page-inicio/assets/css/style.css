@@ -529,200 +529,55 @@ body {
   margin-inline: auto;
 }
 
-
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
-
-.about {
-  padding-block-start: 0;
-  margin-top: 100px;
-}
-
-.about-banner {
-  background-color: var(--light-gray);
-  max-width: max-content;
-  aspect-ratio: 450 / 590;
-  margin-block-end: 40px;
-}
-
-.about-img {
-  border-radius: var(--radius-6);
-}
-
-.about-list {
-  margin-block: 40px 60px;
-}
-
-.about-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 25px;
-}
-
-.about-item:not(:last-child) {
-  margin-block-end: 30px;
-}
-
-.about-item .item-icon {
-  padding: 15px;
-  border-radius: 50%;
-}
-
-.about-item .item-icon-1 {
-  background-color: hsla(36, 100%, 55%, 0.1);
-}
-
-.about-item .item-icon-2 {
-  background-color: hsla(235, 70%, 60%, 0.1);
-}
-
-.about-item .item-icon-3 {
-  background-color: var(--coral_10);
-}
-
-.about-item .item-title {
-  line-height: 1.6;
-  margin-block-end: 5px;
-}
-
-.about-item .item-text {
-  font-weight: var(--fw-500);
-}
-
-/*-----------------------------------*\
-  #NEWSLETTER
-\*-----------------------------------*/
-
-.newsletter {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
-
-.newsletter .section-title {
-  margin-block-end: 30px;
-}
-
-.input-wrapper {
-  position: relative;
-}
-
-.email-field {
-  background-color: var(--white);
-  color: inherit;
-  height: 80px;
-  padding-inline: 45px 20px;
-  border-radius: var(--radius-6);
-  margin-block-end: 20px;
-}
-
-.input-wrapper ion-icon {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  --ionicon-stroke-width: 40px;
-}
-
-
-
-
-
-/*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
-
-.footer {
-  background-color: var(--space-cadet-2);
-  color: var(--white);
-}
-
-.footer-top {
-  display: grid;
-  gap: 60px;
-  padding-block: 60px 50px;
-}
-
-.footer .logo {
-  color: var(--white);
-}
-
-.footer .section-text {
-  margin-block: 25px 35px;
-}
-
-.social-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.social-link {
-  background-color: var(--white_10);
-  font-size: 22px;
-  padding: 14px;
-  border-radius: var(--radius-4);
-  transition: var(--transition-1);
-}
-
-.social-link:is(:hover, :focus) {
-  background-color: var(--ultramarine-blue);
-}
-
-.footer-list-title {
-  font-size: var(--fs-3);
-  font-weight: var(--fw-700);
-  margin-block-end: 20px;
-}
-
-.footer-link,
-.footer-item {
-  display: flex;
-  gap: 8px;
-}
-
-.footer-link {
-  align-items: center;
-  padding-block: 10px;
-  transition: var(--transition-1);
-}
-
-.footer-link:not(address):is(:hover, :focus) {
-  color: var(--ultramarine-blue);
-}
-
-.footer-item {
-  align-items: baseline;
-}
-
-.footer-item address {
-  flex: 1;
-}
-
-.footer-item ion-icon {
-  --ionicon-stroke-width: 50px;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-block: 20px;
-}
-
-.copyright-link {
-  display: inline-block;
-  font-weight: var(--fw-700);
-  transition: var(--transition-1);
-}
-
-.copyright-link:is(:hover, :focus) {
-  color: var(--ultramarine-blue);
-}
-
-
-
-
+.container_inve {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+  }
+  
+  .item {
+	width: 170px;
+	background-color: #ffffff;
+	border-radius: 15px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	padding: 1rem;
+	margin: 0.5rem;
+	text-align: center;
+	transition: all 0.5s;
+  }
+  .item:hover{
+	/* width: 200px; */
+	/* position: relative; */
+	/* transform: translateY(9px); */
+	/* transform: translateX(-9px); */
+	transform: scale(0.95);
+  }
+  
+  .item__image {
+	max-width: 100%;
+	border-radius: 5px;
+  }
+  
+  .item__name {
+	margin-top: 1rem;
+  }
+  
+  .item__description {
+	font-size: 17px;
+	margin-top: 11px;
+  }
+  
+  .item__price {
+	display: block;
+	margin-top: 1rem;
+	font-weight:700;
+	font-size: 20px;
+	color: #333;
+  }
+  .imagen{
+	display: flex;
+	width: 100px;
+  }
 
 /*-----------------------------------*\
   #BACK TO TOP

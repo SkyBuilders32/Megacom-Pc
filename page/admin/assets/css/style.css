@@ -110,8 +110,11 @@ li {
 i{
 	font-size: 18px;
 }
+#sidebar .side-menu > li > a {
+	background: rgb(244, 244, 244);
+}
 #sidebar .side-menu > li > a:hover {
-	background: var(--grey);
+	background: rgb(210, 210, 210);
 }
 #sidebar .side-menu > li > a.active .icon-right {
 	transform: rotateZ(90deg);

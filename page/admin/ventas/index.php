@@ -92,7 +92,7 @@ if ($rol == 2) {
             <div class="row">
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                            class="fa-solid fa-circle-plus"></i>Nuevo Venta</a>
+                            class="fa-solid fa-circle-plus"></i>Nuevo Cliente</a>
                 </div>
                 <div class="col-12 mt-3">
                     <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">

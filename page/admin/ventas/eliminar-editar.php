@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel">Nuevo cliente</h5>
+                <h5 class="modal-title" id="ModalLabel">Nueva venta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mb-3 mostrar">
-                                <label class="col-form-label">Cedula:</label>
+                                <label class="col-form-label"></label>
                                 <input type="number" class="form-control" name="cedula" required>
                             </div>
                         </div>

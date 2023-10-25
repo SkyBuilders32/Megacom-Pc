@@ -30,8 +30,9 @@ productsList.addEventListener('click', e => {
 
 		const infoProduct = {
 			quantity: 1,
+			imagen: product.querySelector('.img-item').src,
 			title: product.querySelector('h2').textContent,
-			price: product.querySelector('p').textContent,
+			price: product.querySelector('.price').textContent,
 		};
 
 		const exits = allProducts.some(
@@ -96,6 +97,7 @@ const showHTML = () => {
 		containerProduct.innerHTML = `
             <div class="info-cart-product">
                 <span class="cantidad-producto-carrito">${product.quantity}</span>
+				<img class="img-cart" src="${product.imagen}">
                 <p class="titulo-producto-carrito">${product.title}</p>
                 <span class="precio-producto-carrito">${product.price}</span>
             </div>
@@ -118,7 +120,7 @@ const showHTML = () => {
 		rowProduct.append(containerProduct);
 
 		total =
-			total + parseInt(product.quantity * product.price.slice(1));
+			total + parseInt(product.quantity * product.price.slice(0));
 		totalOfProducts = totalOfProducts + product.quantity;
 	});
 

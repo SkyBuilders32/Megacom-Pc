@@ -16,9 +16,11 @@
             $existencias = $_POST['existencias'];
             $descripcion = $_POST['descripcion'];
             $proveedor = $_POST['proveedor'];
+            $usuario = $_SESSION['id'];
 
  
-            $sql = "INSERT INTO productos (imagen, marca, modelo, precio_base, existencias, descripcion, proveedor) VALUES ('$truta', '$marca','$modelo','$precio_base','$existencias','$descripcion','$proveedor')";
+            $sql = "INSERT INTO productos (imagen, marca, modelo, precio_base, existencias, descripcion, proveedor, usuario) 
+            VALUES ('$truta', '$marca','$modelo','$precio_base','$existencias','$descripcion','$proveedor', '$usuario')";
            
 
             $query = $con->query($sql);

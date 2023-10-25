@@ -35,6 +35,7 @@ if (isset($_POST['inicio'])) {
     $fila = mysqli_fetch_array($validar_login);
 
     if (mysqli_num_rows($validar_login) > 0) {
+        $_SESSION['id'] = $fila[0];
         $_SESSION['correo'] = $fila[1];
         $_SESSION['rol'] = $fila[4];
         if ($fila[4] == 1) {

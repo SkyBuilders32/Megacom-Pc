@@ -33,21 +33,13 @@
                                 <input type="text" class="form-control" name="modelo" required>
                             </div>
                             
-                            <div class="mb-3">
-                                <label class="form-label">Precio Base</label>
-                                <input type="number" class="form-control" name="precio_base" required>
-                            </div>
-                        </div>
+                        
                         <div class="col-md-6">
                         <div class="mb-3">
                                 <label class="form-label">Imagen</label>
                                 <input type="file" accept="image/*" class="form-control" name="imagen" required>
                             </div>
                             
-                            <div class="mb-3">
-                                <label class="form-label">Existencias</label>
-                                <input type="number" class="form-control" name="existencias" required>
-                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Descripcion</label>
                                 <input type="text" class="form-control" name="descripcion" required>

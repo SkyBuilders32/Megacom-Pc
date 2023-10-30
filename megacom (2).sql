@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2023 a las 20:24:56
+-- Tiempo de generación: 30-10-2023 a las 20:29:15
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -199,13 +199,6 @@ CREATE TABLE `stocks` (
   `usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `stocks`
---
-
-INSERT INTO `stocks` (`Id_stock`, `Cantidad`, `Precio`, `producto`, `usuario`) VALUES
-(3, 61, 100000, 6, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -363,7 +356,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `Id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_stock` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

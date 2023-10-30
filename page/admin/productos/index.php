@@ -99,7 +99,9 @@ if ($rol == 2) {
                                 <th class="">Imagen</th>
                                 <th class="">Marca</th>
                                 <th class="">Modelo</th>
-                                <th class="">Precio Base</th>
+                                <th class="">Precio Compra</th>
+                                <th class="">Precio Venta</th>
+                                <th class="">Ganancia</th>
                                 <th class="">Existencias</th>
                                 <th class="">Descripcion</th>
                                 <th class="">Id Proveedor</th>
@@ -133,6 +135,12 @@ if ($rol == 2) {
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['precio_base'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['precio_de_venta'] ?>
+                                </td>
+                                <td class="">
+                                    <?php echo $mostrar['ganancia'] ?>
                                 </td>
                                 <td class="">
                                     <?php echo $mostrar['existencias'] ?>

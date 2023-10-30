@@ -65,7 +65,7 @@ header{
     right: 0;
 
     background-color: #fff;
-    width: 400px;
+    width: 500px;
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
@@ -76,29 +76,49 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
 
 }
 
 .info-cart-product{
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
-    flex: 0.8;
+    flex: 1;
 }
-
+.img-cart{
+    width: 80px;
+    border-radius: 5px;
+}
 .titulo-producto-carrito{
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin-left: 5px;
     font-size: 20px;
 }
 
 .precio-producto-carrito{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-weight: 700;
     font-size: 20px;
     margin-left: 10px;
 }
 
 .cantidad-producto-carrito{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
     font-weight: 400;
     font-size: 20px;
 }
@@ -147,12 +167,18 @@ header{
 
 .item{
     width: 270px;
+    overflow: hidden;
+    background-color: rgb(240, 240, 240);
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.20);
+    transition: all .5s;
+    
 }
 
 .item:hover{
+    transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
 }
 
@@ -164,27 +190,36 @@ header{
     transition: all .5s;
 }
 
-.item figure{
+.item span{
     overflow: hidden;
     border-radius: 20px 20px 0 0;
 
 }
 
-.item:hover img{
-    transform: scale(1.2);
-}
 
 .info-product{
-    padding: 15px 30px;
-    line-height: 2;
+    line-height: 1.5;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
+h2, .model, .price, .btn-add-cart{
+    padding: 4px 15px;
 
-.price{
+}
+.btn-add-cart{
+    margin: 9px;
+}
+h2{
+    font-size: 17px;
+}
+.model{
     font-size: 18px;
+}
+.price{
+    font-size: 22px;
     font-weight: 900;
+    color: rgb(185, 4, 4);
 }
 
 .info-product button{

@@ -23,6 +23,7 @@ if ($rol == 2) {
     </script>
     ';
 }
+echo md5($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,7 +37,6 @@ if ($rol == 2) {
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
     <title>AdminSite</title>
     <style>
     a {
@@ -46,6 +46,7 @@ if ($rol == 2) {
 </head>
 
 <body>
+<?php echo md5($_SESSION['id']); ?>
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
@@ -134,7 +135,9 @@ if ($rol == 2) {
             <div class="datos">
                 <div class="wd50">
                     <label for="vendedor">Vendedor</label>
-                    <p>Juan Manuel Usme</p>
+                    <p>
+                        <?php echo $_SESSION['correo']; ?>
+                    </p>
                 </div>
                 <div class="wd50">
                     <label for="acciones">Acciones</label>
@@ -157,13 +160,13 @@ if ($rol == 2) {
                     <th>Accion</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="txt_cod_producto" id="txt_cod_producto"></td>
+                    <td><input type="number" name="txt_cod_producto" id="txt_cod_producto"></td>
                     <td id="txt_descripcion">-</td>
                     <td id="txt_existencia">-</td>
                     <td><input type="text" name="txt_cant_producto" id="txt_cant_producto" value="0" min="1" disabled></td>
                     <td id="txt_precio" class="textright">0.00</td>
                     <td id="txt_precio_total" class="textright">0.00</td>
-                    <td> <a href="" id="add_product_venta" class="link_add"><i class="fas fa-plus"></i>Agregar</a></td>
+                    <td> <a href="" id="add_product_venta" class="link_add"><i class='bx bxs-plus-square' ></i>Agregar</a></td>
                 </tr>
                 <tr>
                 <th>Codigo</th>
@@ -217,16 +220,8 @@ if ($rol == 2) {
                 crossorigin="anonymous"></script>
             <script src="https://code.jquery.com/jquery-3.6.4.min.js"
                 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-            <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
             <script src="../assets/js/app.js"></script>
             <script src="../assets/js/buscador.js"></script>
-            <script>
-            $('#mitabla').DataTable({
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json'
-                }
-            });
-            </script>
 </body>
 
 </html>

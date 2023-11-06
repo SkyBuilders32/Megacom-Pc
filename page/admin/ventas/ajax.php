@@ -38,8 +38,36 @@ if ($_POST['action'] == 'addCliente') {
         $apellido = $_POST['ap_cliente'];
         $correo = $_POST['cor_cliente'];
         $telefono = $_POST['tel_cliente'];
-        $sql = mysqli_query ($con, "INSERT INTO clientes (cedula, nombre, apellido, correo, Telefono) VALUES ('$cedula','$nombre','$apellido','$correo', '$telefono')");
+        $query_insert = mysqli_query ($con, "INSERT INTO clientes (cedula, nombre, apellido, correo, Telefono) VALUES ('$cedula','$nombre','$apellido','$correo', '$telefono')");
+    
+    if ($query_insert){
+        $codCliente = mysqli_insert_id($con);
+        $msg = $codCliente;
+        } else {
+            $msg = 'No se pudo agregar el registro';
     }
+    mysqli_close($con);
+    echo $msg;
+    exit;
+}
+if ($_POST['action'] == 'infoProducto') {
+    $producto_id = $_POST['producto'];
+    $query = mysqli_query($con, "SELECT id_producto, modelo, existencias, precio_de_venta FROM productos where id_producto = $producto_id");
+    mysqli_close($con);
+    $row = mysqli_num_rows($query);
+    if ($row > 0) {
+        $data = mysqli_fetch_assoc($query);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+    echo 'error';
+    exit;
+}
+
+//extraer los datos del producto
+if ($_POST['action'] == 'infoProducto') {
+    $producto=$_POST['producto'];
+}
 }
 exit;
 ?>

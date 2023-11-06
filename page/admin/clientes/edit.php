@@ -7,9 +7,10 @@
             $cedula = $_GET['cedula'];
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
+            $telefono = $_POST['telefono'];
             $correo = $_POST['correo'];
  
-            $upd = "UPDATE clientes set nombre='$nombre', apellido='$apellido', correo='$correo' WHERE cedula='$cedula'";
+            $upd = "UPDATE clientes set nombre='$nombre', apellido='$apellido', correo='$correo', Telefono='$telefono' WHERE cedula='$cedula'";
 
             $query = mysqli_query($con, $upd);
             

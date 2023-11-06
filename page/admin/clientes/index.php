@@ -99,6 +99,7 @@ if ($rol == 2) {
                                 <th class="">Cedula</th>
                                 <th class="">Nombre</th>
                                 <th class="">Apellido</th>
+                                <th class="">Telefono</th>
                                 <th class="">Correo</th>
                                 <th class="">Actualizar</th>
                             </tr>
@@ -119,6 +120,9 @@ if ($rol == 2) {
                                 <td class="">
                                     <?php echo $mostrar['apellido'] ?>
                                 </td>
+                                <td class="">
+                                    <?php echo $mostrar['Telefono'] ?>
+                                    </td>
                                 <td class="">
                                     <?php echo $mostrar['correo'] ?>
                                 </td>

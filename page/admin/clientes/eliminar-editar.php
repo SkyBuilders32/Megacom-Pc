@@ -29,6 +29,12 @@
                         </div>
                     </div>
                     <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Telefono:</label>
+                        <div class="col-sm-13">
+                            <input type="number" class="form-control" name="telefono" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
                         <label class="col-sm-2 col-form-label">Correo:</label>
                         <div class="col-sm-13">
                             <input type="email" class="form-control" name="correo" required>
@@ -78,6 +84,13 @@
                         <div class="col-sm-13">
                             <input type="text" class="form-control" name="apellido"
                                 value="<?php echo $mostrar['apellido']; ?>" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 mostrar">
+                        <label class="col-sm-2 col-form-label">Telefono:</label>
+                        <div class="col-sm-13">
+                            <input type="number" class="form-control" name="telefono" 
+                            value="<?php echo $mostrar['Telefono']; ?>" required>
                         </div>
                     </div>
                     <div class="mb-3 mostrar">

@@ -146,3 +146,78 @@ window.addEventListener('click', function (e) {
 		}
 	})
 })
+
+//system of selling
+ //dropdown the client buttom
+$('.btn_new_cliente').click(function(e){
+	e.preventDefault();
+	$('#nom_cliente').removeAttr('disabled');
+	$('#ap_cliente').removeAttr('disabled');
+	$('#tel_cliente').removeAttr('disabled');
+	$('#cor_cliente').removeAttr('disabled');
+
+	$('#div_registro_cliente').slideDown();
+});
+
+//search for clients
+$('#cedula_cliente').keyup(function (e){
+	e.preventDefault();
+	var cl = $(this).val();
+	var action = 'searchCliente' ;
+	
+	$.ajax({
+		url: 'ajax.php',
+		type: 'POST' ,
+		async: true, 
+		data: {action:action,cliente:cl},
+		success: function(response){
+			
+			if (response == 0) {
+				$('#idcliente').val('');
+				$('#nom_cliente').val('');
+				$('#ap_cliente').val('');
+				$('#tel_cliente').val('');
+				$('#cor_cliente').val('');
+	//show button add
+				$('.btn_new_cliente').slideDown();
+			} else{
+				var data = $.parseJSON(response);
+				$('#idcliente').val(data.Id);
+				$('#nom_cliente').val(data.nombre);
+				$('#ap_cliente').val(data.apellido);
+				$('#tel_cliente').val(data.Telefono);
+				$('#cor_cliente').val(data.correo);
+	//ocult button add
+				$('.btn_new_cliente').slideUp();
+				
+	//block fields
+				$('#nom_cliente').attr('disabled','disabled');
+				$('#ap_cliente').attr('disabled','disabled');
+				$('#tel_cliente').attr('disabled','disabled');
+				$('#cor_cliente').attr('disabled','disabled');
+	//hide div save
+				$('#div_registro_cliente').slideUp();
+			}
+		},
+		error: function(error){
+		}
+	});		
+});
+
+//create cliente from ventas
+$('#form_new_cliente_venta').submit(function (e) {
+	e.preventDefault();
+	$.ajax({
+		url: 'ajax.php',
+		type: 'POST' ,
+		async: true, 
+		data: $('#form_new_cliente_venta').serialize(),
+		
+		success: function(response){
+			console.log(response)
+
+		},
+		error: function(error){
+		}
+	});	
+});

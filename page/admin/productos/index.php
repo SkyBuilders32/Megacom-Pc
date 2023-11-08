@@ -155,7 +155,7 @@ if ($rol == 2) {
                                     <a href="#edit_<?php echo $mostrar['id_producto']; ?>"
                                         class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
                                         <i class='bx bxs-pencil'></i></a>
-                                    <a class="btn btn-success btn-sm text-center edit_product" product="<?php echo $mostrar['id_producto']; ?>" >
+                                    <a class="btn btn-success btn-sm text-center edit_product" product="<?php echo $mostrar['id_producto']; ?>" href="">
                                         <i class='bx bxs-check'></i>ver</a>
                                     <a href="#delet_<?php echo $mostrar['id_producto']; ?>"
                                         class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">

@@ -94,7 +94,7 @@ if ($rol == 2) {
                     <a href="nuevaventa.php" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i>Nuevo Venta</a>
                 </div>
                 <div class="col-12 mt-3">
-                    <table class="table table-bordered table-striped table_id" id="mitabla" style="margin-top:20px;">
+                    <table class="table table-bordered table-striped" style="margin-top:20px;">
                         <thead>
                             <tr>
                                 <th class="">Id Venta</th>

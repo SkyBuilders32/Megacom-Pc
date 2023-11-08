@@ -360,6 +360,23 @@ if($('#txt_cant_producto').val() > 0){
 		});
 	}
 });
+function del_product_detalle(correlativo) {
+	var action = 'delproductodetalle';
+	var id_detalle = correlativo;
+
+	$.ajax({
+		url: 'ajax.php',
+		type: 'POST',
+		async: true,
+		data: {action:action, id_detalle:id_detalle},
+		success: function(response){
+			console.log(response);
+			}, 
+			error: function (error) {
+			}
+		});
+}
+
 function searchfordetalle(id) {
 	var action = 'searchfordetalle';
 	var user = id;

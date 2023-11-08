@@ -120,7 +120,7 @@ if($_POST['action']=='addProductoDetalle'){
                 <td class="textright">'.$preciototal.'</td>
                 <td class="">
                     <a class="link_delete" href="#" onclick="event.preventDefault();
-                    del_product_detalle('.$data['producto'].');"> <i class="bx bxs-trash" ></i> </a>
+                    del_product_detalle('.$data['correlativo'].');"> <i class="bx bxs-trash" ></i> </a>
                 </td>
             </tr>';
                 }
@@ -198,7 +198,7 @@ if($_POST['action']=='searchfordetalle'){
                 <td class="textright">'.$preciototal.'</td>
                 <td class="">
                     <a class="link_delete" href="#" onclick="event.preventDefault();
-                    del_product_detalle('.$data['producto'].');"> <i class="bx bxs-trash" ></i> </a>
+                    del_product_detalle('.$data['correlativo'].');"> <i class="bx bxs-trash" ></i> </a>
                 </td>
             </tr>';
                 }
@@ -229,6 +229,77 @@ if($_POST['action']=='searchfordetalle'){
             mysqli_close($con);
         }
         exit;
+    }
+    //delete producto from detail
+    if ($_POST['action'] == 'delproductodetalle') {
+        if (empty($_POST['id_detalle'] )) {
+            echo 'error';
+        } else {
+            $id_detalle = ['id_detalle'];
+            $token = md5($_SESSION['id']);
+
+            $query_iva = mysqli_query($con, "SELECT iva FROM configuracion");
+            $result_iva = mysqli_num_rows($query_iva);
+            
+            $query_detalle_temp = mysqli_query($con, "CALL del_detalle_temp($id_detalle, '$token')");
+            $result = mysqli_num_rows($query_detalle_temp);
+    
+    
+            $detalletabla = '';
+            $sub_total = 0;
+            $iva = 0;
+            $total = 0;
+            $arrayData = array();
+    
+            if($result > 0 ){
+                if ($result_iva > 0) {
+                    $info_iva = mysqli_fetch_assoc($query_iva);
+                    $iva = $info_iva['iva'];
+                }
+                while ($data = mysqli_fetch_assoc($query_detalle_temp)){
+                    $preciototal = round($data['cantidad'] * $data['precio_de_venta'], 2);
+                    $sub_total   = round($sub_total + $preciototal, 2);
+                    $total       = round($total + $preciototal, 2); 
+                    $detalletabla .= '
+                    <tr>
+                    <td>'.$data['producto'].'</td>
+                    <td colspan="2">'.$data['modelo'].'</td>
+                    <td class="textcenter">'.$data['cantidad'].'</td>
+                    <td class="textright">'.$data['precio_de_venta'].'</td>
+                    <td class="textright">'.$preciototal.'</td>
+                    <td class="">
+                        <a class="link_delete" href="#" onclick="event.preventDefault();
+                        del_product_detalle('.$data['correlativo'].');"> <i class="bx bxs-trash" ></i> </a>
+                    </td>
+                </tr>';
+                    }
+                    $impuesto = round($sub_total * ($iva / 100), 2);
+                    $total_sin_iva = round($sub_total - $impuesto, 2);
+                    $total = round($total_sin_iva + $impuesto, 2);
+    
+                    $detalle_totales = '
+                    <tr>
+                        <td colspan="5" class="textright"> SUBTOTAL Q.</td>
+                        <td class="textright">'.$total_sin_iva.'</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="textright">IVA ('.$iva.')</td>
+                        <td class="textright">'.$impuesto.'</td>
+                    </tr>
+                    <tr>
+                    <td colspan="5" class="textright"><strong> TOTAL A PAGAR Q.</strong></td>
+                    <td class="textright">'.$total.'</td>
+                    </tr>
+                    ';
+                    $arrayData['detalle'] = $detalletabla;
+                    $arrayData['totales'] = $detalle_totales;
+                    echo json_encode($arrayData, JSON_UNESCAPED_UNICODE);
+                } else{
+                    echo "No hay productos";
+                }
+                mysqli_close($con);
+            }
+            exit;
     }
 }
 exit;

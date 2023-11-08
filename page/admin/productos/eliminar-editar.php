@@ -59,7 +59,7 @@
 <!-- Editar -->
 <div class="modal fade" id="edit_<?php echo $mostrar['id_producto']; ?>" tabindex="-1" aria-labelledby="ModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ModalLabel">Editar Producto</h5>
@@ -68,7 +68,7 @@
             <div class="modal-body">
                 <form method="POST" action="edit.php?id_producto=<?php echo $mostrar['id_producto']; ?>"
                     enctype="multipart/form-data">
-                    <div class="row">
+                    < class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="floatingSelect">Selecciona el Id Proveedor</label>
@@ -98,7 +98,7 @@
                                     value="<?php echo $mostrar['modelo']; ?>">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        < class="col-md-6">
                             <div class="mb-3 mostrar">
                                 <label class="col-sm-2 col-form-label">Imagen</label>
                                 <div class="col-sm-13">
@@ -111,10 +111,34 @@
                                     value="<?php echo $mostrar['precio_base']; ?>">
                             </div>
                             <div class="mb-3">
+                                <label class="col-form-label">Precio Venta</label>
+                                <input type="number" class="form-control" name="precio_venta"
+                                    value="<?php echo $mostrar['precio_de_venta']; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Ganancia</label>
+                                <input type="number" class="form-control" name="ganancia"
+                                value="<?php echo $mostrar['ganancia']; ?>">
+                            </div>
+                            <div class="mb-3">
                                 <label class="col-form-label">Existencias</label>
                                 <input type="number" class="form-control" name="existencias"
                                     value="<?php echo $mostrar['existencias']; ?>">
                             </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Usuario</label>
+                                <input type="text" class="form-control" name="usuario"
+                                value="<?php echo $mostrar['usuario']; ?>" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Fecha de creacion</label>
+                                <input type="date" class="form-control" name="fecha_creado"
+                                value="<?php echo $mostrar['date_add']; ?>" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Estado</label>
+                                <input type="number" class="form-control" name="estatus">
+                                    <?php if ($mostrar['estatus']) ?>
                             <div class="mb-3">
                                 <label class="col-form-label">Descripcion</label>
                                 <input type="text" class="form-control" name="descripcion"

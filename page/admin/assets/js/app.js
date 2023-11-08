@@ -318,5 +318,69 @@ if(  ($(this).val() < 1 || isNaN($(this).val())) || ( $(this).val() > existencia
 	} else {
 		$("#add_product_venta").slideDown();
 	}
-})
+});
+
+//add product to detail
+$('#add_product_venta').click(function(e){
+	e.preventDefault();
+if($('#txt_cant_producto').val() > 0){
+	var id_producto = $('#txt_cod_producto').val();
+	var cantidad = $('#txt_cant_producto').val();
+	var action = 'addProductoDetalle';
+	$.ajax({
+		url: 'ajax.php',
+		type: 'POST',
+		async: true,
+		data: {action:action, producto:id_producto,cantidad:cantidad},
+		success: function(response){
+			if(response != 'error'){ 
+				var info = JSON.parse(response);
+				$('#detalle_venta').html(info.detalle);
+				$('#detalle_totales').html(info.totales);
+				//reset fields
+				$('#txt_cod_producto').val('');
+				$('#txt_descripcion').html('');
+				$('#txt_existencia').html('');
+				$('#txt_cant_producto').val('0');
+				$('#txt_precio').html('0.00');
+				$('#txt_precio_total').html('0.00');
+
+				//lock amount
+				$("#txt_cant_producto").prop("disabled",true);
+
+				//hide button add
+				$("#add_product_venta").fadeOut();
+
+				}else{
+					console.log('no data');
+				}
+			}, 
+			error: function (error) {
+			}
+		});
+	}
+});
+function searchfordetalle(id) {
+	var action = 'searchfordetalle';
+	var user = id;
+
+	$.ajax({
+		url: 'ajax.php',
+		type: 'POST',
+		async: true,
+		data: {action:action, user:id},
+		success: function(response){
+			if(response != 'error'){ 
+				var info = JSON.parse(response);
+				$('#detalle_venta').html(info.detalle);
+				$('#detalle_totales').html(info.totales);
+				}else{
+					console.log('no data');
+				}
+			}, 
+			error: function (error) {
+			}
+		});
+}
+
   

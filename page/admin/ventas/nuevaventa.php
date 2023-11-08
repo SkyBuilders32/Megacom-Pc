@@ -46,7 +46,7 @@ echo md5($_SESSION['id']);
 </head>
 
 <body>
-<?php echo md5($_SESSION['id']); ?>
+
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="" class="brand"><i class='bx bxs-smile icon'></i> AdminSite</a>
@@ -178,38 +178,15 @@ echo md5($_SESSION['id']);
                 </tr>
             </thead>
             <tbody id="detalle_venta" >
-                <tr>
-                    <td>1</td>
-                    <td colspan="2">Asus</td>
-                    <td class="textcenter">1</td>
-                    <td class="textright">100.00</td>
-                    <td class="textright">100.00</td>
-                    <td class="">
-                        <a class="link_delete" href="#" onclick="event.preventDefault();
-                        del_product_detalle(1);"> <i class=""></i> </a>
-                    </td>
-                </tr>
+
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5" class="textright"> SUBTOTAL Q.</td>
-                    <td class="textright">88.00</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="textright">IVA 19%</td>
-                    <td class="textright">19</td>
-                </tr>
+            <tfoot id="detalle_totales">
+
             </tfoot>
         </table>
         </section>
 
 
-            
-        
-        
-        
-        
-        
         
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
@@ -222,6 +199,12 @@ echo md5($_SESSION['id']);
                 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
             <script src="../assets/js/app.js"></script>
             <script src="../assets/js/buscador.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                var usuarioid = '<?php echo $_SESSION['id']; ?>';
+                searchfordetalle(usuarioid); 
+            });       
+        </script>
 </body>
 
 </html>

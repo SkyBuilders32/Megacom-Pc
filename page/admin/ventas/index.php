@@ -58,7 +58,7 @@ if ($rol == 2) {
             <li><a href="../users/index.php"><i class='bx bxs-widget icon'></i>Usuarios</a></li>
             <li><a href="../proveedores/index.php"><i class='bx bxs-widget icon'></i>Provedores</a></li>
             <li><a href="index.php" class="active"><i class='bx bxs-widget icon'></i>Ventas</a></li>
-            <li><a href="../compras/index.php"><i class='bx bxs-widget icon'></i>Compras</a></li>
+            <li><a href="../compras/index.php"><i class='bx bxs-widget icon' ></i>Compras</a></li>
 
         </ul>
     </section>

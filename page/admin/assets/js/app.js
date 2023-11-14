@@ -359,7 +359,8 @@ if($('#txt_cant_producto').val() > 0){
 			}
 		});
 	}
-});
+}); 
+//delete producto 
 function del_product_detalle(correlativo) {
 	var action = 'delproductodetalle';
 	var id_detalle = correlativo;

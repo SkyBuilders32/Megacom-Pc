@@ -73,6 +73,7 @@
 				<?php
             }
         ?>
+        <a href="../page/index.php" class="btn btn-primary">HOME</a>
        
 
     <script src="index.js"></script>

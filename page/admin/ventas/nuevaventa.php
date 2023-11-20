@@ -142,8 +142,8 @@ echo md5($_SESSION['id']);
                 <div class="wd50">
                     <label for="acciones">Acciones</label>
                     <div id="acciones_venta">
-                        <a href="#" class="btn_ok textcenter" id="btn_anular_venta"> <i class="fas fa-ban"></i>Anular</a>
-                        <a href="#" class="btn_new textcenter" id="btn_facturar_venta"> <i class="fas fa-edit"></i>Procesar</a>
+                        <a href="#" class="btn btn-danger textcenter" id="btn_anular_venta"> <i class='bx bx-block'></i>Anular</a>
+                        <a href="#" class="btn btn-success textcenter" id="btn_facturar_venta" style="display: none;"> <i class="bx bx-basket"></i>Procesar</a>
                     </div>
                 </div>
             </div>

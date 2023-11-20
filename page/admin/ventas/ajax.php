@@ -146,7 +146,7 @@ if($_POST['action']=='addProductoDetalle'){
                 $arrayData['totales'] = $detalle_totales;
                 echo json_encode($arrayData, JSON_UNESCAPED_UNICODE);
             } else{
-                echo "No hay productos";
+                echo 'error';
             }
             mysqli_close($con);
         }
@@ -224,25 +224,25 @@ if($_POST['action']=='searchfordetalle'){
                 $arrayData['totales'] = $detalle_totales;
                 echo json_encode($arrayData, JSON_UNESCAPED_UNICODE);
             } else{
-                echo "No hay productos";
+                echo 'error';
             }
             mysqli_close($con);
         }
-        exit;
-    }
+    exit;
+}
     //delete producto from detail
-    if ($_POST['action'] == 'delproductodetalle') {
+if ($_POST['action'] == 'delprod') {
         if (empty($_POST['id_detalle'] )) {
             echo 'error';
         } else {
-            $id_detalle = ['id_detalle'];
+            $id_detalle = $_POST['id_detalle'];
             $token = md5($_SESSION['id']);
 
             $query_iva = mysqli_query($con, "SELECT iva FROM configuracion");
-            $result_iva = mysqli_num_rows($query_iva);
-            
-            $query_detalle_temp = mysqli_query($con, "CALL del_detalle_temp($id_detalle, '$token')");
-            $result = mysqli_num_rows($query_detalle_temp);
+        $result_iva = mysqli_num_rows($query_iva);
+
+        $query_detalle_temp = mysqli_query($con, "CALL del_detalle_temp($id_detalle, '$token')");
+        $result = mysqli_num_rows($query_detalle_temp);
     
     
             $detalletabla = '';
@@ -295,12 +295,50 @@ if($_POST['action']=='searchfordetalle'){
                     $arrayData['totales'] = $detalle_totales;
                     echo json_encode($arrayData, JSON_UNESCAPED_UNICODE);
                 } else{
-                    echo "No hay productos";
+                    echo 'error';
                 }
                 mysqli_close($con);
             }
             exit;
     }
+    //cancel sell
+    if($_POST["action"] == 'anularventa') {
+
+        $token = md5($_SESSION['id']);
+        $query_del = mysqli_query($con, "DELETE FROM detalle_temp where token_user = '$token'");
+        mysqli_close($con);
+        if($query_del){
+            echo 'ok';
+        } else {
+            echo 'error';
+        }
+        exit;
+    }
+    //process sell
+    if($_POST['action'] == 'procesarventa') {
+        if (empty($_POST['cod_cliente'])) {
+            $codcliente = 1;
+        } else{
+            $codcliente = $_POST['cod_cliente'];
+        }
+        $token = md5($_SESSION['id']);
+        $usuario = $_SESSION['id'];
+
+        $query = mysqli_query($con, "SELECT * FROM detalle_temp WHERE token_user = '$token'");
+        $result = mysqli_num_rows($query);
+        if ($result >0) {
+            $query_procesar = mysqli_query($con, "CALL procesar_venta($usuario, $codcliente, '$token')");
+            $result_detalle = mysqli_num_rows($query_procesar);
+            if ($result_detalle >0 ) {
+                $data = mysqli_fetch_assoc($query_procesar);
+                echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    } else {
+    echo "error";
+    }
+mysqli_close($con);
+exit;
+}
 }
 exit;
+}
 ?>

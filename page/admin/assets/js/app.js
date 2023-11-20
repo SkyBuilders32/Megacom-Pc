@@ -354,6 +354,7 @@ if($('#txt_cant_producto').val() > 0){
 				}else{
 					console.log('no data');
 				}
+				viewprocesar();
 			}, 
 			error: function (error) {
 			}
@@ -362,7 +363,7 @@ if($('#txt_cant_producto').val() > 0){
 }); 
 //delete producto 
 function del_product_detalle(correlativo) {
-	var action = 'delproductodetalle';
+	var action = 'delprod';
 	var id_detalle = correlativo;
 
 	$.ajax({
@@ -371,13 +372,41 @@ function del_product_detalle(correlativo) {
 		async: true,
 		data: {action:action, id_detalle:id_detalle},
 		success: function(response){
-			console.log(response);
+			if(response != 'error'){
+				var info = JSON.parse(response);
+				$('#detalle_venta').html(info.detalle);
+				$('#detalle_totales').html(info.totales);
+				//reset fields
+				$('#txt_cod_producto').val('');
+				$('#txt_descripcion').html('');
+				$('#txt_existencia').html('');
+				$('#txt_cant_producto').val('0');
+				$('#txt_precio').html('0.00');
+				$('#txt_precio_total').html('0.00');
+
+				//lock amount
+				$("#txt_cant_producto").prop("disabled",true);
+
+				//hide button add
+				$("#add_product_venta").fadeOut();
+				} else {
+					$('#detalle_venta').html('');
+					$('#detalle_totales').html('');
+				}
+				viewprocesar();
 			}, 
 			error: function (error) {
 			}
 		});
 }
-
+//show or hide button process
+function viewprocesar(){
+	if($('#detalle_venta tr').length > 0){
+		$('#btn_facturar_venta').show();
+	}else{
+		$('#btn_facturar_venta').hide();
+	}
+}
 function searchfordetalle(id) {
 	var action = 'searchfordetalle';
 	var user = id;
@@ -386,7 +415,7 @@ function searchfordetalle(id) {
 		url: 'ajax.php',
 		type: 'POST',
 		async: true,
-		data: {action:action, user:id},
+		data: {action:action, user:user},
 		success: function(response){
 			if(response != 'error'){ 
 				var info = JSON.parse(response);
@@ -395,10 +424,75 @@ function searchfordetalle(id) {
 				}else{
 					console.log('no data');
 				}
+				viewprocesar();
 			}, 
 			error: function (error) {
 			}
 		});
 }
+//cancel venta
+$('#btn_anular_venta').click(function(e){
+	e.preventDefault();
+	var rows = $('#detalle_venta tr').length;
+	if (rows > 0) {
+		var action = 'anularventa';
 
-  
+		$.ajax({
+			url: 'ajax.php',
+			type: 'POST',
+			async: true,
+			data: {action:action},
+			success: function(response){
+				if(response != 'error'){ 
+					location.reload();
+					}
+					
+				}, 
+				error: function (error) {
+				}
+			});
+
+	}
+})
+
+//process sell
+$('#btn_facturar_venta').click(function(e){
+	e.preventDefault();
+	var rows = $('#detalle_venta tr').length;
+	if (rows > 0) {
+		var action = 'procesarventa';
+		var cod_cliente = $('#idcliente').val();
+		$.ajax({
+			url: 'ajax.php',
+			type: 'POST',
+			async: true,
+			data: {action:action, cod_cliente:cod_cliente},
+			success: function(response){
+				if(response != 'error'){
+					var info = JSON.parse(response);
+					//console.log(info);
+
+					generarPDF(info.cliente,info.Id_factura);
+					location.reload();
+				} else{
+					console.log('no data');
+				}				
+				}, 
+				error: function (error) {
+				}
+			});
+}
+});
+
+//generate a PDF
+function generarPDF (cliente,factura){
+	var ancho = 1000;
+	var alto = 800;
+	//calculate x, y position to center the window
+	var x = parseInt((screen.width/2)-(ancho/2));
+	var y = parseInt((screen.height/2)-(alto/2));
+
+	$url = 'factura/generarFactura.php?cl='+cliente+'&f='+factura;
+	window.open($url,"Factura","left="+x+",top="+y+",height="+alto+",width="+ancho+",scrollbar=si, location=no,resizable=si,menuvbar=no");
+
+}

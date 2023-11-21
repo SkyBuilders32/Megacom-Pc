@@ -4,19 +4,37 @@
 	//exit;
 	//echo base64_encode('2');
 	//exit;
-	session_start();
-	if(empty($_SESSION['active']))
-	{
-		header('location: ../');
-	}
+	//sesion
+session_start();
+if (!isset($_SESSION['correo'])) {
+	echo $ple_sign_2;
+	session_destroy();
+	die();
+}
+$rol = $_SESSION['rol'];
+if ($rol == 2) {
+	echo '
+    <script>
+        alert("No tienes permiso para entrar aqui");
+        window.location = "../index.php";
+    </script>
+    ';
+}
+//conexion
+$con = new mysqli('localhost', 'root', '', 'megacom');
 
-	include "../../conexion.php";
+if ($con->connect_errno) {
+
+    die('Error' . $con->connect_errno);
+} else {
+    // echo "conectada";
+}
 	require_once '../pdf/vendor/autoload.php';
 	use Dompdf\Dompdf;
 
 	if(empty($_REQUEST['cl']) || empty($_REQUEST['f']))
 	{
-		echo "No es posible generar la factura.";
+		echo "No es posible generar la fa ctura.";
 	}else{
 		$codCliente = $_REQUEST['cl'];
 		$noFactura = $_REQUEST['f'];

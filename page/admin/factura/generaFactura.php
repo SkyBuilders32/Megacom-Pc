@@ -47,15 +47,16 @@ if ($con->connect_errno) {
 		}
 
 
-		$query = mysqli_query($conection,"SELECT f.nofactura, DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha, DATE_FORMAT(f.fecha,'%H:%i:%s') as  hora, f.codcliente, f.estatus,
-												 v.nombre as vendedor,
-												 cl.nit, cl.nombre, cl.telefono,cl.direccion
-											FROM factura f
-											INNER JOIN usuario v
-											ON f.usuario = v.idusuario
-											INNER JOIN cliente cl
-											ON f.codcliente = cl.idcliente
-											WHERE f.nofactura = $noFactura AND f.codcliente = $codCliente  AND f.estatus != 10 ");
+		$query = mysqli_query($conection,"SELECT f.nofactura, DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha, 
+		DATE_FORMAT(f.fecha,'%H:%i:%s') as  hora, f.cliente, f.estatus,
+												 v.usuario as vendedor,
+												 cl.cedula, cl.nombre, cl.telefono,cl.direccion
+											FROM facturas f
+											INNER JOIN usuarios v
+											ON f.usuario = v.id
+											INNER JOIN clientes cl
+											ON f.cliente = cl.idcliente
+											WHERE f.Id_factura = $noFactura AND f.cliente = $codCliente  AND f.estatus != 10 ");
 
 		$result = mysqli_num_rows($query);
 		if($result > 0){
@@ -67,13 +68,13 @@ if ($con->connect_errno) {
 				$anulada = '<img class="anulada" src="img/anulado.png" alt="Anulada">';
 			}
 
-			$query_productos = mysqli_query($conection,"SELECT p.descripcion,dt.cantidad,dt.precio_venta,(dt.cantidad * dt.precio_venta) as precio_total
-														FROM factura f
+			$query_productos = mysqli_query($conection,"SELECT p.descripcion,dt.cantidad,dt.precio_de_venta,(dt.cantidad * dt.precio_venta) as precio_total
+														FROM facturas f
 														INNER JOIN detallefactura dt
-														ON f.nofactura = dt.nofactura
-														INNER JOIN producto p
-														ON dt.codproducto = p.codproducto
-														WHERE f.nofactura = $no_factura ");
+														ON f.Id_factura = dt.nofactura
+														INNER JOIN productos p
+														ON dt.producto = p.id_producto
+														WHERE f.Id_factura = $no_factura ");
 			$result_detalle = mysqli_num_rows($query_productos);
 
 			ob_start();

@@ -62,7 +62,7 @@ if ($con->connect_errno) {
 		if($result > 0){
 
 			$factura = mysqli_fetch_assoc($query);
-			$no_factura = $factura['nofactura'];
+			$no_factura = $factura['Id_factura'];
 
 			if($factura['estatus'] == 2){
 				$anulada = '<img class="anulada" src="img/anulado.png" alt="Anulada">';

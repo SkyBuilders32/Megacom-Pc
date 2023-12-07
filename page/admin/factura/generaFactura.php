@@ -34,28 +34,28 @@ if ($con->connect_errno) {
 
 	if(empty($_REQUEST['cl']) || empty($_REQUEST['f']))
 	{
-		echo "No es posible generar la fa ctura.";
+		echo "No es posible generar la factura.";
 	}else{
 		$codCliente = $_REQUEST['cl'];
 		$noFactura = $_REQUEST['f'];
 		$anulada = '';
 
-		$query_config   = mysqli_query($conection,"SELECT * FROM configuracion");
+		$query_config   = mysqli_query($con,"SELECT * FROM configuracion");
 		$result_config  = mysqli_num_rows($query_config);
 		if($result_config > 0){
 			$configuracion = mysqli_fetch_assoc($query_config);
 		}
 
 
-		$query = mysqli_query($conection,"SELECT f.nofactura, DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha, 
+		$query = mysqli_query($con,"SELECT f.Id_factura, DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha, 
 		DATE_FORMAT(f.fecha,'%H:%i:%s') as  hora, f.cliente, f.estatus,
 												 v.usuario as vendedor,
-												 cl.cedula, cl.nombre, cl.telefono,cl.direccion
+												 cl.cedula, cl.nombre, cl.telefono
 											FROM facturas f
 											INNER JOIN usuarios v
 											ON f.usuario = v.id
 											INNER JOIN clientes cl
-											ON f.cliente = cl.idcliente
+											ON f.cliente = cl.Id
 											WHERE f.Id_factura = $noFactura AND f.cliente = $codCliente  AND f.estatus != 10 ");
 
 		$result = mysqli_num_rows($query);
@@ -68,7 +68,7 @@ if ($con->connect_errno) {
 				$anulada = '<img class="anulada" src="img/anulado.png" alt="Anulada">';
 			}
 
-			$query_productos = mysqli_query($conection,"SELECT p.descripcion,dt.cantidad,dt.precio_de_venta,(dt.cantidad * dt.precio_venta) as precio_total
+			$query_productos = mysqli_query($con,"SELECT p.descripcion,dt.cantidad,dt.precio_de_venta,(dt.cantidad * dt.precio_venta) as precio_total
 														FROM facturas f
 														INNER JOIN detallefactura dt
 														ON f.Id_factura = dt.nofactura

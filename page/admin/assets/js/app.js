@@ -492,7 +492,7 @@ function generarPDF (cliente,factura){
 	var x = parseInt((screen.width/2)-(ancho/2));
 	var y = parseInt((screen.height/2)-(alto/2));
 
-	$url = 'factura/generarFactura.php?cl='+cliente+'&f='+factura;
+	$url = 'factura/genera.php?cl='+cliente+'&f='+factura;
 	window.open($url,"Factura","left="+x+",top="+y+",height="+alto+",width="+ancho+",scrollbar=si, location=no,resizable=si,menuvbar=no");
 
 }

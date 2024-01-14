@@ -83,7 +83,7 @@ if ($con->connect_errno) {
 			$dompdf = new Dompdf();
 			$dompdf->loadHtml($html);
 			// (Optional) Setup the paper size and orientation
-			$dompdf->setPaper('letter', 'portrait');
+			$dompdf->setPaper('A4', 'portrait');
 			// Render the HTML as PDF
 			$dompdf->render();
 			// Output the generated PDF to Browser

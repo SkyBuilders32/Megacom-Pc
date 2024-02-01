@@ -32,6 +32,7 @@ if ($rol == 2) {
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
@@ -87,6 +88,18 @@ if ($rol == 2) {
                 </ul>
             </div>
         </nav>
+        <!-- /NAVBAR -->
+        <div>
+            <h5>BUSCAR FOR FECHA:</h5>
+            <form action="buscar_venta.php" method="get" class="form_search_date">
+                <label>De:</label>
+                <input type="date" name="fecha_de" id="fecha_de" required>
+                <label>A:</label>
+                <input type="date" name="fecha_a" id="fecha_a" required>
+                <label><button type="submit" class="btn btn-info"> <i class="bx bx-search-alt"></i></button></label>
+            </form>
+        </div>
+
         <div class="container">
             <h1 class="page-header text-center">Ventas</h1>
             <div class="row">
@@ -98,54 +111,71 @@ if ($rol == 2) {
                         <thead>
                             <tr>
                                 <th class="">Id Venta</th>
-                                <th class="">Cantidad</th>
                                 <th class="">Fecha</th>
                                 <th class="">Cliente</th>
-                                <th class="">Productos</th>
-                                <th class="">Acciones</th>
+                                <th class="">vendedor</th>
+                                <th class="">Estado</th>
+                                
+                                <th class="textright">Monto Total</th>
+                                <th class="textright">Acciones</th>
 
 
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT ventas.*,a.marca, a.id_producto, c.modelo, c.id_producto, b.nombre, b.Id FROM ventas
-                        INNER JOIN productos as c ON ventas.productos = c.id_producto
-                        INNER JOIN clientes as b ON ventas.cliente = b.Id
-                        INNER JOIN productos as a ON ventas.productos = a.id_producto";
+                            $sql = "SELECT f.Id_factura, f.fecha, f.cliente, f.totalfactura, f.estatus,
+                            u.usuario as usuario,
+                            cl.nombre as cliente
+                            from facturas f 
+                            INNER JOIN usuarios u 
+                            on f.usuario = u.id
+                            inner join clientes cl
+                            on f.cliente = cl.Id
+                            where f.estatus != 10
+                            order by f.fecha DESC"; 
                             
 
                             $query = mysqli_query($con, $sql); 
 
-							while ($mostrar = $query->fetch_assoc()) { ?>
-                            <tr>
+							while ($mostrar = $query->fetch_assoc()) { 
+                                if ($mostrar['estatus'] == 1) {
+                                    $estado = '<span class="bg-success-subtle">PAGADA</span>';
+                                } else {
+                                    $estado = '<span class="bg-danger-subtle">ANULADA</span>';
+                                }
+                                
+                                ?>
+                            <tr id="row_<?php echo $mostrar['Id_factura'];?>">
                                 <td class="">
-                                    <?php echo $mostrar['id_venta'] ?>
+                                    <?php echo $mostrar['Id_factura'] ?>
                                 </td>                                
-                                <td class="">
-                                    <?php echo $mostrar['cantidad'] ?>
-                                </td>
-                        
                                 <td class="">
                                     <?php echo $mostrar['fecha'] ?>
                                 </td>
+                        
                                 <td class="">
-                                    <?php echo $mostrar['nombre'] ?>
-                                </td>
-                                <td class="">
-                                    <?php echo $mostrar['modelo'] ."// ". $mostrar['marca'] ?>
+                                    <?php echo $mostrar['cliente'] ?>
                                 </td>
                                 
+                                <td class="">
+                                    <?php echo $mostrar['usuario']?>
                                 </td>
-                                <td class="text-center">
-                                    <a href="#edit_<?php echo $mostrar['id_venta']; ?>"
-                                        class="btn btn-success btn-sm text-center" data-bs-toggle="modal">
-                                        <i class='bx bxs-pencil'></i></a>
-                                    <a href="#delet_<?php echo $mostrar['id_venta']; ?>"
-                                        class="btn btn-danger btn-sm text-center" data-bs-toggle="modal">
-                                        <i class='bx bxs-trash-alt'></i></a>
+                                <td class="">
+                                    <?php echo $estado?>
                                 </td>
-                                <?php include('eliminar-editar.php'); ?>
+                                <td class="">
+                                    <?php echo $mostrar['totalfactura'] ?>
+                                </td>
+                                <td>
+                                    <div class="div_acciones">
+                                    <div>
+                                    <button class="btn btn-info view_factura" type="button" cl="<?php echo $mostrar['Id'];?>"  f="<?php echo $mostrar['Id_factura'];?>"><i class='bx bxs-detail'></i></button>
+                                    </div>
+                                    </div>
+                                </td>
+                        
+                                
                             </tr>
                             <?php
 							}
@@ -154,7 +184,25 @@ if ($rol == 2) {
                     </table>
                 </div>
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+                integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+                integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+                crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+                integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+            <script src="../assets/js/app.js"></script>
+            <script src="../assets/js/buscador.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                var usuarioid = '<?php echo $_SESSION['id']; ?>';
+                searchfordetalle(usuarioid); 
+            });       
+        </script>
 
 </body>
+
 
 </html>

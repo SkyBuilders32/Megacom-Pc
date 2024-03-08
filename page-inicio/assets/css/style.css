@@ -709,24 +709,25 @@ body {
   }
 
   .login-btn {
+    border: solid transparent;
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--space-cadet-2);
-    
+    background-color: var(--button1);
     color: var(--white);
     min-height: 50px;
     padding-inline: 25px;
     font-weight: var(--fw-700);
     transition: var(--transition-1);
+    border-radius: 30px;
   }
-
-  .login-btn ion-icon {
+  .login-btn ion-icon{
     --ionicon-stroke-width: 70px;
   }
-
   .login-btn:is(:hover, :focus) {
-    background-color: var(--space-cadet-2);
+    background-color: var(--header);
+    border: solid;
+    border-color: #ffffff;
   }
 
   .hero-text {
